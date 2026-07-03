@@ -16,6 +16,7 @@ fi
 
 if [[ -d "${APP_DIR}/.git" ]]; then
   echo "==> Mise à jour du dépôt existant"
+  sudo git -C "${APP_DIR}" remote set-url origin "${REPO_URL}"
   sudo git -C "${APP_DIR}" fetch --all
   sudo git -C "${APP_DIR}" reset --hard origin/main
 else
