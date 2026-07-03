@@ -67,8 +67,18 @@ for i in $(seq 1 30); do
   sleep 3
 done
 
-echo "==> Migrations (filet de sécurité, l'entrypoint les exécute déjà au démarrage)"
-sudo docker compose exec -T app php artisan migrate --force
+# NOTE : ne PAS lancer "artisan migrate" ici — l'entrypoint du conteneur app le fait
+# déjà au démarrage, et deux migrations concurrentes corrompent le registre des
+# migrations ("table already exists").
+echo "==> Attente de la fin des migrations de l'entrypoint"
+for i in $(seq 1 30); do
+  if curl -sf -o /dev/null "http://localhost:${HOST_PORT}/up"; then
+    echo "==> Application démarrée"
+    break
+  fi
+  echo "==> App pas encore prête, nouvelle tentative ($i/30)"
+  sleep 3
+done
 
 echo "==> Vérification des conteneurs"
 sudo docker compose ps
