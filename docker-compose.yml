@@ -1,0 +1,62 @@
+services:
+  app:
+    build: .
+    container_name: bloomfeed
+    ports:
+      - "7081:80"
+    env_file:
+      - .env
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+    volumes:
+      - app_storage:/var/www/html/storage
+    depends_on:
+      db:
+        condition: service_healthy
+    networks: [bloomfeed]
+    restart: unless-stopped
+
+  scheduler:
+    build: .
+    container_name: bloomfeed-scheduler
+    entrypoint: ["sh", "-c"]
+    command: ["while true; do php artisan schedule:run --no-interaction; sleep 60; done"]
+    env_file:
+      - .env
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+    volumes:
+      - scheduler_storage:/var/www/html/storage
+    depends_on:
+      db:
+        condition: service_healthy
+    networks: [bloomfeed]
+    restart: unless-stopped
+
+  db:
+    image: mariadb:11
+    container_name: bloomfeed-db
+    environment:
+      MARIADB_DATABASE: ${DB_DATABASE:-bloomfeed}
+      MARIADB_USER: ${DB_USERNAME:-bloomfeed}
+      MARIADB_PASSWORD: ${DB_PASSWORD}
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+    volumes:
+      - db_data:/var/lib/mysql
+    networks: [bloomfeed]
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+networks:
+  bloomfeed: {}
+
+volumes:
+  app_storage: {}
+  scheduler_storage: {}
+  db_data: {}
