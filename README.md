@@ -21,8 +21,8 @@ n'a qu'un seul compte propriétaire, créé une seule fois au premier lancement.
 - Lecture approfondie intégrée : extraction du contenu principal (via
   [Readability](https://github.com/fivefilters/readability.php)) converti en Markdown, sans
   quitter BloomFeed.
-- Catalogue de flux façon "market" alimenté par **BloomFluxDB** (base centrale en lecture seule),
-  avec cache local de secours si le serveur catalogue est injoignable.
+- Catalogue de flux façon "market" : une sélection de flux embarquée avec l'application
+  ([resources/data/bloomflux.json](resources/data/bloomflux.json)), à ajouter en un clic.
 - Récupération périodique des flux via une tâche planifiée.
 - Thème clair/sombre.
 - Inscription fermée après la création du compte propriétaire — pas de SaaS ouvert.
@@ -80,22 +80,18 @@ Pour désinstaller proprement (avec confirmation avant toute suppression de donn
 bash uninstall.sh
 ```
 
-## BloomFluxDB (catalogue central)
+## Catalogue de flux (BloomFlux)
 
-Les instances BloomFeed consultent en lecture seule une base MariaDB centrale contenant une
-liste de flux pré-sélectionnés, affichée dans l'onglet **Catalogue**. La liste est mise en cache
-localement : si le serveur catalogue est injoignable, la dernière copie connue est servie, et
-elle se rafraîchit automatiquement à la prochaine consultation réussie.
+L'onglet **Catalogue** propose une sélection de flux pré-faits (actualités, tech, développement,
+IT/sysadmin, sécurité, sciences…) à ajouter en un clic. La liste vit dans
+[resources/data/bloomflux.json](resources/data/bloomflux.json), versionnée avec le code : pour
+l'enrichir, éditez le fichier et déployez — aucun service externe n'est nécessaire.
 
-Le script de création (base, table, utilisateur `bloomflux_reader` en `SELECT` uniquement, et
-liste de flux initiale) est dans [docs/bloomfluxdb-setup.sql](docs/bloomfluxdb-setup.sql) — à
-exécuter sur le serveur catalogue :
+Format d'une entrée :
 
-```bash
-mysql -u root -p < docs/bloomfluxdb-setup.sql
+```json
+{ "title": "Nom du flux", "url": "https://exemple.com/rss.xml", "category": "Tech", "lang": "fr", "description": "Courte description." }
 ```
-
-La connexion se configure dans le `.env` de chaque instance via les variables `BLOOMFLUX_DB_*`.
 
 ## Licence
 

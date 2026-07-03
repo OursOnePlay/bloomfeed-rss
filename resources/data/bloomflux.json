@@ -1,0 +1,48 @@
+{
+    "version": 1,
+    "updated_at": "2026-07-03",
+    "feeds": [
+        { "title": "Le Monde", "url": "https://www.lemonde.fr/rss/une.xml", "category": "Actualités", "lang": "fr", "description": "La une du journal Le Monde." },
+        { "title": "France Info", "url": "https://www.franceinfo.fr/titres.rss", "category": "Actualités", "lang": "fr", "description": "Les titres de France Info en continu." },
+        { "title": "Courrier International", "url": "https://www.courrierinternational.com/feed/all/rss.xml", "category": "Actualités", "lang": "fr", "description": "L'actualité internationale vue par la presse étrangère." },
+        { "title": "BBC News", "url": "https://feeds.bbci.co.uk/news/rss.xml", "category": "Actualités", "lang": "en", "description": "Fil d'actualité mondial de la BBC." },
+
+        { "title": "Korben", "url": "https://korben.info/feed", "category": "Tech", "lang": "fr", "description": "Actu tech, astuces et bidouilles." },
+        { "title": "Numerama", "url": "https://www.numerama.com/feed/", "category": "Tech", "lang": "fr", "description": "Société numérique, tech et sciences." },
+        { "title": "Next", "url": "https://next.ink/feed/", "category": "Tech", "lang": "fr", "description": "Actualité informatique et numérique de fond." },
+        { "title": "Journal du hacker", "url": "https://www.journalduhacker.net/rss", "category": "Tech", "lang": "fr", "description": "Liens tech partagés par la communauté francophone." },
+        { "title": "Ars Technica", "url": "https://feeds.arstechnica.com/arstechnica/index", "category": "Tech", "lang": "en", "description": "Analyses tech approfondies." },
+        { "title": "Hacker News", "url": "https://news.ycombinator.com/rss", "category": "Tech", "lang": "en", "description": "Les liens les plus discutés de la communauté HN." },
+        { "title": "The Verge", "url": "https://www.theverge.com/rss/index.xml", "category": "Tech", "lang": "en", "description": "Tech, science et culture numérique." },
+
+        { "title": "Dev.to", "url": "https://dev.to/feed", "category": "Développement", "lang": "en", "description": "Articles de la communauté dev.to." },
+        { "title": "GitHub Blog", "url": "https://github.blog/feed/", "category": "Développement", "lang": "en", "description": "Nouveautés et ingénierie GitHub." },
+        { "title": "Laravel News", "url": "https://feed.laravel-news.com/", "category": "Développement", "lang": "en", "description": "L'écosystème Laravel au quotidien." },
+        { "title": "Stack Overflow Blog", "url": "https://stackoverflow.blog/feed/", "category": "Développement", "lang": "en", "description": "Le blog officiel de Stack Overflow." },
+        { "title": "freeCodeCamp", "url": "https://www.freecodecamp.org/news/rss/", "category": "Développement", "lang": "en", "description": "Tutoriels et articles pour apprendre à coder." },
+        { "title": "CSS-Tricks", "url": "https://css-tricks.com/feed/", "category": "Développement", "lang": "en", "description": "Tout sur le CSS et le front-end." },
+        { "title": "Smashing Magazine", "url": "https://www.smashingmagazine.com/feed/", "category": "Développement", "lang": "en", "description": "Design et développement web." },
+        { "title": "Développez.com", "url": "https://www.developpez.com/index/rss", "category": "Développement", "lang": "fr", "description": "L'actualité des développeurs francophones." },
+        { "title": "Human Coders News", "url": "https://news.humancoders.com/items/feed", "category": "Développement", "lang": "fr", "description": "Veille dev partagée par la communauté francophone." },
+
+        { "title": "IT-Connect", "url": "https://www.it-connect.fr/feed/", "category": "IT / Sysadmin", "lang": "fr", "description": "Tutoriels et actus sysadmin, Windows et Linux." },
+        { "title": "ZDNet France", "url": "https://www.zdnet.fr/feeds/rss/actualites/", "category": "IT / Sysadmin", "lang": "fr", "description": "L'actualité IT pour les professionnels." },
+        { "title": "Silicon", "url": "https://www.silicon.fr/feed", "category": "IT / Sysadmin", "lang": "fr", "description": "L'actualité IT et cloud pour les DSI." },
+        { "title": "The Register", "url": "https://www.theregister.com/headlines.atom", "category": "IT / Sysadmin", "lang": "en", "description": "L'IT sans langue de bois." },
+        { "title": "ServeTheHome", "url": "https://www.servethehome.com/feed/", "category": "IT / Sysadmin", "lang": "en", "description": "Serveurs, stockage, réseau et homelab." },
+
+        { "title": "Phoronix", "url": "https://www.phoronix.com/rss.php", "category": "Open source", "lang": "en", "description": "Linux, matériel et open source." },
+        { "title": "LinuxFr", "url": "https://linuxfr.org/news.atom", "category": "Open source", "lang": "fr", "description": "L'actualité du logiciel libre en français." },
+        { "title": "It's FOSS", "url": "https://itsfoss.com/rss/", "category": "Open source", "lang": "en", "description": "Tutoriels et actus Linux/open source." },
+
+        { "title": "CERT-FR", "url": "https://www.cert.ssi.gouv.fr/feed/", "category": "Sécurité", "lang": "fr", "description": "Alertes et avis de sécurité de l'ANSSI." },
+        { "title": "Krebs on Security", "url": "https://krebsonsecurity.com/feed/", "category": "Sécurité", "lang": "en", "description": "Investigations cybersécurité de Brian Krebs." },
+        { "title": "Zataz", "url": "https://www.zataz.com/feed/", "category": "Sécurité", "lang": "fr", "description": "Actualité cybersécurité et fuites de données." },
+
+        { "title": "Futura Sciences", "url": "https://www.futura-sciences.com/rss/actualites.xml", "category": "Sciences", "lang": "fr", "description": "Actualités scientifiques tous domaines." },
+        { "title": "CNRS Le Journal", "url": "https://lejournal.cnrs.fr/rss", "category": "Sciences", "lang": "fr", "description": "Le journal de la recherche française." },
+
+        { "title": "Gamekult", "url": "https://www.gamekult.com/feed.xml", "category": "Jeux vidéo", "lang": "fr", "description": "Actualité et critiques jeux vidéo." },
+        { "title": "Rock Paper Shotgun", "url": "https://www.rockpapershotgun.com/feed", "category": "Jeux vidéo", "lang": "en", "description": "Jeux PC, tests et actus." }
+    ]
+}

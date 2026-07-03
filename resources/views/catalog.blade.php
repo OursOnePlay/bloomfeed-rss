@@ -10,26 +10,14 @@
         <div>
             <h2 style="margin:0;">Catalogue de flux</h2>
             <p class="text-muted text-sm" style="margin:4px 0 0;">
-                Une sélection de flux RSS maintenue par BloomFluxDB — ajoutez-les à votre collection en un clic.
+                Une sélection de flux RSS livrée avec BloomFeed — ajoutez-les à votre collection en un clic.
             </p>
         </div>
     </div>
 
-    @if ($fromCache)
-        <div class="cache-notice">
-            ⚠ Serveur catalogue injoignable — liste servie depuis le cache local
-            @if ($updatedAt)
-                (mise à jour {{ $updatedAt->diffForHumans() }})
-            @endif
-        </div>
-    @endif
-
     @if ($feeds->isEmpty())
         <div class="card empty-state">
             Le catalogue est vide pour le moment.
-            @if ($fromCache)
-                Il sera récupéré automatiquement dès que le serveur catalogue sera joignable.
-            @endif
         </div>
     @else
         <input type="search" id="market-search" class="form-input market-search" placeholder="Rechercher un flux… (nom, description, catégorie)">

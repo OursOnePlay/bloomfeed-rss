@@ -2,53 +2,28 @@
 
 namespace App\Services;
 
-use Illuminate\Support\Carbon;
-use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Throwable;
 
 class FluxCatalogService
 {
-    private const CACHE_KEY = 'bloomflux.catalog';
-
-    private const CACHE_TIME_KEY = 'bloomflux.catalog_updated_at';
-
     /**
-     * Retourne le catalogue BloomFluxDB, en le rafraîchissant depuis le serveur
-     * distant quand il est joignable, sinon en servant la dernière copie en cache.
+     * Retourne le catalogue de flux embarqué (resources/data/bloomflux.json).
+     * La liste est versionnée avec le code : la mettre à jour = éditer le fichier et commit.
      *
-     * @return array{feeds: list<array{title: string, url: string, category: string, lang: string, description: ?string}>, fromCache: bool, updatedAt: ?Carbon}
+     * @return list<array{title: string, url: string, category: string, lang: string, description: ?string}>
      */
     public function getCatalog(): array
     {
         try {
-            $rows = DB::connection('bloomflux')
-                ->table('feeds')
-                ->where('is_active', 1)
-                ->orderBy('category')
-                ->orderBy('title')
-                ->get(['title', 'url', 'category', 'lang', 'description'])
-                ->map(fn ($row) => (array) $row)
-                ->all();
+            $raw = file_get_contents(resource_path('data/bloomflux.json'));
+            $data = json_decode($raw, true, 512, JSON_THROW_ON_ERROR);
 
-            Cache::forever(self::CACHE_KEY, $rows);
-            Cache::forever(self::CACHE_TIME_KEY, now()->toIso8601String());
-
-            return ['feeds' => $rows, 'fromCache' => false, 'updatedAt' => now()];
+            return $data['feeds'] ?? [];
         } catch (Throwable $e) {
-            Log::warning('BloomFluxDB unreachable, serving cached catalog', [
-                'error' => $e->getMessage(),
-            ]);
+            Log::warning('Catalogue bloomflux.json illisible', ['error' => $e->getMessage()]);
 
-            $cached = Cache::get(self::CACHE_KEY, []);
-            $updatedAt = Cache::get(self::CACHE_TIME_KEY);
-
-            return [
-                'feeds' => $cached,
-                'fromCache' => true,
-                'updatedAt' => $updatedAt ? Carbon::parse($updatedAt) : null,
-            ];
+            return [];
         }
     }
 }
