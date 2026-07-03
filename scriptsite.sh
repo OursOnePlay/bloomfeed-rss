@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-REPO_URL="https://git.eldorianet.work/esteban/RSS-Eldoria-Network"
+REPO_URL="https://git.eldorianet.work/esteban/BloomFeed-RSS"
 APP_DIR="/opt/bloomfeed"
 HOST_PORT="7081"
 

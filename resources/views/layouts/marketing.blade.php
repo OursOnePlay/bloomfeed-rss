@@ -43,7 +43,7 @@
 
     <footer class="site-footer">
         <span>BloomFeed — projet open-source, auto-hébergé.</span>
-        <a href="https://git.eldorianet.work/esteban/RSS-Eldoria-Network" target="_blank" rel="noopener">Code source</a>
+        <a href="https://git.eldorianet.work/esteban/BloomFeed-RSS" target="_blank" rel="noopener">Code source</a>
     </footer>
 
     <script src="{{ asset('js/theme-toggle.js') }}" defer></script>

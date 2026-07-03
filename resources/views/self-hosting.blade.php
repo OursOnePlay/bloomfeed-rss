@@ -51,7 +51,7 @@
     <div class="card mt-2">
         <h2>Code source</h2>
         <p>
-            <a href="https://git.eldorianet.work/esteban/RSS-Eldoria-Network" target="_blank" rel="noopener">git.eldorianet.work/esteban/RSS-Eldoria-Network</a>
+            <a href="https://git.eldorianet.work/esteban/BloomFeed-RSS" target="_blank" rel="noopener">git.eldorianet.work/esteban/BloomFeed-RSS</a>
         </p>
     </div>
 </section>

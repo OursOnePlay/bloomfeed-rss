@@ -31,4 +31,49 @@
             event.preventDefault();
         }
     });
+
+    // Catalogue : recherche + filtre par catégorie côté client
+    document.addEventListener('DOMContentLoaded', function () {
+        var grid = document.getElementById('market-grid');
+        if (!grid) {
+            return;
+        }
+
+        var search = document.getElementById('market-search');
+        var chips = document.getElementById('market-chips');
+        var emptyNotice = document.getElementById('market-empty');
+        var activeCategory = '';
+
+        function applyFilters() {
+            var query = (search.value || '').toLowerCase().trim();
+            var visible = 0;
+
+            grid.querySelectorAll('.market-card').forEach(function (card) {
+                var matchesCategory = !activeCategory || card.getAttribute('data-category') === activeCategory;
+                var matchesQuery = !query || card.getAttribute('data-search').indexOf(query) !== -1;
+                var show = matchesCategory && matchesQuery;
+                card.hidden = !show;
+                if (show) {
+                    visible++;
+                }
+            });
+
+            emptyNotice.hidden = visible > 0;
+        }
+
+        search.addEventListener('input', applyFilters);
+
+        chips.addEventListener('click', function (event) {
+            var chip = event.target.closest('.chip');
+            if (!chip) {
+                return;
+            }
+            chips.querySelectorAll('.chip').forEach(function (c) {
+                c.classList.remove('active');
+            });
+            chip.classList.add('active');
+            activeCategory = chip.getAttribute('data-category');
+            applyFilters();
+        });
+    });
 })();

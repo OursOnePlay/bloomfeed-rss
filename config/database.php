@@ -64,6 +64,24 @@ return [
             ]) : [],
         ],
 
+        // Catalogue central BloomFluxDB (lecture seule, distant) — timeout court
+        // pour ne jamais bloquer la page si le serveur catalogue est injoignable.
+        'bloomflux' => [
+            'driver' => 'mysql',
+            'host' => env('BLOOMFLUX_DB_HOST', '163.5.159.95'),
+            'port' => env('BLOOMFLUX_DB_PORT', '3306'),
+            'database' => env('BLOOMFLUX_DB_DATABASE', 'bloomfluxdb'),
+            'username' => env('BLOOMFLUX_DB_USERNAME', 'bloomflux_reader'),
+            'password' => env('BLOOMFLUX_DB_PASSWORD', 'BloomFlux_Public_Read_2026'),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
+            'options' => extension_loaded('pdo_mysql') ? [
+                \PDO::ATTR_TIMEOUT => (int) env('BLOOMFLUX_DB_TIMEOUT', 4),
+            ] : [],
+        ],
+
         'mariadb' => [
             'driver' => 'mariadb',
             'url' => env('DB_URL'),

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FeedController;
 use App\Http\Controllers\PageController;
@@ -21,6 +22,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    Route::get('/catalog', [CatalogController::class, 'index'])->name('catalog');
 
     Route::get('/feeds', [FeedController::class, 'index'])->name('feeds.index');
     Route::post('/feeds', [FeedController::class, 'store'])->name('feeds.store');
