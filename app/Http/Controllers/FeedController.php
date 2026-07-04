@@ -32,10 +32,10 @@ class FeedController extends Controller
         $result = $service->fetchFeed($feed);
 
         if ($result['error'] !== null) {
-            return back()->with('status', "Flux ajouté, mais la première récupération a échoué : {$result['error']}");
+            return back()->with('status', __('app.feed_added_error', ['error' => $result['error']]));
         }
 
-        return back()->with('status', "Flux ajouté avec {$result['new']} article(s).");
+        return back()->with('status', __('app.feed_added', ['count' => $result['new']]));
     }
 
     public function destroy(Feed $feed): RedirectResponse
@@ -44,7 +44,7 @@ class FeedController extends Controller
 
         $feed->delete();
 
-        return back()->with('status', 'Flux supprimé.');
+        return back()->with('status', __('app.feed_deleted'));
     }
 
     public function refresh(Feed $feed, FeedFetcherService $service): RedirectResponse
@@ -54,10 +54,10 @@ class FeedController extends Controller
         $result = $service->fetchFeed($feed);
 
         if ($result['error'] !== null) {
-            return back()->with('status', "Échec de la récupération : {$result['error']}");
+            return back()->with('status', __('app.refresh_failed', ['error' => $result['error']]));
         }
 
-        return back()->with('status', "{$result['new']} nouvel(aux) article(s).");
+        return back()->with('status', __('app.new_articles', ['count' => $result['new']]));
     }
 
     public function refreshAll(Request $request, FeedFetcherService $service): RedirectResponse
@@ -69,6 +69,6 @@ class FeedController extends Controller
             $totalNew += $service->fetchFeed($feed)['new'];
         }
 
-        return back()->with('status', "{$totalNew} nouvel(aux) article(s) sur {$feeds->count()} flux.");
+        return back()->with('status', __('app.new_articles_across', ['count' => $totalNew, 'feeds' => $feeds->count()]));
     }
 }

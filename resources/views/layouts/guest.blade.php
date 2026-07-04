@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,6 +20,10 @@
     </script>
 </head>
 <body>
+    <div class="guest-topbar">
+        @include('partials.locale-selector')
+        <button type="button" class="theme-toggle" data-theme-toggle title="{{ __('app.change_theme') }}">◐</button>
+    </div>
     <div class="centered-shell">
         @yield('content')
     </div>

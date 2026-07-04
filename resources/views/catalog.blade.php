@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => 'Catalogue — BloomFeed'])
+@extends('layouts.app', ['title' => __('app.catalog').' — BloomFeed'])
 
 @section('content')
 <div class="main-column" style="width:100%;">
@@ -8,22 +8,37 @@
 
     <div class="market-header">
         <div>
-            <h2 style="margin:0;">Catalogue de flux</h2>
+            <h2 style="margin:0;">{{ __('app.catalog_title') }}</h2>
             <p class="text-muted text-sm" style="margin:4px 0 0;">
-                Une sélection de flux RSS livrée avec BloomFeed — ajoutez-les à votre collection en un clic.
+                {{ __('app.catalog_lede') }}
             </p>
         </div>
     </div>
 
     @if ($feeds->isEmpty())
         <div class="card empty-state">
-            Le catalogue est vide pour le moment.
+            {{ __('app.catalog_empty') }}
         </div>
     @else
-        <input type="search" id="market-search" class="form-input market-search" placeholder="Rechercher un flux… (nom, description, catégorie)">
+        @php($languageNames = [
+            'fr' => 'Français', 'en' => 'English', 'es' => 'Español', 'de' => 'Deutsch',
+            'it' => 'Italiano', 'pt' => 'Português', 'nl' => 'Nederlands', 'ja' => '日本語',
+            'ru' => 'Русский', 'pl' => 'Polski', 'sv' => 'Svenska',
+        ])
+        @php($languages = $feeds->flatten(1)->pluck('lang')->unique()->sort()->values())
+
+        <div class="market-toolbar">
+            <input type="search" id="market-search" class="form-input market-search" placeholder="{{ __('app.search_placeholder') }}">
+            <select id="market-lang" class="form-input market-lang-select">
+                <option value="">{{ __('app.all_languages') }}</option>
+                @foreach ($languages as $lang)
+                    <option value="{{ $lang }}">{{ $languageNames[$lang] ?? strtoupper($lang) }}</option>
+                @endforeach
+            </select>
+        </div>
 
         <div class="market-chips" id="market-chips">
-            <button type="button" class="chip active" data-category="">Tout</button>
+            <button type="button" class="chip active" data-category="">{{ __('app.all') }}</button>
             @foreach ($feeds->keys() as $category)
                 <button type="button" class="chip" data-category="{{ $category }}">{{ $category }}</button>
             @endforeach
@@ -32,7 +47,7 @@
         <div class="market-grid" id="market-grid">
             @foreach ($feeds as $category => $items)
                 @foreach ($items as $item)
-                    <div class="market-card" data-category="{{ $category }}" data-search="{{ Str::lower($item['title'].' '.$item['description'].' '.$category) }}">
+                    <div class="market-card" data-category="{{ $category }}" data-lang="{{ $item['lang'] }}" data-search="{{ Str::lower($item['title'].' '.$item['description'].' '.$category) }}">
                         <div class="market-card-head">
                             <span class="market-card-title">{{ $item['title'] }}</span>
                             <span class="chip chip-static">{{ $category }}</span>
@@ -41,13 +56,13 @@
                         <div class="market-card-foot">
                             <span class="market-lang">{{ strtoupper($item['lang']) }}</span>
                             @if (in_array($item['url'], $subscribedUrls))
-                                <span class="market-added">✓ Ajouté</span>
+                                <span class="market-added">✓ {{ __('app.added') }}</span>
                             @else
                                 <form method="POST" action="{{ route('feeds.store') }}">
                                     @csrf
                                     <input type="hidden" name="url" value="{{ $item['url'] }}">
                                     <input type="hidden" name="title" value="{{ $item['title'] }}">
-                                    <button type="submit" class="btn btn-primary btn-sm">+ Ajouter</button>
+                                    <button type="submit" class="btn btn-primary btn-sm">+ {{ __('app.add') }}</button>
                                 </form>
                             @endif
                         </div>
@@ -56,7 +71,7 @@
             @endforeach
         </div>
 
-        <div class="card empty-state" id="market-empty" hidden>Aucun flux ne correspond à votre recherche.</div>
+        <div class="card empty-state" id="market-empty" hidden>{{ __('app.no_match') }}</div>
     @endif
 </div>
 @endsection

@@ -6,10 +6,12 @@ use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FeedController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\SettingsController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PageController::class, 'home'])->name('home');
 Route::get('/self-hosting', [PageController::class, 'selfHosting'])->name('self-hosting');
+Route::post('/locale', [SettingsController::class, 'updateLocale'])->name('locale.update');
 
 Route::middleware('guest')->group(function () {
     Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
@@ -24,6 +26,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::get('/catalog', [CatalogController::class, 'index'])->name('catalog');
+
+    Route::get('/settings', [SettingsController::class, 'index'])->name('settings');
+    Route::post('/settings/registrations', [SettingsController::class, 'toggleRegistrations'])->name('settings.toggleRegistrations');
+    Route::post('/settings/users', [SettingsController::class, 'createUser'])->name('settings.createUser');
+    Route::post('/settings/sources', [SettingsController::class, 'addCatalogSource'])->name('settings.addSource');
+    Route::delete('/settings/sources', [SettingsController::class, 'removeCatalogSource'])->name('settings.removeSource');
 
     Route::get('/feeds', [FeedController::class, 'index'])->name('feeds.index');
     Route::post('/feeds', [FeedController::class, 'store'])->name('feeds.store');

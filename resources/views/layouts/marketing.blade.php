@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ $title ?? 'BloomFeed' }}</title>
-    <meta name="description" content="BloomFeed est un agrégateur RSS personnel et auto-hébergé, avec lecture approfondie intégrée.">
+    <meta name="description" content="{{ __('app.meta_description') }}">
     <link rel="icon" href="{{ asset('images/icon.png') }}">
     <link rel="apple-touch-icon" href="{{ asset('images/icon.png') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,12 +27,13 @@
             <img src="{{ asset('images/logo-dark.png') }}" alt="BloomFeed" class="brand-logo brand-logo-dark">
         </a>
         <div class="navbar-links">
-            <a href="{{ route('self-hosting') }}" class="{{ request()->routeIs('self-hosting') ? 'active' : '' }}">Self-hosting</a>
-            <button type="button" class="theme-toggle" data-theme-toggle title="Changer de thème">◐</button>
-            @if (\App\Models\User::query()->exists())
-                <a href="{{ route('login') }}" class="btn btn-primary btn-sm">Se connecter</a>
+            <a href="{{ route('self-hosting') }}" class="{{ request()->routeIs('self-hosting') ? 'active' : '' }}">{{ __('app.self_hosting') }}</a>
+            @include('partials.locale-selector')
+            <button type="button" class="theme-toggle" data-theme-toggle title="{{ __('app.change_theme') }}">◐</button>
+            @if (\App\Models\User::query()->exists() && ! \App\Models\Setting::registrationsOpen())
+                <a href="{{ route('login') }}" class="btn btn-primary btn-sm">{{ __('app.login') }}</a>
             @else
-                <a href="{{ route('register') }}" class="btn btn-primary btn-sm">Créer un compte</a>
+                <a href="{{ route('register') }}" class="btn btn-primary btn-sm">{{ __('app.create_account') }}</a>
             @endif
         </div>
     </nav>
@@ -42,8 +43,8 @@
     </main>
 
     <footer class="site-footer">
-        <span>BloomFeed — projet open-source, auto-hébergé.</span>
-        <a href="https://git.eldorianet.work/esteban/BloomFeed-RSS" target="_blank" rel="noopener">Code source</a>
+        <span>{{ __('app.footer_tagline') }}</span>
+        <a href="https://git.eldorianet.work/esteban/BloomFeed-RSS" target="_blank" rel="noopener">{{ __('app.source_code') }}</a>
     </footer>
 
     <script src="{{ asset('js/theme-toggle.js') }}" defer></script>

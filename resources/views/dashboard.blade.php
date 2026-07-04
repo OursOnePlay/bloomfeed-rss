@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => 'Articles — BloomFeed'])
+@extends('layouts.app', ['title' => __('app.articles').' — BloomFeed'])
 
 @section('content')
 <div class="sidebar">
@@ -11,11 +11,11 @@
     @endif
 
     <div class="flex-between">
-        <h2 style="margin:0;">Derniers articles</h2>
+        <h2 style="margin:0;">{{ __('app.latest_articles') }}</h2>
         <div class="flex" style="gap:8px;">
             <a href="{{ route('dashboard', array_filter(['feed' => request('feed'), 'unread' => request('unread') ? null : 1])) }}"
                class="btn btn-ghost btn-sm">
-                {{ request('unread') ? 'Tout afficher' : 'Non lus uniquement' }}
+                {{ request('unread') ? __('app.show_all') : __('app.unread_only') }}
             </a>
         </div>
     </div>
@@ -25,9 +25,9 @@
     @empty
         <div class="card empty-state">
             @if ($feeds->isEmpty())
-                Ajoutez votre premier flux RSS depuis la barre latérale pour commencer.
+                {{ __('app.empty_no_feeds') }}
             @else
-                Aucun article pour le moment. Essayez d'actualiser vos flux.
+                {{ __('app.empty_no_articles') }}
             @endif
         </div>
     @endforelse

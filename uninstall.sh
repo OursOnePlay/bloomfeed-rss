@@ -15,80 +15,80 @@ for arg in "$@"; do
     --yes|-y) ASSUME_YES=true ;;
     --help|-h)
       echo "Usage: bash uninstall.sh [--purge] [--purge-source] [--yes]"
-      echo "  --purge         Supprime aussi les volumes (base de données, storage)"
-      echo "  --purge-source  Supprime aussi le code source et le .env dans ${APP_DIR} (nécessite --purge)"
-      echo "  --yes           Ne pas demander de confirmation interactive"
+      echo "  --purge         Also remove the volumes (database, storage)"
+      echo "  --purge-source  Also remove the source code and the .env in ${APP_DIR}"
+      echo "  --yes           Skip interactive confirmations"
       exit 0
       ;;
     *)
-      echo "Option inconnue: $arg (utilisez --help)"
+      echo "Unknown option: $arg (use --help)"
       exit 1
       ;;
   esac
 done
 
 if [[ ! -d "${APP_DIR}" ]]; then
-  echo "ERREUR: ${APP_DIR} introuvable — rien à désinstaller."
+  echo "ERROR: ${APP_DIR} not found — nothing to uninstall."
   exit 1
 fi
 
 cd "${APP_DIR}"
 
-echo "==> Arrêt et suppression des conteneurs BloomFeed"
+echo "==> Stopping and removing the BloomFeed containers"
 sudo docker compose down --remove-orphans || true
 
 if [[ "${PURGE_DATA}" == true ]]; then
   echo
-  echo "ATTENTION: cette étape va supprimer DÉFINITIVEMENT :"
-  echo "  - la base de données MariaDB (tous les comptes, flux, articles)"
-  echo "  - les fichiers de storage de l'application"
+  echo "WARNING: this step will PERMANENTLY delete:"
+  echo "  - the MariaDB database (all accounts, feeds, articles)"
+  echo "  - the application storage files"
 
   if [[ "${ASSUME_YES}" != true ]]; then
-    read -r -p "Tapez SUPPRIMER pour confirmer : " CONFIRM
-    if [[ "${CONFIRM}" != "SUPPRIMER" ]]; then
-      echo "Annulé. Les volumes de données sont conservés."
+    read -r -p "Type DELETE to confirm: " CONFIRM
+    if [[ "${CONFIRM}" != "DELETE" ]]; then
+      echo "Cancelled. Data volumes are kept."
       PURGE_DATA=false
     fi
   fi
 
   if [[ "${PURGE_DATA}" == true ]]; then
-    echo "==> Suppression des volumes Docker"
+    echo "==> Removing Docker volumes"
     sudo docker volume rm \
       "${PROJECT_NAME}_db_data" \
       "${PROJECT_NAME}_app_storage" \
       "${PROJECT_NAME}_scheduler_storage" \
       2>/dev/null || true
 
-    echo "==> Suppression des images Docker construites"
+    echo "==> Removing built Docker images"
     sudo docker rmi "${PROJECT_NAME}-app" "${PROJECT_NAME}-scheduler" 2>/dev/null || true
   fi
 else
-  echo "==> Volumes de données conservés (relancez avec --purge pour les supprimer)"
+  echo "==> Data volumes kept (re-run with --purge to remove them)"
 fi
 
 if [[ "${PURGE_SOURCE}" == true ]]; then
   echo
-  echo "ATTENTION: cette étape va supprimer ${APP_DIR}, y compris le fichier .env (secrets, mots de passe)."
+  echo "WARNING: this step will delete ${APP_DIR}, including the .env file (secrets, passwords)."
 
   if [[ "${ASSUME_YES}" != true ]]; then
-    read -r -p "Tapez SUPPRIMER LE CODE pour confirmer : " CONFIRM_SRC
-    if [[ "${CONFIRM_SRC}" != "SUPPRIMER LE CODE" ]]; then
-      echo "Annulé. ${APP_DIR} est conservé."
+    read -r -p "Type DELETE THE CODE to confirm: " CONFIRM_SRC
+    if [[ "${CONFIRM_SRC}" != "DELETE THE CODE" ]]; then
+      echo "Cancelled. ${APP_DIR} is kept."
       PURGE_SOURCE=false
     fi
   fi
 
   if [[ "${PURGE_SOURCE}" == true ]]; then
     cd /
-    echo "==> Suppression de ${APP_DIR}"
+    echo "==> Removing ${APP_DIR}"
     sudo rm -rf "${APP_DIR}"
   fi
 else
-  echo "==> Code source conservé dans ${APP_DIR} (relancez avec --purge-source pour le supprimer aussi)"
+  echo "==> Source code kept in ${APP_DIR} (re-run with --purge-source to remove it too)"
 fi
 
 echo
-echo "==> Désinstallation terminée."
-echo "    Conteneurs/réseau : supprimés"
-echo "    Volumes de données : $([[ "${PURGE_DATA}" == true ]] && echo supprimés || echo conservés)"
-echo "    Code source (${APP_DIR}) : $([[ "${PURGE_SOURCE}" == true ]] && echo supprimé || echo conservé)"
+echo "==> Uninstall finished."
+echo "    Containers/network : removed"
+echo "    Data volumes       : $([[ "${PURGE_DATA}" == true ]] && echo removed || echo kept)"
+echo "    Source (${APP_DIR}): $([[ "${PURGE_SOURCE}" == true ]] && echo removed || echo kept)"

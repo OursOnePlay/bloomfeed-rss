@@ -40,18 +40,21 @@
         }
 
         var search = document.getElementById('market-search');
+        var langSelect = document.getElementById('market-lang');
         var chips = document.getElementById('market-chips');
         var emptyNotice = document.getElementById('market-empty');
         var activeCategory = '';
 
         function applyFilters() {
             var query = (search.value || '').toLowerCase().trim();
+            var activeLang = langSelect ? langSelect.value : '';
             var visible = 0;
 
             grid.querySelectorAll('.market-card').forEach(function (card) {
                 var matchesCategory = !activeCategory || card.getAttribute('data-category') === activeCategory;
+                var matchesLang = !activeLang || card.getAttribute('data-lang') === activeLang;
                 var matchesQuery = !query || card.getAttribute('data-search').indexOf(query) !== -1;
-                var show = matchesCategory && matchesQuery;
+                var show = matchesCategory && matchesLang && matchesQuery;
                 card.hidden = !show;
                 if (show) {
                     visible++;
@@ -62,6 +65,10 @@
         }
 
         search.addEventListener('input', applyFilters);
+
+        if (langSelect) {
+            langSelect.addEventListener('change', applyFilters);
+        }
 
         chips.addEventListener('click', function (event) {
             var chip = event.target.closest('.chip');

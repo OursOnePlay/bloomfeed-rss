@@ -1,7 +1,8 @@
 <p align="center"><img src="public/images/logo.png" width="360" alt="BloomFeed"></p>
 
 <p align="center">
-Un agrégateur RSS personnel et auto-hébergé, avec lecture approfondie intégrée.
+Un agrégateur RSS personnel et auto-hébergé, avec lecture approfondie intégrée.<br>
+<em>A personal, self-hosted RSS aggregator with a built-in reader.</em>
 </p>
 
 <p align="center"><img src="docs/screenshots/home-light.png" width="800" alt="Page d'accueil de BloomFeed"></p>
@@ -12,8 +13,9 @@ BloomFeed centralise vos flux RSS/Atom préférés dans une interface simple. Qu
 intéresse, BloomFeed récupère la page source, en extrait le contenu principal et l'affiche
 directement dans l'application — plus besoin d'ouvrir le site d'origine.
 
-BloomFeed est pensé pour être **auto-hébergé par une seule personne ou un foyer** : une instance
-n'a qu'un seul compte propriétaire, créé une seule fois au premier lancement.
+BloomFeed est pensé pour être **auto-hébergé par une personne ou un foyer** : le premier compte
+créé devient le compte propriétaire, qui peut ensuite inviter des proches (création directe de
+comptes) ou ouvrir les inscriptions publiques depuis le menu Paramètres.
 
 ## Fonctionnalités
 
@@ -23,9 +25,11 @@ n'a qu'un seul compte propriétaire, créé une seule fois au premier lancement.
   quitter BloomFeed.
 - Catalogue de flux façon "market" : une sélection de flux embarquée avec l'application
   ([resources/data/bloomflux.json](resources/data/bloomflux.json)), à ajouter en un clic.
+- Multi-comptes : le propriétaire crée des comptes ou ouvre/ferme les inscriptions d'un clic.
+- Interface disponible en **français, anglais, espagnol et allemand** (sélecteur en haut de page,
+  préférence mémorisée par utilisateur).
 - Récupération périodique des flux via une tâche planifiée.
 - Thème clair/sombre.
-- Inscription fermée après la création du compte propriétaire — pas de SaaS ouvert.
 
 ## Aperçu
 
@@ -44,6 +48,84 @@ n'a qu'un seul compte propriétaire, créé une seule fois au premier lancement.
 - CSS/JS écrits à la main, sans étape de build (pas de Node/Vite/Tailwind)
 - Docker Compose pour le déploiement
 
+## Installation (auto-hébergement)
+
+### Prérequis
+
+- Un serveur Linux avec **Docker** et le plugin **Docker Compose**.
+- Le port **7081** libre (modifiable dans `docker-compose.yml`).
+- Optionnel : un nom de domaine + reverse proxy (Nginx, Caddy, Traefik…) pour le HTTPS —
+  l'application détecte automatiquement les en-têtes `X-Forwarded-*`.
+
+### Étapes
+
+```bash
+git clone https://git.eldorianet.work/esteban/BloomFeed-RSS bloomfeed
+cd bloomfeed
+bash scriptsite.sh
+```
+
+Le script de déploiement :
+
+1. libère le port 7081 si nécessaire ;
+2. clone ou met à jour le code dans `/opt/bloomfeed` ;
+3. crée le `.env` depuis `.env.example` s'il n'existe pas, et y génère les secrets manquants
+   (`APP_KEY`, `DB_PASSWORD`, `DB_ROOT_PASSWORD`) — ils ne sont **jamais** régénérés ensuite ;
+4. construit les images et démarre les conteneurs (application, planificateur, MariaDB) ;
+5. attend que les migrations de l'entrypoint soient terminées et vérifie que l'application répond.
+
+Ouvrez ensuite `http://votre-serveur:7081` et créez le **compte propriétaire** — les inscriptions
+publiques se referment automatiquement après.
+
+### Mise à jour
+
+Relancez simplement `bash scriptsite.sh` : il récupère les derniers changements et reconstruit
+la stack sans toucher à vos données.
+
+### Désinstallation
+
+```bash
+bash uninstall.sh              # arrête et supprime les conteneurs (données conservées)
+bash uninstall.sh --purge      # supprime aussi la base de données et le storage (confirmation demandée)
+bash uninstall.sh --purge --purge-source   # supprime aussi /opt/bloomfeed et le .env
+```
+
+## Configuration
+
+### Comptes et inscriptions
+
+Le compte propriétaire dispose d'un menu **Paramètres** dans la barre de navigation :
+
+- **Créer un compte** directement (nom, e-mail, mot de passe) pour un proche, sans rien ouvrir
+  au public ;
+- **Ouvrir / fermer les inscriptions publiques** d'un clic — quand elles sont ouvertes, le bouton
+  "Créer un compte" réapparaît sur la page d'accueil et la page de connexion.
+
+### Langue
+
+Chaque visiteur ou utilisateur choisit sa langue (FR, EN, ES, DE) via le sélecteur en haut de
+page. Le choix est mémorisé en session pour les visiteurs et enregistré sur le profil pour les
+utilisateurs connectés. La langue par défaut de l'instance se règle avec `APP_LOCALE` dans `.env`.
+
+### Variables d'environnement principales
+
+| Variable | Rôle | Défaut |
+|---|---|---|
+| `APP_URL` | URL publique de l'instance (importante derrière un reverse proxy HTTPS) | `http://localhost:7081` |
+| `APP_LOCALE` | Langue par défaut (`fr`, `en`, `es`, `de`) | `fr` |
+| `DB_*` | Connexion MariaDB (générés par le script) | — |
+
+### Catalogue de flux
+
+L'onglet **Catalogue** propose une sélection de flux pré-faits (actualités, tech, développement,
+IT/sysadmin, sécurité, sciences…) à ajouter en un clic. La liste vit dans
+[resources/data/bloomflux.json](resources/data/bloomflux.json), versionnée avec le code : pour
+l'enrichir, éditez le fichier et redéployez — aucun service externe n'est nécessaire.
+
+```json
+{ "title": "Nom du flux", "url": "https://exemple.com/rss.xml", "category": "Tech", "lang": "fr", "description": "Courte description." }
+```
+
 ## Développement local
 
 Prérequis : PHP 8.3+ et [Composer](https://getcomposer.org).
@@ -58,41 +140,6 @@ php artisan migrate
 php artisan serve
 ```
 
-## Auto-hébergement
-
-BloomFeed est fait pour tourner sur votre propre serveur via Docker Compose (application,
-planificateur, MariaDB). Voir la page **[/self-hosting](/self-hosting)** une fois
-l'application lancée, ou directement :
-
-```bash
-git clone https://git.eldorianet.work/esteban/BloomFeed-RSS bloomfeed
-cd bloomfeed
-bash scriptsite.sh
-```
-
-Le script crée automatiquement un `.env` avec des secrets générés aléatoirement s'il n'existe
-pas encore, construit les images et démarre la stack. L'application écoute par défaut sur le
-port `7081`.
-
-Pour désinstaller proprement (avec confirmation avant toute suppression de données) :
-
-```bash
-bash uninstall.sh
-```
-
-## Catalogue de flux (BloomFlux)
-
-L'onglet **Catalogue** propose une sélection de flux pré-faits (actualités, tech, développement,
-IT/sysadmin, sécurité, sciences…) à ajouter en un clic. La liste vit dans
-[resources/data/bloomflux.json](resources/data/bloomflux.json), versionnée avec le code : pour
-l'enrichir, éditez le fichier et déployez — aucun service externe n'est nécessaire.
-
-Format d'une entrée :
-
-```json
-{ "title": "Nom du flux", "url": "https://exemple.com/rss.xml", "category": "Tech", "lang": "fr", "description": "Courte description." }
-```
-
 ## Licence
 
-MIT.
+[MIT](LICENSE).

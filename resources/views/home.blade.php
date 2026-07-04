@@ -1,21 +1,18 @@
-@extends('layouts.marketing', ['title' => 'BloomFeed — votre agrégateur RSS auto-hébergé'])
+@extends('layouts.marketing', ['title' => 'BloomFeed'])
 
 @section('content')
 <section class="hero">
     <div class="hero-inner">
-        <span class="eyebrow">Auto-hébergé &middot; Vie privée</span>
-        <h1>Vos flux RSS, lus en profondeur, sans jamais quitter BloomFeed.</h1>
-        <p class="hero-lede">
-            BloomFeed centralise vos flux préférés et en extrait le contenu complet à la demande,
-            directement sur votre propre serveur. Aucune donnée envoyée à des tiers.
-        </p>
+        <span class="eyebrow">{{ __('app.hero_eyebrow') }}</span>
+        <h1>{{ __('app.hero_title') }}</h1>
+        <p class="hero-lede">{{ __('app.hero_lede') }}</p>
         <div class="hero-cta">
-            @if ($hasOwner)
-                <a href="{{ route('login') }}" class="btn btn-primary btn-lg">Se connecter</a>
+            @if ($hasOwner && ! \App\Models\Setting::registrationsOpen())
+                <a href="{{ route('login') }}" class="btn btn-primary btn-lg">{{ __('app.login') }}</a>
             @else
-                <a href="{{ route('register') }}" class="btn btn-primary btn-lg">Créer un compte</a>
+                <a href="{{ route('register') }}" class="btn btn-primary btn-lg">{{ __('app.create_account') }}</a>
             @endif
-            <a href="{{ route('self-hosting') }}" class="btn btn-ghost btn-lg">Comment l'auto-héberger ?</a>
+            <a href="{{ route('self-hosting') }}" class="btn btn-ghost btn-lg">{{ __('app.how_to_self_host') }}</a>
         </div>
     </div>
 </section>
@@ -23,18 +20,18 @@
 <section class="feature-grid">
     <div class="feature-card">
         <div class="feature-icon">📰</div>
-        <h3>Flux personnalisés</h3>
-        <p>Ajoutez n'importe quel flux RSS ou Atom, organisez-les et suivez vos non-lus en un coup d'œil.</p>
+        <h3>{{ __('app.feature_feeds_title') }}</h3>
+        <p>{{ __('app.feature_feeds_text') }}</p>
     </div>
     <div class="feature-card">
         <div class="feature-icon">📖</div>
-        <h3>Lecture approfondie intégrée</h3>
-        <p>BloomFeed récupère la page source, en extrait le contenu principal et l'affiche proprement — plus besoin d'ouvrir dix onglets.</p>
+        <h3>{{ __('app.feature_reader_title') }}</h3>
+        <p>{{ __('app.feature_reader_text') }}</p>
     </div>
     <div class="feature-card">
         <div class="feature-icon">🔒</div>
-        <h3>Chez vous, pour vous</h3>
-        <p>Une instance BloomFeed = un propriétaire. Pas d'inscriptions publiques, pas de tracking, votre serveur, vos données.</p>
+        <h3>{{ __('app.feature_home_title') }}</h3>
+        <p>{{ __('app.feature_home_text') }}</p>
     </div>
 </section>
 @endsection

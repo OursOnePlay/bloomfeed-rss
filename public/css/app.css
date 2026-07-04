@@ -1008,10 +1008,35 @@ h1, h2, h3 {
     flex-wrap: wrap;
 }
 
+.market-toolbar {
+    display: flex;
+    gap: var(--space-2);
+    align-items: stretch;
+}
+
 .market-search {
     font-size: var(--font-base);
     padding: 13px 18px;
     border-radius: var(--radius);
+    flex: 1;
+}
+
+.market-lang-select {
+    width: auto;
+    min-width: 170px;
+    border-radius: var(--radius);
+    font-size: var(--font-sm);
+    cursor: pointer;
+}
+
+@media (max-width: 720px) {
+    .market-toolbar {
+        flex-direction: column;
+    }
+
+    .market-lang-select {
+        width: 100%;
+    }
 }
 
 .market-chips {
@@ -1127,6 +1152,41 @@ h1, h2, h3 {
     color: var(--green);
     font-size: var(--font-sm);
     font-weight: 700;
+}
+
+/* ---------- Sélecteur de langue ---------- */
+
+.locale-form {
+    display: flex;
+    align-items: center;
+}
+
+.locale-select {
+    background: transparent;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 6px 10px;
+    font-size: var(--font-xs);
+    font-weight: 600;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-family: inherit;
+    transition: border-color var(--t-fast), color var(--t-fast);
+}
+
+.locale-select:hover {
+    border-color: var(--accent);
+    color: var(--text);
+}
+
+.guest-topbar {
+    position: fixed;
+    top: 16px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    z-index: 30;
 }
 
 /* ---------- Responsive ---------- */

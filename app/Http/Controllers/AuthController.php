@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Setting;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -11,11 +12,15 @@ use Illuminate\View\View;
 
 class AuthController extends Controller
 {
+    private function registrationsAllowed(): bool
+    {
+        return ! User::query()->exists() || Setting::registrationsOpen();
+    }
+
     public function showRegister(): View|RedirectResponse
     {
-        if (User::query()->exists()) {
-            return redirect()->route('login')
-                ->with('status', 'Les inscriptions sont fermées sur cette instance. Connectez-vous.');
+        if (! $this->registrationsAllowed()) {
+            return redirect()->route('login')->with('status', __('app.registrations_closed'));
         }
 
         return view('auth.register');
@@ -23,9 +28,8 @@ class AuthController extends Controller
 
     public function register(Request $request): RedirectResponse
     {
-        if (User::query()->exists()) {
-            return redirect()->route('login')
-                ->with('status', 'Les inscriptions sont fermées sur cette instance. Connectez-vous.');
+        if (! $this->registrationsAllowed()) {
+            return redirect()->route('login')->with('status', __('app.registrations_closed'));
         }
 
         $validated = $request->validate([
@@ -38,6 +42,8 @@ class AuthController extends Controller
             'name' => $validated['name'],
             'email' => $validated['email'],
             'password' => Hash::make($validated['password']),
+            'is_owner' => ! User::query()->exists(),
+            'locale' => session('locale'),
         ]);
 
         Auth::login($user);
@@ -60,7 +66,7 @@ class AuthController extends Controller
 
         if (! Auth::attempt($credentials, $request->boolean('remember'))) {
             return back()->withErrors([
-                'email' => 'Ces identifiants ne correspondent à aucun compte.',
+                'email' => __('app.invalid_credentials'),
             ])->onlyInput('email');
         }
 
