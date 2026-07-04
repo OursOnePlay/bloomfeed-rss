@@ -27,6 +27,13 @@ return [
     'feature_reader_text' => 'BloomFeed recupera la página original, extrae el contenido principal y lo muestra limpiamente — se acabó abrir diez pestañas.',
     'feature_home_title' => 'En tu casa, para ti',
     'feature_home_text' => 'Una instancia de BloomFeed = un propietario. Sin registros públicos por defecto, sin rastreo, tu servidor, tus datos.',
+    'screenshots_title' => 'En imágenes',
+    'screenshots_lede' => 'Un vistazo rápido al panel, al lector integrado, al catálogo de fuentes y a la pantalla de notificadores.',
+    'screenshot_dashboard' => 'Panel',
+    'screenshot_dark' => 'Modo oscuro',
+    'screenshot_reader' => 'Lector integrado',
+    'screenshot_catalog' => 'Catálogo de fuentes en un clic',
+    'screenshot_notifiers' => 'Notificadores de Discord y webhook',
 
     // Autenticación
     'login_title' => 'Iniciar sesión',

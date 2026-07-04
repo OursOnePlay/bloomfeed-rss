@@ -27,6 +27,13 @@ return [
     'feature_reader_text' => "BloomFeed récupère la page source, en extrait le contenu principal et l'affiche proprement — plus besoin d'ouvrir dix onglets.",
     'feature_home_title' => 'Chez vous, pour vous',
     'feature_home_text' => "Une instance BloomFeed = un propriétaire. Pas d'inscriptions publiques par défaut, pas de tracking, votre serveur, vos données.",
+    'screenshots_title' => 'En images',
+    'screenshots_lede' => 'Un aperçu rapide du tableau de bord, du lecteur intégré, du catalogue de flux et de l’écran des notifieurs.',
+    'screenshot_dashboard' => 'Tableau de bord',
+    'screenshot_dark' => 'Mode sombre',
+    'screenshot_reader' => 'Lecteur intégré',
+    'screenshot_catalog' => 'Catalogue de flux en un clic',
+    'screenshot_notifiers' => 'Notifieurs Discord et webhook',
 
     // Authentification
     'login_title' => 'Connexion',

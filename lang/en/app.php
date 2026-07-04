@@ -27,6 +27,13 @@ return [
     'feature_reader_text' => 'BloomFeed fetches the source page, extracts the main content and displays it cleanly — no more juggling ten tabs.',
     'feature_home_title' => 'Your home, your rules',
     'feature_home_text' => 'One BloomFeed instance = one owner. No public sign-ups by default, no tracking, your server, your data.',
+    'screenshots_title' => 'See it in action',
+    'screenshots_lede' => 'A quick look at the dashboard, the built-in reader, the feed catalog and the notifiers screen.',
+    'screenshot_dashboard' => 'Dashboard',
+    'screenshot_dark' => 'Dark mode',
+    'screenshot_reader' => 'Built-in reader',
+    'screenshot_catalog' => 'One-click feed catalog',
+    'screenshot_notifiers' => 'Discord & webhook notifiers',
 
     // Authentication
     'login_title' => 'Log in',

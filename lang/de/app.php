@@ -27,6 +27,13 @@ return [
     'feature_reader_text' => 'BloomFeed ruft die Originalseite ab, extrahiert den Hauptinhalt und zeigt ihn sauber an — Schluss mit zehn offenen Tabs.',
     'feature_home_title' => 'Bei dir, für dich',
     'feature_home_text' => 'Eine BloomFeed-Instanz = ein Besitzer. Keine öffentlichen Registrierungen standardmäßig, kein Tracking, dein Server, deine Daten.',
+    'screenshots_title' => 'So sieht’s aus',
+    'screenshots_lede' => 'Ein kurzer Blick auf das Dashboard, den integrierten Reader, den Feed-Katalog und den Benachrichtigungsbildschirm.',
+    'screenshot_dashboard' => 'Dashboard',
+    'screenshot_dark' => 'Dunkelmodus',
+    'screenshot_reader' => 'Integrierter Reader',
+    'screenshot_catalog' => 'Feed-Katalog mit einem Klick',
+    'screenshot_notifiers' => 'Discord- und Webhook-Benachrichtigungen',
 
     // Authentifizierung
     'login_title' => 'Anmelden',
