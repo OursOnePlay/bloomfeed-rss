@@ -26,6 +26,8 @@ comptes) ou ouvrir les inscriptions publiques depuis le menu Paramètres.
 - Catalogue de flux façon "market" : une sélection de flux embarquée avec l'application
   ([resources/data/bloomflux.json](resources/data/bloomflux.json)), à ajouter en un clic.
 - Multi-comptes : le propriétaire crée des comptes ou ouvre/ferme les inscriptions d'un clic.
+- Notifications personnelles : chaque utilisateur configure ses propres alertes **Discord** ou
+  **webhook générique**, pour tous ses flux ou seulement certains.
 - Interface disponible en **français, anglais, espagnol et allemand** (sélecteur en haut de page,
   préférence mémorisée par utilisateur).
 - Récupération périodique des flux via une tâche planifiée.
@@ -37,9 +39,13 @@ comptes) ou ouvrir les inscriptions publiques depuis le menu Paramètres.
 |---|---|
 | ![Tableau de bord](docs/screenshots/dashboard-light.png) | ![Lecteur intégré](docs/screenshots/reader-light.png) |
 
-| Catalogue de flux | Mode sombre |
+| Catalogue de flux | Notifieurs |
 |---|---|
-| ![Catalogue de flux](docs/screenshots/catalog-light.png) | ![Mode sombre](docs/screenshots/dashboard-dark.png) |
+| ![Catalogue de flux](docs/screenshots/catalog-light.png) | ![Notifieurs](docs/screenshots/notifiers-light.png) |
+
+| Mode sombre |
+|---|
+| ![Mode sombre](docs/screenshots/dashboard-dark.png) |
 
 ## Stack technique
 
@@ -81,6 +87,16 @@ publiques se referment automatiquement après.
 
 Relancez simplement `bash scriptsite.sh` : il récupère les derniers changements et reconstruit
 la stack sans toucher à vos données.
+
+### Réinitialisation
+
+Pour repartir d'une instance vierge (efface comptes, flux, articles et notifieurs) sans toucher
+au code, au `.env` ni aux images Docker :
+
+```bash
+bash reset.sh          # confirmation interactive requise
+bash reset.sh --yes    # sans confirmation
+```
 
 ### Désinstallation
 
@@ -125,6 +141,18 @@ l'enrichir, éditez le fichier et redéployez — aucun service externe n'est n�
 ```json
 { "title": "Nom du flux", "url": "https://exemple.com/rss.xml", "category": "Tech", "lang": "fr", "description": "Courte description." }
 ```
+
+### Notifications (Discord / webhook)
+
+Chaque utilisateur configure ses propres notifieurs depuis le menu **Notifieurs** :
+
+- **Discord** : collez l'URL d'un webhook de salon Discord (Paramètres du salon → Intégrations →
+  Webhooks) ; BloomFeed envoie un embed (titre, lien, extrait) à chaque nouvel article.
+- **Webhook générique** : n'importe quelle URL recevant un `POST` JSON
+  `{ "event": "article.created", "feed": "...", "article": { "title", "url", "excerpt", "published_at" } }`.
+
+Chaque notifieur a une **portée** : tous les flux de l'utilisateur, ou une sélection précise de
+flux. Un bouton "Tester" envoie une notification factice pour valider l'URL avant de compter dessus.
 
 ## Développement local
 

@@ -23,6 +23,11 @@ class User extends Authenticatable
         return $this->hasMany(Feed::class);
     }
 
+    public function notifiers(): HasMany
+    {
+        return $this->hasMany(Notifier::class);
+    }
+
     /**
      * Get the attributes that should be cast.
      *

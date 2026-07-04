@@ -7,6 +7,7 @@
         <a href="{{ route('dashboard') }}" class="{{ request()->routeIs('dashboard') ? 'active' : '' }}">{{ __('app.articles') }}</a>
         <a href="{{ route('catalog') }}" class="{{ request()->routeIs('catalog') ? 'active' : '' }}">{{ __('app.catalog') }}</a>
         <a href="{{ route('feeds.index') }}" class="{{ request()->routeIs('feeds.*') ? 'active' : '' }}">{{ __('app.my_feeds') }}</a>
+        <a href="{{ route('notifiers') }}" class="{{ request()->routeIs('notifiers') ? 'active' : '' }}">{{ __('app.notifiers') }}</a>
         @if (auth()->user()?->is_owner)
             <a href="{{ route('settings') }}" class="{{ request()->routeIs('settings') ? 'active' : '' }}">{{ __('app.settings') }}</a>
         @endif

@@ -48,6 +48,12 @@ cd bloomfeed</pre>
     </div>
 
     <div class="card mt-2">
+        <h2>{{ __('app.reset_title') }}</h2>
+        <p>{{ __('app.reset_text') }}</p>
+        <pre class="code-block">bash reset.sh</pre>
+    </div>
+
+    <div class="card mt-2">
         <h2>{{ __('app.uninstall_title') }}</h2>
         <p>{{ __('app.uninstall_text') }}</p>
         <pre class="code-block">bash uninstall.sh</pre>

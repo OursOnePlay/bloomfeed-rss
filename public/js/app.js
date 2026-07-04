@@ -83,4 +83,16 @@
             applyFilters();
         });
     });
+
+    // Notifiers: show/hide the per-feed picker depending on the chosen scope
+    document.addEventListener('change', function (event) {
+        var select = event.target.closest('[data-scope-select]');
+        if (!select) {
+            return;
+        }
+        var picker = select.closest('form').querySelector('[data-scope-feeds]');
+        if (picker) {
+            picker.hidden = select.value !== 'feeds';
+        }
+    });
 })();

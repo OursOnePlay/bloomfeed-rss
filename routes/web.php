@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FeedController;
+use App\Http\Controllers\NotifierController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\SettingsController;
 use Illuminate\Support\Facades\Route;
@@ -32,6 +33,13 @@ Route::middleware('auth')->group(function () {
     Route::post('/settings/users', [SettingsController::class, 'createUser'])->name('settings.createUser');
     Route::post('/settings/sources', [SettingsController::class, 'addCatalogSource'])->name('settings.addSource');
     Route::delete('/settings/sources', [SettingsController::class, 'removeCatalogSource'])->name('settings.removeSource');
+
+    Route::get('/notifiers', [NotifierController::class, 'index'])->name('notifiers');
+    Route::post('/notifiers', [NotifierController::class, 'store'])->name('notifiers.store');
+    Route::put('/notifiers/{notifier}', [NotifierController::class, 'update'])->name('notifiers.update');
+    Route::post('/notifiers/{notifier}/toggle', [NotifierController::class, 'toggle'])->name('notifiers.toggle');
+    Route::post('/notifiers/{notifier}/test', [NotifierController::class, 'test'])->name('notifiers.test');
+    Route::delete('/notifiers/{notifier}', [NotifierController::class, 'destroy'])->name('notifiers.destroy');
 
     Route::get('/feeds', [FeedController::class, 'index'])->name('feeds.index');
     Route::post('/feeds', [FeedController::class, 'store'])->name('feeds.store');

@@ -1195,6 +1195,40 @@ h1, h2, h3 {
     z-index: 30;
 }
 
+/* ---------- Notifiers ---------- */
+
+.notifier-form .form-group {
+    margin-bottom: var(--space-3);
+}
+
+.notifier-feed-picker {
+    background: var(--surface-alt);
+    border-radius: var(--radius-sm);
+    padding: var(--space-3);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    max-height: 180px;
+    overflow-y: auto;
+}
+
+.notifier-feed-picker[hidden] {
+    display: none;
+}
+
+.notifier-feed-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: var(--font-sm);
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.notifier-card summary::-webkit-details-marker {
+    color: var(--text-muted);
+}
+
 /* ---------- Responsive ---------- */
 
 @media (max-width: 720px) {

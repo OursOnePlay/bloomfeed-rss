@@ -13,6 +13,10 @@ use Throwable;
 
 class FeedFetcherService
 {
+    public function __construct(private readonly NotifierDispatchService $notifier)
+    {
+    }
+
     /**
      * Fetch, parse and store new articles for a single feed.
      *
@@ -65,6 +69,8 @@ class FeedFetcherService
             ]);
             $article->feed()->associate($feed);
             $article->save();
+
+            $this->notifier->notifyNewArticle($article);
 
             $newCount++;
         }
