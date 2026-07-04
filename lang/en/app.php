@@ -38,6 +38,8 @@ return [
     'badge_open_source' => 'Open-source',
     'badge_mit_license' => 'MIT license',
     'badge_four_languages' => '4 languages',
+    'feature_multiuser_title' => 'Built for your household',
+    'feature_multiuser_text' => 'Invite the people you trust with a direct account, or open registrations for a while — everyone keeps their own feeds, reads and notifiers.',
 
     // Authentication
     'login_title' => 'Log in',

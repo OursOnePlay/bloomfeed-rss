@@ -1,5 +1,15 @@
 @extends('layouts.marketing', ['title' => 'BloomFeed'])
 
+@php
+    // Screenshots live under images/screenshots/{locale}/ so each language can show its own
+    // captures; falls back to the French set until the other locales are captured too.
+    $screenshotUrl = function (string $file) {
+        $localized = 'images/screenshots/' . app()->getLocale() . '/' . $file;
+        $path = file_exists(public_path($localized)) ? $localized : 'images/screenshots/fr/' . $file;
+        return asset($path);
+    };
+@endphp
+
 @section('content')
 <section class="hero">
     <div class="hero-orbs" aria-hidden="true">
@@ -42,8 +52,8 @@
                     <span class="browser-dot browser-dot-yellow"></span>
                     <span class="browser-dot browser-dot-green"></span>
                 </div>
-                <img src="{{ asset('images/screenshots/dashboard-light.png') }}" alt="BloomFeed dashboard" class="browser-frame-img browser-frame-img-light">
-                <img src="{{ asset('images/screenshots/dashboard-dark.png') }}" alt="BloomFeed dashboard" class="browser-frame-img browser-frame-img-dark">
+                <img src="{{ $screenshotUrl('dashboard-light.png') }}" alt="BloomFeed dashboard" class="browser-frame-img browser-frame-img-light">
+                <img src="{{ $screenshotUrl('dashboard-dark.png') }}" alt="BloomFeed dashboard" class="browser-frame-img browser-frame-img-dark">
             </div>
         </div>
     </div>
@@ -70,6 +80,16 @@
         <h3>{{ __('app.notifiers') }}</h3>
         <p>{{ __('app.notifiers_lede') }}</p>
     </div>
+    <div class="feature-card reveal">
+        <div class="feature-icon feature-icon-5"><i class="fa-solid fa-compass"></i></div>
+        <h3>{{ __('app.catalog_title') }}</h3>
+        <p>{{ __('app.catalog_lede') }}</p>
+    </div>
+    <div class="feature-card reveal">
+        <div class="feature-icon feature-icon-6"><i class="fa-solid fa-users"></i></div>
+        <h3>{{ __('app.feature_multiuser_title') }}</h3>
+        <p>{{ __('app.feature_multiuser_text') }}</p>
+    </div>
 </section>
 
 <section class="screenshots-section">
@@ -95,12 +115,12 @@
                 <span class="browser-dot browser-dot-yellow"></span>
                 <span class="browser-dot browser-dot-green"></span>
             </div>
-            <img id="screenshotMainImg" class="browser-frame-img" src="{{ asset('images/screenshots/' . $screenshots[0]['file']) }}" alt="{{ $screenshots[0]['caption'] }}">
+            <img id="screenshotMainImg" class="browser-frame-img" src="{{ $screenshotUrl($screenshots[0]['file']) }}" alt="{{ $screenshots[0]['caption'] }}">
         </div>
         <div class="screenshot-thumbs">
             @foreach ($screenshots as $index => $shot)
-                <button type="button" class="screenshot-thumb {{ $index === 0 ? 'active' : '' }}" data-img="{{ asset('images/screenshots/' . $shot['file']) }}" data-caption="{{ $shot['caption'] }}">
-                    <img src="{{ asset('images/screenshots/' . $shot['file']) }}" alt="{{ $shot['caption'] }}" loading="lazy">
+                <button type="button" class="screenshot-thumb {{ $index === 0 ? 'active' : '' }}" data-img="{{ $screenshotUrl($shot['file']) }}" data-caption="{{ $shot['caption'] }}">
+                    <img src="{{ $screenshotUrl($shot['file']) }}" alt="{{ $shot['caption'] }}" loading="lazy">
                 </button>
             @endforeach
         </div>

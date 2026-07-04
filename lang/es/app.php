@@ -38,6 +38,8 @@ return [
     'badge_open_source' => 'Código abierto',
     'badge_mit_license' => 'Licencia MIT',
     'badge_four_languages' => '4 idiomas',
+    'feature_multiuser_title' => 'Pensado para tu hogar',
+    'feature_multiuser_text' => 'Invita a las personas de confianza con una cuenta directa, o abre los registros por un tiempo — cada uno mantiene sus propias fuentes, lecturas y notificadores.',
 
     // Autenticación
     'login_title' => 'Iniciar sesión',

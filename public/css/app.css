@@ -503,8 +503,20 @@ h1, h2, h3 {
     margin: 0 auto;
     padding: 0 var(--space-5) var(--space-8);
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: var(--space-5);
+}
+
+@media (max-width: 860px) {
+    .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 560px) {
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .feature-card {
@@ -548,7 +560,7 @@ h1, h2, h3 {
     border-radius: var(--radius);
     font-size: 2.1rem;
     margin-bottom: var(--space-4);
-    color: var(--accent-contrast);
+    color: #fff;
     background: var(--gradient-accent);
     box-shadow: var(--shadow-accent);
     transition: transform var(--t-base);
@@ -557,6 +569,8 @@ h1, h2, h3 {
 .feature-icon-2 { background: linear-gradient(135deg, var(--green) 0%, #7fd19e 100%); }
 .feature-icon-3 { background: linear-gradient(135deg, #6ba7e8 0%, #a3c9f7 100%); }
 .feature-icon-4 { background: linear-gradient(135deg, #e88a6b 0%, var(--sun-bright) 100%); }
+.feature-icon-5 { background: linear-gradient(135deg, #8b6bd1 0%, #b79bea 100%); }
+.feature-icon-6 { background: linear-gradient(135deg, #d1568b 0%, #ea9bc1 100%); }
 
 .feature-card:hover .feature-icon {
     transform: scale(1.12) rotate(-4deg);
