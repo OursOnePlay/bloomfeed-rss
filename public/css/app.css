@@ -1105,6 +1105,12 @@ h1, h2, h3 {
     transition: transform var(--t-base), box-shadow var(--t-base), border-color var(--t-base);
 }
 
+/* display:flex ci-dessus écrase le display:none du navigateur pour [hidden] —
+   il faut le rétablir explicitement pour que le filtrage JS fonctionne. */
+.market-card[hidden] {
+    display: none;
+}
+
 .market-card:hover {
     transform: translateY(-3px);
     box-shadow: var(--shadow-md);
