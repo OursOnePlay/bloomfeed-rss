@@ -34,6 +34,10 @@ return [
     'screenshot_reader' => 'Lector integrado',
     'screenshot_catalog' => 'Catálogo de fuentes en un clic',
     'screenshot_notifiers' => 'Notificadores de Discord y webhook',
+    'badge_self_hosted' => 'Autoalojado',
+    'badge_open_source' => 'Código abierto',
+    'badge_mit_license' => 'Licencia MIT',
+    'badge_four_languages' => '4 idiomas',
 
     // Autenticación
     'login_title' => 'Iniciar sesión',

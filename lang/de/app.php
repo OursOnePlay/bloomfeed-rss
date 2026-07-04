@@ -34,6 +34,10 @@ return [
     'screenshot_reader' => 'Integrierter Reader',
     'screenshot_catalog' => 'Feed-Katalog mit einem Klick',
     'screenshot_notifiers' => 'Discord- und Webhook-Benachrichtigungen',
+    'badge_self_hosted' => 'Selbst gehostet',
+    'badge_open_source' => 'Open Source',
+    'badge_mit_license' => 'MIT-Lizenz',
+    'badge_four_languages' => '4 Sprachen',
 
     // Authentifizierung
     'login_title' => 'Anmelden',

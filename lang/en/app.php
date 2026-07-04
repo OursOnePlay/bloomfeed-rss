@@ -34,6 +34,10 @@ return [
     'screenshot_reader' => 'Built-in reader',
     'screenshot_catalog' => 'One-click feed catalog',
     'screenshot_notifiers' => 'Discord & webhook notifiers',
+    'badge_self_hosted' => 'Self-hosted',
+    'badge_open_source' => 'Open-source',
+    'badge_mit_license' => 'MIT license',
+    'badge_four_languages' => '4 languages',
 
     // Authentication
     'login_title' => 'Log in',
