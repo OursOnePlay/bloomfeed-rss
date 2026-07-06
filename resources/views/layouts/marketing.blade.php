@@ -28,7 +28,7 @@
             <img src="{{ asset('images/logo-dark.png') }}" alt="BloomFeed" class="brand-logo brand-logo-dark">
         </a>
         <div class="navbar-links">
-            <a href="{{ route('self-hosting') }}" class="{{ request()->routeIs('self-hosting') ? 'active' : '' }}">{{ __('app.self_hosting') }}</a>
+            <a href="{{ route('self-hosting') }}" class="nav-self-hosting {{ request()->routeIs('self-hosting') ? 'active' : '' }}">{{ __('app.self_hosting') }}</a>
             @include('partials.locale-selector')
             <button type="button" class="theme-toggle" data-theme-toggle title="{{ __('app.change_theme') }}">◐</button>
             @if (\App\Models\User::query()->exists() && ! \App\Models\Setting::registrationsOpen())

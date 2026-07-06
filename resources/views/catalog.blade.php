@@ -23,7 +23,18 @@
         @php($languageNames = [
             'fr' => 'Français', 'en' => 'English', 'es' => 'Español', 'de' => 'Deutsch',
             'it' => 'Italiano', 'pt' => 'Português', 'nl' => 'Nederlands', 'ja' => '日本語',
-            'ru' => 'Русский', 'pl' => 'Polski', 'sv' => 'Svenska',
+            'ru' => 'Русский', 'pl' => 'Polski', 'sv' => 'Svenska', 'zh' => '中文',
+            'ko' => '한국어', 'ar' => 'العربية', 'tr' => 'Türkçe', 'hi' => 'हिन्दी',
+            'no' => 'Norsk', 'da' => 'Dansk', 'fi' => 'Suomi', 'cs' => 'Čeština',
+            'el' => 'Ελληνικά', 'he' => 'עברית', 'uk' => 'Українська', 'ro' => 'Română',
+            'hu' => 'Magyar', 'id' => 'Bahasa Indonesia', 'vi' => 'Tiếng Việt', 'th' => 'ไทย',
+            'sk' => 'Slovenčina', 'bg' => 'Български', 'hr' => 'Hrvatski', 'lt' => 'Lietuvių',
+            'lv' => 'Latviešu', 'et' => 'Eesti', 'sr' => 'Српски', 'ca' => 'Català',
+            'fa' => 'فارسی', 'sw' => 'Kiswahili', 'ur' => 'اردو', 'bn' => 'বাংলা',
+            'ne' => 'नेपाली', 'ps' => 'پښتو', 'so' => 'Soomaali', 'am' => 'አማርኛ',
+            'ig' => 'Igbo', 'ha' => 'Hausa', 'yo' => 'Yorùbá', 'az' => 'Azərbaycan',
+            'uz' => 'Oʻzbek', 'ky' => 'Кыргызча', 'mr' => 'मराठी', 'ta' => 'தமிழ்',
+            'te' => 'తెలుగు', 'gu' => 'ગુજરાતી', 'pa' => 'ਪੰਜਾਬੀ', 'si' => 'සිංහල',
         ])
         @php($languages = $feeds->flatten(1)->pluck('lang')->unique()->sort()->values())
 

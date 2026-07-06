@@ -1,6 +1,6 @@
 {
-    "version": 2,
-    "updated_at": "2026-07-04",
+    "version": 3,
+    "updated_at": "2026-07-05",
     "feeds": [
         {
             "title": "Le Monde",
@@ -540,6 +540,2288 @@
             "category": "Culture",
             "lang": "en",
             "description": "Culture libre : cours, films et livres gratuits."
+        },
+        {
+            "title": "Presse-citron",
+            "url": "https://www.presse-citron.net/feed/",
+            "category": "Tech",
+            "lang": "fr",
+            "description": "Actualité tech et startups."
+        },
+        {
+            "title": "Frandroid",
+            "url": "https://www.frandroid.com/feed",
+            "category": "Tech",
+            "lang": "fr",
+            "description": "Actualité mobile et high-tech."
+        },
+        {
+            "title": "JeuxVideo.com",
+            "url": "https://www.jeuxvideo.com/rss/rss.xml",
+            "category": "Jeux vidéo",
+            "lang": "fr",
+            "description": "Actualité et tests jeux vidéo."
+        },
+        {
+            "title": "Slate.fr",
+            "url": "https://www.slate.fr/rss.xml",
+            "category": "Culture",
+            "lang": "fr",
+            "description": "Analyses et actualités décalées."
+        },
+        {
+            "title": "Politico",
+            "url": "https://rss.politico.com/politics-news.xml",
+            "category": "Actualités",
+            "lang": "en",
+            "description": "US politics coverage."
+        },
+        {
+            "title": "The Economist",
+            "url": "https://www.economist.com/latest/rss.xml",
+            "category": "Actualités",
+            "lang": "en",
+            "description": "World affairs and business analysis."
+        },
+        {
+            "title": "Challenges",
+            "url": "https://www.challenges.fr/rss.xml",
+            "category": "Actualités",
+            "lang": "fr",
+            "description": "Actualité économique française."
+        },
+        {
+            "title": "Ouest-France",
+            "url": "https://www.ouest-france.fr/rss/une",
+            "category": "Actualités",
+            "lang": "fr",
+            "description": "L'actualité régionale et nationale."
+        },
+        {
+            "title": "Numerama Cyberguerre",
+            "url": "https://www.numerama.com/tag/cybersecurite/feed/",
+            "category": "Sécurité",
+            "lang": "fr",
+            "description": "Cybersécurité vue par Numerama."
+        },
+        {
+            "title": "Libération",
+            "url": "https://www.liberation.fr/arc/outboundfeeds/rss/",
+            "category": "Actualités",
+            "lang": "fr",
+            "description": "L'actualité vue par Libération."
+        },
+        {
+            "title": "Mediapart",
+            "url": "https://www.mediapart.fr/articles/feed",
+            "category": "Actualités",
+            "lang": "fr",
+            "description": "Journalisme d'investigation indépendant."
+        },
+        {
+            "title": "RFI",
+            "url": "https://www.rfi.fr/fr/rss",
+            "category": "Actualités",
+            "lang": "fr",
+            "description": "Radio France Internationale."
+        },
+        {
+            "title": "The Independent",
+            "url": "https://www.independent.co.uk/news/world/rss",
+            "category": "Actualités",
+            "lang": "en",
+            "description": "World news from The Independent."
+        },
+        {
+            "title": "BFM TV",
+            "url": "https://www.bfmtv.com/rss/news-24-7/",
+            "category": "Actualités",
+            "lang": "fr",
+            "description": "L'actualité en direct."
+        },
+        {
+            "title": "The Next Web",
+            "url": "https://thenextweb.com/feed",
+            "category": "Tech",
+            "lang": "en",
+            "description": "Tech news and culture."
+        },
+        {
+            "title": "Underscore_",
+            "url": "https://www.underscore.news/feed",
+            "category": "Culture",
+            "lang": "fr",
+            "description": "Culture geek et pop culture."
+        },
+        {
+            "title": "Sky News",
+            "url": "https://feeds.skynews.com/feeds/rss/world.xml",
+            "category": "Actualités",
+            "lang": "en",
+            "description": "World news from Sky News (UK)."
+        },
+        {
+            "title": "Sciences et Avenir",
+            "url": "https://www.sciencesetavenir.fr/rss.xml",
+            "category": "Sciences",
+            "lang": "fr",
+            "description": "Actualité scientifique grand public."
+        },
+        {
+            "title": "MIT Technology Review",
+            "url": "https://www.technologyreview.com/feed/",
+            "category": "Tech",
+            "lang": "en",
+            "description": "Emerging technology coverage from MIT."
+        },
+        {
+            "title": "CNBC Top News",
+            "url": "https://www.cnbc.com/id/100003114/device/rss/rss.html",
+            "category": "Actualités",
+            "lang": "en",
+            "description": "Business news from CNBC."
+        },
+        {
+            "title": "Engadget",
+            "url": "https://www.engadget.com/rss.xml",
+            "category": "Tech",
+            "lang": "en",
+            "description": "Consumer tech news and reviews."
+        },
+        {
+            "title": "Bloomberg Markets",
+            "url": "https://feeds.bloomberg.com/markets/news.rss",
+            "category": "Actualités",
+            "lang": "en",
+            "description": "Markets news from Bloomberg."
+        },
+        {
+            "title": "Slashdot",
+            "url": "https://rss.slashdot.org/Slashdot/slashdotMain",
+            "category": "Tech",
+            "lang": "en",
+            "description": "News for nerds since 1997."
+        },
+        {
+            "title": "9to5Mac",
+            "url": "https://9to5mac.com/feed/",
+            "category": "Tech",
+            "lang": "en",
+            "description": "Apple news and rumors."
+        },
+        {
+            "title": "9to5Google",
+            "url": "https://9to5google.com/feed/",
+            "category": "Tech",
+            "lang": "en",
+            "description": "Google and Android news."
+        },
+        {
+            "title": "01net",
+            "url": "https://www.01net.com/rss/actualites/",
+            "category": "Tech",
+            "lang": "fr",
+            "description": "Actualité informatique et grand public."
+        },
+        {
+            "title": "BleepingComputer",
+            "url": "https://www.bleepingcomputer.com/feed/",
+            "category": "Sécurité",
+            "lang": "en",
+            "description": "Security and tech support news."
+        },
+        {
+            "title": "Schneier on Security",
+            "url": "https://www.schneier.com/feed/atom/",
+            "category": "Sécurité",
+            "lang": "en",
+            "description": "Bruce Schneier's security blog."
+        },
+        {
+            "title": "GitHub Trending",
+            "url": "https://mshibanami.github.io/GitHubTrendingRSS/daily/all.xml",
+            "category": "Développement",
+            "lang": "en",
+            "description": "Trending repositories on GitHub."
+        },
+        {
+            "title": "Android Police",
+            "url": "https://www.androidpolice.com/feed/",
+            "category": "Tech",
+            "lang": "en",
+            "description": "Android news and reviews."
+        },
+        {
+            "title": "The Hacker News",
+            "url": "https://feeds.feedburner.com/TheHackersNews",
+            "category": "Sécurité",
+            "lang": "en",
+            "description": "Cybersecurity news and analysis."
+        },
+        {
+            "title": "VentureBeat",
+            "url": "https://venturebeat.com/feed/",
+            "category": "Tech",
+            "lang": "en",
+            "description": "Tech, AI and enterprise news."
+        },
+        {
+            "title": "A List Apart",
+            "url": "https://alistapart.com/main/feed/",
+            "category": "Développement",
+            "lang": "en",
+            "description": "Web standards and design."
+        },
+        {
+            "title": "Python Insider",
+            "url": "https://blog.python.org/feeds/posts/default",
+            "category": "Développement",
+            "lang": "en",
+            "description": "Official Python language blog."
+        },
+        {
+            "title": "Financial Times",
+            "url": "https://www.ft.com/rss/home",
+            "category": "Actualités",
+            "lang": "en",
+            "description": "Global business and finance news."
+        },
+        {
+            "title": "Real Python",
+            "url": "https://realpython.com/atom.xml",
+            "category": "Développement",
+            "lang": "en",
+            "description": "Python tutorials and articles."
+        },
+        {
+            "title": "Lifehacker",
+            "url": "https://lifehacker.com/rss",
+            "category": "Tech",
+            "lang": "en",
+            "description": "Tips and tricks for everyday life."
+        },
+        {
+            "title": "Dark Reading",
+            "url": "https://www.darkreading.com/rss.xml",
+            "category": "Sécurité",
+            "lang": "en",
+            "description": "Cybersecurity news for professionals."
+        },
+        {
+            "title": "Kubernetes Blog",
+            "url": "https://kubernetes.io/feed.xml",
+            "category": "IT / Sysadmin",
+            "lang": "en",
+            "description": "Official Kubernetes project blog."
+        },
+        {
+            "title": "La Croix",
+            "url": "https://www.la-croix.com/RSS/UNIVERS",
+            "category": "Actualités",
+            "lang": "fr",
+            "description": "Actualité générale et spirituelle."
+        },
+        {
+            "title": "ZDNet",
+            "url": "https://www.zdnet.com/rss.xml",
+            "category": "Tech",
+            "lang": "en",
+            "description": "Enterprise tech news."
+        },
+        {
+            "title": "Var Matin",
+            "url": "https://www.varmatin.com/rss.xml",
+            "category": "Actualités",
+            "lang": "fr",
+            "description": "Actualité régionale du Var."
+        },
+        {
+            "title": "PostgreSQL News",
+            "url": "https://www.postgresql.org/news.rss",
+            "category": "Développement",
+            "lang": "en",
+            "description": "Official PostgreSQL news."
+        },
+        {
+            "title": "AWS News Blog",
+            "url": "https://aws.amazon.com/blogs/aws/feed/",
+            "category": "IT / Sysadmin",
+            "lang": "en",
+            "description": "Official AWS announcements."
+        },
+        {
+            "title": "Cloudflare Blog",
+            "url": "https://blog.cloudflare.com/rss/",
+            "category": "IT / Sysadmin",
+            "lang": "en",
+            "description": "Networking and security from Cloudflare."
+        },
+        {
+            "title": "Phys.org",
+            "url": "https://phys.org/rss-feed/",
+            "category": "Sciences",
+            "lang": "en",
+            "description": "Physics and science news."
+        },
+        {
+            "title": "New Scientist",
+            "url": "https://www.newscientist.com/feed/home/",
+            "category": "Sciences",
+            "lang": "en",
+            "description": "Science and technology news."
+        },
+        {
+            "title": "Netflix Tech Blog",
+            "url": "https://netflixtechblog.com/feed",
+            "category": "Développement",
+            "lang": "en",
+            "description": "Engineering at Netflix."
+        },
+        {
+            "title": "Docker Blog",
+            "url": "https://www.docker.com/blog/feed/",
+            "category": "IT / Sysadmin",
+            "lang": "en",
+            "description": "Official Docker blog."
+        },
+        {
+            "title": "GameSpot",
+            "url": "https://www.gamespot.com/feeds/mashup/",
+            "category": "Jeux vidéo",
+            "lang": "en",
+            "description": "Video game news and reviews."
+        },
+        {
+            "title": "Science Daily",
+            "url": "https://www.sciencedaily.com/rss/all.xml",
+            "category": "Sciences",
+            "lang": "en",
+            "description": "Latest research news."
+        },
+        {
+            "title": "Eurogamer",
+            "url": "https://www.eurogamer.net/feed",
+            "category": "Jeux vidéo",
+            "lang": "en",
+            "description": "Video games news from Europe."
+        },
+        {
+            "title": "PC Gamer",
+            "url": "https://www.pcgamer.com/rss/",
+            "category": "Jeux vidéo",
+            "lang": "en",
+            "description": "PC gaming news and reviews."
+        },
+        {
+            "title": "BBC Sport",
+            "url": "https://feeds.bbci.co.uk/sport/rss.xml",
+            "category": "Sport",
+            "lang": "en",
+            "description": "Sport news from the BBC."
+        },
+        {
+            "title": "Longreads",
+            "url": "https://longreads.com/feed/",
+            "category": "Culture",
+            "lang": "en",
+            "description": "Curated long-form journalism."
+        },
+        {
+            "title": "Sky Sports",
+            "url": "https://www.skysports.com/rss/12040",
+            "category": "Sport",
+            "lang": "en",
+            "description": "Sport news from Sky Sports."
+        },
+        {
+            "title": "Smithsonian Magazine",
+            "url": "https://www.smithsonianmag.com/rss/latest_articles/",
+            "category": "Culture",
+            "lang": "en",
+            "description": "History, science and culture."
+        },
+        {
+            "title": "CNN Top Stories",
+            "url": "http://rss.cnn.com/rss/cnn_topstories.rss",
+            "category": "Actualités",
+            "lang": "en",
+            "description": "Top stories from CNN."
+        },
+        {
+            "title": "Rolling Stone",
+            "url": "https://www.rollingstone.com/feed/",
+            "category": "Culture",
+            "lang": "en",
+            "description": "Music, film and culture news."
+        },
+        {
+            "title": "Deutsche Welle English",
+            "url": "https://rss.dw.com/rdf/rss-en-all",
+            "category": "Actualités",
+            "lang": "en",
+            "description": "German international broadcaster in English."
+        },
+        {
+            "title": "La Vanguardia",
+            "url": "https://www.lavanguardia.com/rss/home.xml",
+            "category": "Actualités",
+            "lang": "es",
+            "description": "Diario La Vanguardia."
+        },
+        {
+            "title": "Ars Technica Gaming",
+            "url": "https://feeds.arstechnica.com/arstechnica/gaming",
+            "category": "Jeux vidéo",
+            "lang": "en",
+            "description": "Gaming coverage from Ars Technica."
+        },
+        {
+            "title": "Kotaku",
+            "url": "https://kotaku.com/rss",
+            "category": "Jeux vidéo",
+            "lang": "en",
+            "description": "Video game news and culture."
+        },
+        {
+            "title": "Clarín",
+            "url": "https://www.clarin.com/rss/lo-ultimo/",
+            "category": "Actualités",
+            "lang": "es",
+            "description": "Diario argentino Clarín."
+        },
+        {
+            "title": "The Onion",
+            "url": "https://www.theonion.com/rss",
+            "category": "Culture",
+            "lang": "en",
+            "description": "Satirical news."
+        },
+        {
+            "title": "RTVE Noticias",
+            "url": "https://api2.rtve.es/rss/temas_noticias.xml",
+            "category": "Actualités",
+            "lang": "es",
+            "description": "Radio Televisión Española."
+        },
+        {
+            "title": "IGN",
+            "url": "https://feeds.ign.com/ign/all",
+            "category": "Jeux vidéo",
+            "lang": "en",
+            "description": "Video games news and reviews."
+        },
+        {
+            "title": "Infobae",
+            "url": "https://www.infobae.com/arc/outboundfeeds/rss/",
+            "category": "Actualités",
+            "lang": "es",
+            "description": "Noticias de América Latina."
+        },
+        {
+            "title": "Space.com",
+            "url": "https://www.space.com/feeds/all",
+            "category": "Sciences",
+            "lang": "en",
+            "description": "Space exploration and astronomy news."
+        },
+        {
+            "title": "Wwwhatsnew",
+            "url": "https://wwwhatsnew.com/feed/",
+            "category": "Tech",
+            "lang": "es",
+            "description": "Herramientas y noticias tecnológicas."
+        },
+        {
+            "title": "Marca Motor",
+            "url": "https://www.marca.com/rss/motor.xml",
+            "category": "Sport",
+            "lang": "es",
+            "description": "Motor y automovilismo."
+        },
+        {
+            "title": "La Nación (Argentina)",
+            "url": "https://www.lanacion.com.ar/arc/outboundfeeds/rss/",
+            "category": "Actualités",
+            "lang": "es",
+            "description": "Diario La Nación argentino."
+        },
+        {
+            "title": "AS.com",
+            "url": "https://as.com/rss/tags/ultimas_noticias.xml",
+            "category": "Sport",
+            "lang": "es",
+            "description": "Diario deportivo AS."
+        },
+        {
+            "title": "Mundo Deportivo",
+            "url": "https://www.mundodeportivo.com/rss/home.xml",
+            "category": "Sport",
+            "lang": "es",
+            "description": "Diario deportivo catalán."
+        },
+        {
+            "title": "20minutos",
+            "url": "https://www.20minutos.es/rss/",
+            "category": "Actualités",
+            "lang": "es",
+            "description": "Actualidad de 20minutos."
+        },
+        {
+            "title": "Muy Computer",
+            "url": "https://www.muycomputer.com/feed/",
+            "category": "Tech",
+            "lang": "es",
+            "description": "Actualidad informática."
+        },
+        {
+            "title": "Applesfera",
+            "url": "https://www.applesfera.com/feedburner.xml",
+            "category": "Tech",
+            "lang": "es",
+            "description": "Todo sobre Apple en español."
+        },
+        {
+            "title": "Euronews English",
+            "url": "https://www.euronews.com/rss?level=theme&name=news",
+            "category": "Actualités",
+            "lang": "en",
+            "description": "European news in English."
+        },
+        {
+            "title": "FAZ",
+            "url": "https://www.faz.net/rss/aktuell/",
+            "category": "Actualités",
+            "lang": "de",
+            "description": "Frankfurter Allgemeine Zeitung."
+        },
+        {
+            "title": "t3n",
+            "url": "https://t3n.de/rss.xml",
+            "category": "Tech",
+            "lang": "de",
+            "description": "Digitale Wirtschaft und Startups."
+        },
+        {
+            "title": "Die Welt",
+            "url": "https://www.welt.de/feeds/latest.rss",
+            "category": "Actualités",
+            "lang": "de",
+            "description": "Nachrichten von Die Welt."
+        },
+        {
+            "title": "Süddeutsche Zeitung",
+            "url": "https://rss.sueddeutsche.de/rss/Topthemen",
+            "category": "Actualités",
+            "lang": "de",
+            "description": "Deutschlands führende Qualitätszeitung."
+        },
+        {
+            "title": "Hipertextual",
+            "url": "https://hipertextual.com/feed",
+            "category": "Tech",
+            "lang": "es",
+            "description": "Tecnología y cultura digital."
+        },
+        {
+            "title": "Deutschlandfunk",
+            "url": "https://www.deutschlandfunk.de/nachrichten-100.rss",
+            "category": "Actualités",
+            "lang": "de",
+            "description": "Nachrichten des Deutschlandfunks."
+        },
+        {
+            "title": "n-tv",
+            "url": "https://www.n-tv.de/rss",
+            "category": "Actualités",
+            "lang": "de",
+            "description": "Aktuelle Nachrichten von n-tv."
+        },
+        {
+            "title": "ABC.es",
+            "url": "https://www.abc.es/rss/feeds/abcPortada.xml",
+            "category": "Actualités",
+            "lang": "es",
+            "description": "Diario ABC de España."
+        },
+        {
+            "title": "Chip.de",
+            "url": "https://www.chip.de/rss/rss_topnews.xml",
+            "category": "Tech",
+            "lang": "de",
+            "description": "Technik-Ratgeber und News."
+        },
+        {
+            "title": "Netzpolitik.org",
+            "url": "https://netzpolitik.org/feed/",
+            "category": "Sécurité",
+            "lang": "de",
+            "description": "Digitale Freiheitsrechte und Netzpolitik."
+        },
+        {
+            "title": "Il Fatto Quotidiano",
+            "url": "https://www.ilfattoquotidiano.it/feed/",
+            "category": "Actualités",
+            "lang": "it",
+            "description": "Giornalismo d'inchiesta italiano."
+        },
+        {
+            "title": "Deutsche Welle Deutsch",
+            "url": "https://rss.dw.com/rdf/rss-de-all",
+            "category": "Actualités",
+            "lang": "de",
+            "description": "Deutsche Welle auf Deutsch."
+        },
+        {
+            "title": "Polygon",
+            "url": "https://www.polygon.com/rss/index.xml",
+            "category": "Jeux vidéo",
+            "lang": "en",
+            "description": "Gaming news and culture."
+        },
+        {
+            "title": "Spektrum.de",
+            "url": "https://www.spektrum.de/alias/rss/spektrum-de-rss-feed/996406",
+            "category": "Sciences",
+            "lang": "de",
+            "description": "Wissenschaft verständlich erklärt."
+        },
+        {
+            "title": "Corriere della Sera",
+            "url": "https://xml2.corriereobjects.it/rss/homepage.xml",
+            "category": "Actualités",
+            "lang": "it",
+            "description": "Il quotidiano Corriere della Sera."
+        },
+        {
+            "title": "Focus.it",
+            "url": "https://www.focus.it/rss",
+            "category": "Sciences",
+            "lang": "it",
+            "description": "Scienza e curiosità."
+        },
+        {
+            "title": "Wired Italia",
+            "url": "https://www.wired.it/feed/rss",
+            "category": "Tech",
+            "lang": "it",
+            "description": "Tecnologia e cultura digitale."
+        },
+        {
+            "title": "Gazzetta dello Sport",
+            "url": "https://www.gazzetta.it/rss/home.xml",
+            "category": "Sport",
+            "lang": "it",
+            "description": "Il quotidiano sportivo italiano."
+        },
+        {
+            "title": "Punto Informatico",
+            "url": "https://www.punto-informatico.it/feed/",
+            "category": "Tech",
+            "lang": "it",
+            "description": "Notizie di tecnologia italiane."
+        },
+        {
+            "title": "Olhar Digital",
+            "url": "https://olhardigital.com.br/feed/",
+            "category": "Tech",
+            "lang": "pt",
+            "description": "Notícias de tecnologia."
+        },
+        {
+            "title": "Observador",
+            "url": "https://observador.pt/feed/",
+            "category": "Actualités",
+            "lang": "pt",
+            "description": "Jornal português Observador."
+        },
+        {
+            "title": "NOS Nieuws",
+            "url": "https://feeds.nos.nl/nosnieuwsalgemeen",
+            "category": "Actualités",
+            "lang": "nl",
+            "description": "Nederlandse nieuwsdienst NOS."
+        },
+        {
+            "title": "De Volkskrant",
+            "url": "https://www.volkskrant.nl/voorpagina/rss.xml",
+            "category": "Actualités",
+            "lang": "nl",
+            "description": "Nederlandse kwaliteitskrant."
+        },
+        {
+            "title": "NRC",
+            "url": "https://www.nrc.nl/rss/",
+            "category": "Actualités",
+            "lang": "nl",
+            "description": "Nederlands Dagblad NRC."
+        },
+        {
+            "title": "Tom's Hardware Italia",
+            "url": "https://www.tomshw.it/feed/",
+            "category": "Tech",
+            "lang": "it",
+            "description": "Hardware e tecnologia."
+        },
+        {
+            "title": "GIGAZINE",
+            "url": "https://gigazine.net/news/rss_2.0/",
+            "category": "Tech",
+            "lang": "ja",
+            "description": "テクノロジーとカルチャーのニュース。"
+        },
+        {
+            "title": "Asahi Shimbun",
+            "url": "https://www.asahi.com/rss/asahi/newsheadlines.rdf",
+            "category": "Actualités",
+            "lang": "ja",
+            "description": "朝日新聞のニュース。"
+        },
+        {
+            "title": "Security.nl",
+            "url": "https://www.security.nl/rss/headlines.xml",
+            "category": "Sécurité",
+            "lang": "nl",
+            "description": "Nederlands beveiligingsnieuws."
+        },
+        {
+            "title": "Onet Wiadomości",
+            "url": "https://wiadomosci.onet.pl/.feed",
+            "category": "Actualités",
+            "lang": "pl",
+            "description": "Wiadomości z Onet.pl."
+        },
+        {
+            "title": "Telegraaf",
+            "url": "https://www.telegraaf.nl/rss",
+            "category": "Actualités",
+            "lang": "nl",
+            "description": "Nederlandse krant De Telegraaf."
+        },
+        {
+            "title": "Antyweb",
+            "url": "https://antyweb.pl/feed",
+            "category": "Tech",
+            "lang": "pl",
+            "description": "Technologia po polsku."
+        },
+        {
+            "title": "Aftonbladet",
+            "url": "https://rss.aftonbladet.se/rss2/small/pages/sections/senastenytt/",
+            "category": "Actualités",
+            "lang": "sv",
+            "description": "Svensk kvällstidning."
+        },
+        {
+            "title": "RFI Chinese",
+            "url": "https://www.rfi.fr/cn/%E4%B8%AD%E5%9B%BD/rss",
+            "category": "Actualités",
+            "lang": "zh",
+            "description": "法國國際廣播電台中文。"
+        },
+        {
+            "title": "Canaltech",
+            "url": "https://canaltech.com.br/rss/",
+            "category": "Tech",
+            "lang": "pt",
+            "description": "Tecnologia no Brasil."
+        },
+        {
+            "title": "Folha de S.Paulo",
+            "url": "https://feeds.folha.uol.com.br/emcimadahora/rss091.xml",
+            "category": "Actualités",
+            "lang": "pt",
+            "description": "Jornal brasileiro Folha de S.Paulo."
+        },
+        {
+            "title": "Dagens Nyheter",
+            "url": "https://www.dn.se/rss/",
+            "category": "Actualités",
+            "lang": "sv",
+            "description": "Svensk dagstidning."
+        },
+        {
+            "title": "BBC Arabic",
+            "url": "https://feeds.bbci.co.uk/arabic/rss.xml",
+            "category": "Actualités",
+            "lang": "ar",
+            "description": "بي بي سي عربي."
+        },
+        {
+            "title": "BBC Türkçe",
+            "url": "https://feeds.bbci.co.uk/turkce/rss.xml",
+            "category": "Actualités",
+            "lang": "tr",
+            "description": "BBC Türkçe haberleri."
+        },
+        {
+            "title": "Al Jazeera Arabic",
+            "url": "https://www.aljazeera.net/aljazeerarss/a7c186be-1baa-4bd4-9d80-a84db769f779/73d0e1b4-532f-45ef-b135-bfdff8b8cab9",
+            "category": "Actualités",
+            "lang": "ar",
+            "description": "الجزيرة نت."
+        },
+        {
+            "title": "Webtekno",
+            "url": "https://www.webtekno.com/rss.xml",
+            "category": "Tech",
+            "lang": "tr",
+            "description": "Türkçe teknoloji haberleri."
+        },
+        {
+            "title": "CD-Action",
+            "url": "https://www.cdaction.pl/rss",
+            "category": "Jeux vidéo",
+            "lang": "pl",
+            "description": "Polski magazyn o grach."
+        },
+        {
+            "title": "Gazeta.pl",
+            "url": "https://rss.gazeta.pl/pub/rss/wiadomosci.xml",
+            "category": "Actualités",
+            "lang": "pl",
+            "description": "Polski portal informacyjny."
+        },
+        {
+            "title": "Habr",
+            "url": "https://habr.com/ru/rss/all/all/",
+            "category": "Développement",
+            "lang": "ru",
+            "description": "IT-сообщество Хабр."
+        },
+        {
+            "title": "BBC Hindi",
+            "url": "https://feeds.bbci.co.uk/hindi/rss.xml",
+            "category": "Actualités",
+            "lang": "hi",
+            "description": "बीबीसी हिन्दी समाचार।"
+        },
+        {
+            "title": "NRK",
+            "url": "https://www.nrk.no/toppsaker.rss",
+            "category": "Actualités",
+            "lang": "no",
+            "description": "Norsk rikskringkasting."
+        },
+        {
+            "title": "4Gamer",
+            "url": "https://www.4gamer.net/rss/index.xml",
+            "category": "Jeux vidéo",
+            "lang": "ja",
+            "description": "ゲームニュース。"
+        },
+        {
+            "title": "Spider's Web",
+            "url": "https://spidersweb.pl/feed",
+            "category": "Tech",
+            "lang": "pl",
+            "description": "Polski portal technologiczny."
+        },
+        {
+            "title": "Hürriyet",
+            "url": "https://www.hurriyet.com.tr/rss/anasayfa",
+            "category": "Actualités",
+            "lang": "tr",
+            "description": "Türkiye'nin gündemi."
+        },
+        {
+            "title": "Impress Watch",
+            "url": "https://www.watch.impress.co.jp/data/rss/1.0/ipw/feed.rdf",
+            "category": "Tech",
+            "lang": "ja",
+            "description": "IT・家電ニュース。"
+        },
+        {
+            "title": "DR Nyheder",
+            "url": "https://www.dr.dk/nyheder/service/feeds/allenyheder",
+            "category": "Actualités",
+            "lang": "da",
+            "description": "Danmarks Radio nyheder."
+        },
+        {
+            "title": "in.gr",
+            "url": "https://www.in.gr/feed/",
+            "category": "Actualités",
+            "lang": "el",
+            "description": "Ελληνικές ειδήσεις."
+        },
+        {
+            "title": "Živě.cz",
+            "url": "https://www.zive.cz/rss/sc-47/",
+            "category": "Tech",
+            "lang": "cs",
+            "description": "České technologické novinky."
+        },
+        {
+            "title": "iDNES.cz",
+            "url": "https://servis.idnes.cz/rss.aspx?c=zpravodaj",
+            "category": "Actualités",
+            "lang": "cs",
+            "description": "Zpravodajský server iDNES.cz."
+        },
+        {
+            "title": "Yonhap News",
+            "url": "https://www.yna.co.kr/rss/news.xml",
+            "category": "Actualités",
+            "lang": "ko",
+            "description": "연합뉴스 최신 소식."
+        },
+        {
+            "title": "Helsingin Sanomat",
+            "url": "https://www.hs.fi/rss/tuoreimmat.xml",
+            "category": "Actualités",
+            "lang": "fi",
+            "description": "Suomen suurin sanomalehti."
+        },
+        {
+            "title": "Novinky.cz",
+            "url": "https://www.novinky.cz/rss",
+            "category": "Actualités",
+            "lang": "cs",
+            "description": "České zpravodajství."
+        },
+        {
+            "title": "BBC Ukrainian",
+            "url": "https://feeds.bbci.co.uk/ukrainian/rss.xml",
+            "category": "Actualités",
+            "lang": "uk",
+            "description": "Новини Бі-бі-сі українською."
+        },
+        {
+            "title": "444.hu",
+            "url": "https://444.hu/feed",
+            "category": "Actualités",
+            "lang": "hu",
+            "description": "Független magyar hírportál."
+        },
+        {
+            "title": "Ynet",
+            "url": "https://www.ynet.co.il/Integration/StoryRss2.xml",
+            "category": "Actualités",
+            "lang": "he",
+            "description": "חדשות מהארץ ומהעולם."
+        },
+        {
+            "title": "YLE Uutiset",
+            "url": "https://feeds.yle.fi/uutiset/v1/recent.rss?publisherIds=YLE_UUTISET",
+            "category": "Actualités",
+            "lang": "fi",
+            "description": "Suomen yleisradion uutiset."
+        },
+        {
+            "title": "VG Nyheter",
+            "url": "https://www.vg.no/rss/feed/",
+            "category": "Actualités",
+            "lang": "no",
+            "description": "Verdens Gang nyheter."
+        },
+        {
+            "title": "Digi24",
+            "url": "https://www.digi24.ro/rss",
+            "category": "Actualités",
+            "lang": "ro",
+            "description": "Știri Digi24."
+        },
+        {
+            "title": "BBC Chinese",
+            "url": "https://www.bbc.com/zhongwen/simp/index.xml",
+            "category": "Actualités",
+            "lang": "zh",
+            "description": "BBC 中文新聞。"
+        },
+        {
+            "title": "Thairath",
+            "url": "https://www.thairath.co.th/rss/news",
+            "category": "Actualités",
+            "lang": "th",
+            "description": "ข่าวไทยรัฐ."
+        },
+        {
+            "title": "BBC Thai",
+            "url": "https://feeds.bbci.co.uk/thai/rss.xml",
+            "category": "Actualités",
+            "lang": "th",
+            "description": "ข่าวบีบีซีไทย."
+        },
+        {
+            "title": "SME.sk",
+            "url": "https://www.sme.sk/rss-title",
+            "category": "Actualités",
+            "lang": "sk",
+            "description": "Slovenský spravodajský denník."
+        },
+        {
+            "title": "HotNews.ro",
+            "url": "https://www.hotnews.ro/rss",
+            "category": "Actualités",
+            "lang": "ro",
+            "description": "Știri din România."
+        },
+        {
+            "title": "Index.hr",
+            "url": "https://www.index.hr/rss/vijesti",
+            "category": "Actualités",
+            "lang": "hr",
+            "description": "Hrvatske vijesti."
+        },
+        {
+            "title": "Boing Boing",
+            "url": "https://boingboing.net/feed",
+            "category": "Culture",
+            "lang": "en",
+            "description": "A directory of wonderful things."
+        },
+        {
+            "title": "Ara.cat",
+            "url": "https://www.ara.cat/rss/",
+            "category": "Actualités",
+            "lang": "ca",
+            "description": "Diari català Ara."
+        },
+        {
+            "title": "BBC Persian",
+            "url": "https://feeds.bbci.co.uk/persian/rss.xml",
+            "category": "Actualités",
+            "lang": "fa",
+            "description": "اخبار بی‌بی‌سی فارسی."
+        },
+        {
+            "title": "France Culture",
+            "url": "https://www.radiofrance.fr/franceculture/rss",
+            "category": "Culture",
+            "lang": "fr",
+            "description": "Programmes et actualités de France Culture."
+        },
+        {
+            "title": "Index.hu",
+            "url": "https://index.hu/24ora/rss/",
+            "category": "Actualités",
+            "lang": "hu",
+            "description": "Magyar hírportál."
+        },
+        {
+            "title": "Les Numériques",
+            "url": "https://www.lesnumeriques.com/rss.xml",
+            "category": "Tech",
+            "lang": "fr",
+            "description": "Tests et actualités high-tech."
+        },
+        {
+            "title": "Kottke.org",
+            "url": "https://feeds.kottke.org/main",
+            "category": "Culture",
+            "lang": "en",
+            "description": "Liberal arts blog since 1998."
+        },
+        {
+            "title": "Brain Pickings",
+            "url": "https://www.themarginalian.org/feed/",
+            "category": "Culture",
+            "lang": "en",
+            "description": "Ideas on culture and creativity."
+        },
+        {
+            "title": "VnExpress",
+            "url": "https://vnexpress.net/rss/tin-moi-nhat.rss",
+            "category": "Actualités",
+            "lang": "vi",
+            "description": "Tin tức mới nhất VnExpress."
+        },
+        {
+            "title": "Vox",
+            "url": "https://www.vox.com/rss/index.xml",
+            "category": "Actualités",
+            "lang": "en",
+            "description": "Explanatory journalism."
+        },
+        {
+            "title": "The Atlantic",
+            "url": "https://www.theatlantic.com/feed/all/",
+            "category": "Actualités",
+            "lang": "en",
+            "description": "Analysis and long-form journalism."
+        },
+        {
+            "title": "Manager BTC",
+            "url": "https://www.begeek.fr/feed",
+            "category": "Tech",
+            "lang": "fr",
+            "description": "Actualité tech et geek."
+        },
+        {
+            "title": "Axios",
+            "url": "https://api.axios.com/feed/",
+            "category": "Actualités",
+            "lang": "en",
+            "description": "Smart brevity news."
+        },
+        {
+            "title": "Time Magazine",
+            "url": "https://time.com/feed/",
+            "category": "Actualités",
+            "lang": "en",
+            "description": "News and analysis from Time."
+        },
+        {
+            "title": "Delfi.lt",
+            "url": "https://www.delfi.lt/rss/feeds/daily.xml",
+            "category": "Actualités",
+            "lang": "lt",
+            "description": "Lietuvos naujienos."
+        },
+        {
+            "title": "NBC News",
+            "url": "https://feeds.nbcnews.com/nbcnews/public/news",
+            "category": "Actualités",
+            "lang": "en",
+            "description": "Top stories from NBC News."
+        },
+        {
+            "title": "MarketWatch",
+            "url": "https://feeds.content.dowjones.io/public/rss/mw_topstories",
+            "category": "Actualités",
+            "lang": "en",
+            "description": "Financial market news."
+        },
+        {
+            "title": "ProPublica",
+            "url": "https://www.propublica.org/feeds/propublica/main",
+            "category": "Actualités",
+            "lang": "en",
+            "description": "Investigative journalism nonprofit."
+        },
+        {
+            "title": "MakeUseOf",
+            "url": "https://www.makeuseof.com/feed/",
+            "category": "Tech",
+            "lang": "en",
+            "description": "Tech explainers and how-tos."
+        },
+        {
+            "title": "Trust My Science",
+            "url": "https://trustmyscience.com/feed/",
+            "category": "Sciences",
+            "lang": "fr",
+            "description": "Vulgarisation scientifique."
+        },
+        {
+            "title": "Mashable",
+            "url": "https://mashable.com/feeds/rss/all",
+            "category": "Tech",
+            "lang": "en",
+            "description": "Tech and digital culture news."
+        },
+        {
+            "title": "XDA Developers",
+            "url": "https://www.xda-developers.com/feed/",
+            "category": "Tech",
+            "lang": "en",
+            "description": "Android and mobile modding news."
+        },
+        {
+            "title": "How-To Geek",
+            "url": "https://www.howtogeek.com/feed/",
+            "category": "Tech",
+            "lang": "en",
+            "description": "Tech guides and tutorials."
+        },
+        {
+            "title": "B92",
+            "url": "https://www.b92.net/info/rss/vesti.xml",
+            "category": "Actualités",
+            "lang": "sr",
+            "description": "Srpske vesti."
+        },
+        {
+            "title": "CNET News",
+            "url": "https://www.cnet.com/rss/news/",
+            "category": "Tech",
+            "lang": "en",
+            "description": "Consumer tech news."
+        },
+        {
+            "title": "PetaPixel",
+            "url": "https://petapixel.com/feed/",
+            "category": "Culture",
+            "lang": "en",
+            "description": "Photography news and gear."
+        },
+        {
+            "title": "Hacker Noon",
+            "url": "https://hackernoon.com/feed",
+            "category": "Développement",
+            "lang": "en",
+            "description": "Tech stories from the community."
+        },
+        {
+            "title": "Tuoi Tre",
+            "url": "https://tuoitre.vn/rss/tin-moi-nhat.rss",
+            "category": "Actualités",
+            "lang": "vi",
+            "description": "Báo Tuổi Trẻ."
+        },
+        {
+            "title": "Digital Trends",
+            "url": "https://www.digitaltrends.com/feed/",
+            "category": "Tech",
+            "lang": "en",
+            "description": "Tech news and buying guides."
+        },
+        {
+            "title": "Joel on Software",
+            "url": "https://www.joelonsoftware.com/feed/",
+            "category": "Développement",
+            "lang": "en",
+            "description": "Software management essays."
+        },
+        {
+            "title": "Fast Company",
+            "url": "https://www.fastcompany.com/rss.xml",
+            "category": "Actualités",
+            "lang": "en",
+            "description": "Business innovation news."
+        },
+        {
+            "title": "Coding Horror",
+            "url": "https://blog.codinghorror.com/rss/",
+            "category": "Développement",
+            "lang": "en",
+            "description": "Programming and human factors blog."
+        },
+        {
+            "title": "Martin Fowler",
+            "url": "https://martinfowler.com/feed.atom",
+            "category": "Développement",
+            "lang": "en",
+            "description": "Software design articles."
+        },
+        {
+            "title": "Business Insider",
+            "url": "https://www.businessinsider.com/rss",
+            "category": "Actualités",
+            "lang": "en",
+            "description": "Business and tech news."
+        },
+        {
+            "title": "freeCodeCamp News",
+            "url": "https://www.freecodecamp.org/news/tag/programming/rss/",
+            "category": "Développement",
+            "lang": "en",
+            "description": "Programming news and tutorials."
+        },
+        {
+            "title": "Tom's Hardware",
+            "url": "https://www.tomshardware.com/feeds/all",
+            "category": "Tech",
+            "lang": "en",
+            "description": "PC hardware news and reviews."
+        },
+        {
+            "title": "PostgreSQL Weekly",
+            "url": "https://postgresweekly.com/rss/",
+            "category": "Développement",
+            "lang": "en",
+            "description": "Weekly PostgreSQL news."
+        },
+        {
+            "title": "Node Weekly",
+            "url": "https://nodeweekly.com/rss/",
+            "category": "Développement",
+            "lang": "en",
+            "description": "Weekly Node.js news."
+        },
+        {
+            "title": "JavaScript Weekly",
+            "url": "https://javascriptweekly.com/rss/",
+            "category": "Développement",
+            "lang": "en",
+            "description": "Weekly JavaScript news."
+        },
+        {
+            "title": "Golang Weekly",
+            "url": "https://golangweekly.com/rss/",
+            "category": "Développement",
+            "lang": "en",
+            "description": "Weekly Go news."
+        },
+        {
+            "title": "Rust Blog",
+            "url": "https://blog.rust-lang.org/feed.xml",
+            "category": "Développement",
+            "lang": "en",
+            "description": "Official Rust language blog."
+        },
+        {
+            "title": "Ruby Weekly",
+            "url": "https://rubyweekly.com/rss/",
+            "category": "Développement",
+            "lang": "en",
+            "description": "Weekly Ruby news."
+        },
+        {
+            "title": "PHP Internals News",
+            "url": "https://phpinternals.news/feed.rss",
+            "category": "Développement",
+            "lang": "en",
+            "description": "PHP internals and RFC news."
+        },
+        {
+            "title": "V8 Blog",
+            "url": "https://v8.dev/blog.atom",
+            "category": "Développement",
+            "lang": "en",
+            "description": "Official V8 JavaScript engine blog."
+        },
+        {
+            "title": "Gizmodo",
+            "url": "https://gizmodo.com/rss",
+            "category": "Tech",
+            "lang": "en",
+            "description": "Tech, science and sci-fi culture."
+        },
+        {
+            "title": "Mozilla Hacks",
+            "url": "https://hacks.mozilla.org/feed/",
+            "category": "Développement",
+            "lang": "en",
+            "description": "Web platform news from Mozilla."
+        },
+        {
+            "title": "WordPress News",
+            "url": "https://wordpress.org/news/feed/",
+            "category": "Développement",
+            "lang": "en",
+            "description": "Official WordPress news."
+        },
+        {
+            "title": "Troy Hunt",
+            "url": "https://www.troyhunt.com/rss/",
+            "category": "Sécurité",
+            "lang": "en",
+            "description": "Security researcher blog."
+        },
+        {
+            "title": "EFF Deeplinks",
+            "url": "https://www.eff.org/rss/updates.xml",
+            "category": "Sécurité",
+            "lang": "en",
+            "description": "Digital rights news from the EFF."
+        },
+        {
+            "title": "TechRadar",
+            "url": "https://www.techradar.com/rss",
+            "category": "Tech",
+            "lang": "en",
+            "description": "Tech news and reviews."
+        },
+        {
+            "title": "Ycombinator Launches",
+            "url": "https://www.ycombinator.com/blog/rss/",
+            "category": "Développement",
+            "lang": "en",
+            "description": "Y Combinator blog."
+        },
+        {
+            "title": "Quanta Magazine",
+            "url": "https://www.quantamagazine.org/feed/",
+            "category": "Sciences",
+            "lang": "en",
+            "description": "Fundamental science and math news."
+        },
+        {
+            "title": "IEEE Spectrum",
+            "url": "https://spectrum.ieee.org/feeds/feed.rss",
+            "category": "Sciences",
+            "lang": "en",
+            "description": "Engineering and technology news."
+        },
+        {
+            "title": "Astronomy Now",
+            "url": "https://astronomynow.com/feed/",
+            "category": "Sciences",
+            "lang": "en",
+            "description": "Astronomy and space news."
+        },
+        {
+            "title": "SANS ISC",
+            "url": "https://isc.sans.edu/rssfeed_full.xml",
+            "category": "Sécurité",
+            "lang": "en",
+            "description": "Internet Storm Center diary."
+        },
+        {
+            "title": "CDC Newsroom",
+            "url": "https://tools.cdc.gov/api/v2/resources/media/132608.rss",
+            "category": "Sciences",
+            "lang": "en",
+            "description": "Public health news from the CDC."
+        },
+        {
+            "title": "VG247",
+            "url": "https://www.vg247.com/feed",
+            "category": "Jeux vidéo",
+            "lang": "en",
+            "description": "Video game news."
+        },
+        {
+            "title": "Nintendo Life",
+            "url": "https://www.nintendolife.com/feeds/latest",
+            "category": "Jeux vidéo",
+            "lang": "en",
+            "description": "Nintendo news and reviews."
+        },
+        {
+            "title": "Push Square",
+            "url": "https://www.pushsquare.com/feeds/latest",
+            "category": "Jeux vidéo",
+            "lang": "en",
+            "description": "PlayStation news and reviews."
+        },
+        {
+            "title": "Pure Xbox",
+            "url": "https://www.purexbox.com/feeds/latest",
+            "category": "Jeux vidéo",
+            "lang": "en",
+            "description": "Xbox news and reviews."
+        },
+        {
+            "title": "ESPN NBA",
+            "url": "https://www.espn.com/espn/rss/nba/news",
+            "category": "Sport",
+            "lang": "en",
+            "description": "NBA news from ESPN."
+        },
+        {
+            "title": "ESPN NFL",
+            "url": "https://www.espn.com/espn/rss/nfl/news",
+            "category": "Sport",
+            "lang": "en",
+            "description": "NFL news from ESPN."
+        },
+        {
+            "title": "Formula 1 Official",
+            "url": "https://www.formula1.com/en/latest/all.xml",
+            "category": "Sport",
+            "lang": "en",
+            "description": "Official Formula 1 news."
+        },
+        {
+            "title": "Der Standard",
+            "url": "https://www.derstandard.at/rss",
+            "category": "Actualités",
+            "lang": "de",
+            "description": "Österreichische Tageszeitung."
+        },
+        {
+            "title": "Golem Security",
+            "url": "https://rss.golem.de/rss.php?tp=sec&feed=RSS2.0",
+            "category": "Sécurité",
+            "lang": "de",
+            "description": "Sicherheitsnews von Golem."
+        },
+        {
+            "title": "Destructoid",
+            "url": "https://www.destructoid.com/feed/",
+            "category": "Jeux vidéo",
+            "lang": "en",
+            "description": "Video game news and culture."
+        },
+        {
+            "title": "Kicker Bundesliga",
+            "url": "https://newsfeed.kicker.de/news/bundesliga",
+            "category": "Sport",
+            "lang": "de",
+            "description": "Bundesliga-News."
+        },
+        {
+            "title": "InfoQ",
+            "url": "https://www.infoq.com/feed/",
+            "category": "Développement",
+            "lang": "en",
+            "description": "Software architecture and engineering."
+        },
+        {
+            "title": "El Diario",
+            "url": "https://www.eldiario.es/rss/",
+            "category": "Actualités",
+            "lang": "es",
+            "description": "Periodismo independiente español."
+        },
+        {
+            "title": "MuyLinux",
+            "url": "https://www.muylinux.com/feed/",
+            "category": "Open source",
+            "lang": "es",
+            "description": "Linux y software libre."
+        },
+        {
+            "title": "Live Science",
+            "url": "https://www.livescience.com/feeds/all",
+            "category": "Sciences",
+            "lang": "en",
+            "description": "Science news for everyone."
+        },
+        {
+            "title": "Basic Thinking",
+            "url": "https://www.basicthinking.de/blog/feed/",
+            "category": "Tech",
+            "lang": "de",
+            "description": "Digitale Trends und Netzkultur."
+        },
+        {
+            "title": "RepubblicaTech",
+            "url": "https://www.repubblica.it/rss/tecnologia/rss2.0.xml",
+            "category": "Tech",
+            "lang": "it",
+            "description": "Tecnologia da Repubblica."
+        },
+        {
+            "title": "Xataka Android",
+            "url": "https://www.xatakandroid.com/feedburner.xml",
+            "category": "Tech",
+            "lang": "es",
+            "description": "Android en español."
+        },
+        {
+            "title": "Heise Security",
+            "url": "https://www.heise.de/security/rss/news-atom.xml",
+            "category": "Sécurité",
+            "lang": "de",
+            "description": "IT-Sicherheit von heise."
+        },
+        {
+            "title": "Sky Sport Italia",
+            "url": "https://sport.sky.it/rss/sport.xml",
+            "category": "Sport",
+            "lang": "it",
+            "description": "Notizie sportive."
+        },
+        {
+            "title": "Le Scienze",
+            "url": "https://www.lescienze.it/rss",
+            "category": "Sciences",
+            "lang": "it",
+            "description": "Scienza in italiano."
+        },
+        {
+            "title": "Tweakers Gaming",
+            "url": "https://feeds.feedburner.com/tweakers/games",
+            "category": "Jeux vidéo",
+            "lang": "nl",
+            "description": "Nederlands gamesnieuws."
+        },
+        {
+            "title": "Trouw",
+            "url": "https://www.trouw.nl/voorpagina/rss.xml",
+            "category": "Actualités",
+            "lang": "nl",
+            "description": "Nederlandse ochtendkrant."
+        },
+        {
+            "title": "HobbyConsolas",
+            "url": "https://www.hobbyconsolas.com/rss",
+            "category": "Jeux vidéo",
+            "lang": "es",
+            "description": "Noticias de videojuegos."
+        },
+        {
+            "title": "3DNews",
+            "url": "https://3dnews.ru/news/rss/",
+            "category": "Tech",
+            "lang": "ru",
+            "description": "IT-новости."
+        },
+        {
+            "title": "Focus Online",
+            "url": "https://www.focus.de/rss/finanzen/index.rdf",
+            "category": "Actualités",
+            "lang": "de",
+            "description": "Aktuelle Wirtschaftsnachrichten."
+        },
+        {
+            "title": "Svenska Dagbladet",
+            "url": "https://www.svd.se/?service=rss",
+            "category": "Actualités",
+            "lang": "sv",
+            "description": "Svensk morgontidning."
+        },
+        {
+            "title": "DDay.it",
+            "url": "https://www.dday.it/rss",
+            "category": "Tech",
+            "lang": "it",
+            "description": "Tecnologia e recensioni."
+        },
+        {
+            "title": "RBC",
+            "url": "https://rssexport.rbc.ru/rbcnews/news/30/full.rss",
+            "category": "Actualités",
+            "lang": "ru",
+            "description": "Новости РБК."
+        },
+        {
+            "title": "Politiken",
+            "url": "https://politiken.dk/rss/senestenyt.rss",
+            "category": "Actualités",
+            "lang": "da",
+            "description": "Dansk avis Politiken."
+        },
+        {
+            "title": "Feber",
+            "url": "https://feber.se/rss/",
+            "category": "Tech",
+            "lang": "sv",
+            "description": "Svenska tekniknyheter."
+        },
+        {
+            "title": "AD.nl",
+            "url": "https://www.ad.nl/rss.xml",
+            "category": "Actualités",
+            "lang": "nl",
+            "description": "Algemeen Dagblad nieuws."
+        },
+        {
+            "title": "Aftenposten",
+            "url": "https://www.aftenposten.no/rss",
+            "category": "Actualités",
+            "lang": "no",
+            "description": "Norsk avis Aftenposten."
+        },
+        {
+            "title": "Digi.no",
+            "url": "https://www.digi.no/rss",
+            "category": "Tech",
+            "lang": "no",
+            "description": "Norske teknologinyheter."
+        },
+        {
+            "title": "Aktuálně.cz",
+            "url": "https://zpravy.aktualne.cz/rss/",
+            "category": "Actualités",
+            "lang": "cs",
+            "description": "České zpravodajství online."
+        },
+        {
+            "title": "Iltalehti",
+            "url": "https://www.iltalehti.fi/rss/uutiset.xml",
+            "category": "Actualités",
+            "lang": "fi",
+            "description": "Suomalainen iltapäivälehti."
+        },
+        {
+            "title": "IT Media Japan Mobile",
+            "url": "https://rss.itmedia.co.jp/rss/2.0/mobile.xml",
+            "category": "Tech",
+            "lang": "ja",
+            "description": "モバイル関連ニュース。"
+        },
+        {
+            "title": "Show Metro",
+            "url": "https://www.showmetech.com.br/feed/",
+            "category": "Tech",
+            "lang": "pt",
+            "description": "Tecnologia e curiosidades."
+        },
+        {
+            "title": "To Vima",
+            "url": "https://www.tovima.gr/feed/",
+            "category": "Actualités",
+            "lang": "el",
+            "description": "Ελληνική εφημερίδα Το Βήμα."
+        },
+        {
+            "title": "Mainichi Shimbun",
+            "url": "https://mainichi.jp/rss/etc/mainichi-flash.rss",
+            "category": "Actualités",
+            "lang": "ja",
+            "description": "毎日新聞のニュース。"
+        },
+        {
+            "title": "Walla News",
+            "url": "https://rss.walla.co.il/feed/1?type=main",
+            "category": "Actualités",
+            "lang": "he",
+            "description": "חדשות מוואלה."
+        },
+        {
+            "title": "HVG",
+            "url": "https://hvg.hu/rss",
+            "category": "Actualités",
+            "lang": "hu",
+            "description": "Magyar hírmagazin HVG."
+        },
+        {
+            "title": "Kommersant",
+            "url": "https://www.kommersant.ru/RSS/news.xml",
+            "category": "Actualités",
+            "lang": "ru",
+            "description": "Российская деловая газета."
+        },
+        {
+            "title": "Novi List",
+            "url": "https://www.novilist.hr/feed/",
+            "category": "Actualités",
+            "lang": "hr",
+            "description": "Riječke novine Novi list."
+        },
+        {
+            "title": "Lupa.cz",
+            "url": "https://www.lupa.cz/rss/clanky/",
+            "category": "Tech",
+            "lang": "cs",
+            "description": "České internetové zpravodajství."
+        },
+        {
+            "title": "Politika",
+            "url": "https://www.politika.rs/rss",
+            "category": "Actualités",
+            "lang": "sr",
+            "description": "Najstarije srpske novine."
+        },
+        {
+            "title": "Blic",
+            "url": "https://www.blic.rs/rss/danasnje-vesti",
+            "category": "Actualités",
+            "lang": "sr",
+            "description": "Srpske vesti Blic."
+        },
+        {
+            "title": "Antara News",
+            "url": "https://www.antaranews.com/rss/terkini.xml",
+            "category": "Actualités",
+            "lang": "id",
+            "description": "Kantor berita nasional Indonesia."
+        },
+        {
+            "title": "Adevărul",
+            "url": "https://adevarul.ro/rss/",
+            "category": "Actualités",
+            "lang": "ro",
+            "description": "Ziar românesc Adevărul."
+        },
+        {
+            "title": "BBC Urdu",
+            "url": "https://feeds.bbci.co.uk/urdu/rss.xml",
+            "category": "Actualités",
+            "lang": "ur",
+            "description": "بی بی سی اردو خبریں۔"
+        },
+        {
+            "title": "Postimees",
+            "url": "https://www.postimees.ee/rss",
+            "category": "Actualités",
+            "lang": "et",
+            "description": "Eesti ajaleht Postimees."
+        },
+        {
+            "title": "BBC Swahili",
+            "url": "https://feeds.bbci.co.uk/swahili/rss.xml",
+            "category": "Actualités",
+            "lang": "sw",
+            "description": "Habari za BBC kwa Kiswahili."
+        },
+        {
+            "title": "BBC Bengali",
+            "url": "https://feeds.bbci.co.uk/bengali/rss.xml",
+            "category": "Actualités",
+            "lang": "bn",
+            "description": "বিবিসি বাংলা সংবাদ।"
+        },
+        {
+            "title": "CBS News",
+            "url": "https://www.cbsnews.com/latest/rss/main",
+            "category": "Actualités",
+            "lang": "en",
+            "description": "Top stories from CBS News."
+        },
+        {
+            "title": "Fox News",
+            "url": "https://moxie.foxnews.com/google-publisher/latest.xml",
+            "category": "Actualités",
+            "lang": "en",
+            "description": "Latest news from Fox News."
+        },
+        {
+            "title": "Mobiili.fi",
+            "url": "https://www.mobiili.fi/feed",
+            "category": "Tech",
+            "lang": "fi",
+            "description": "Suomalaiset mobiiliuutiset."
+        },
+        {
+            "title": "Genk",
+            "url": "https://genk.vn/rss/home.rss",
+            "category": "Tech",
+            "lang": "vi",
+            "description": "Tin công nghệ Việt Nam."
+        },
+        {
+            "title": "Ars Technica Policy",
+            "url": "https://feeds.arstechnica.com/arstechnica/tech-policy",
+            "category": "Sécurité",
+            "lang": "en",
+            "description": "Tech policy coverage from Ars Technica."
+        },
+        {
+            "title": "Thanh Nien",
+            "url": "https://thanhnien.vn/rss/home.rss",
+            "category": "Actualités",
+            "lang": "vi",
+            "description": "Báo Thanh Niên."
+        },
+        {
+            "title": "Django Blog",
+            "url": "https://www.djangoproject.com/rss/weblog/",
+            "category": "Développement",
+            "lang": "en",
+            "description": "Official Django framework blog."
+        },
+        {
+            "title": "CSO Online",
+            "url": "https://www.csoonline.com/feed/",
+            "category": "Sécurité",
+            "lang": "en",
+            "description": "Security and risk management news."
+        },
+        {
+            "title": "El Periódico de Catalunya (CA)",
+            "url": "https://www.elperiodico.cat/ca/rss/rss_portada.xml",
+            "category": "Actualités",
+            "lang": "ca",
+            "description": "Diari català El Periódico."
+        },
+        {
+            "title": "Overreacted",
+            "url": "https://overreacted.io/rss.xml",
+            "category": "Développement",
+            "lang": "en",
+            "description": "Dan Abramov's blog on React and JS."
+        },
+        {
+            "title": "Wired Security",
+            "url": "https://www.wired.com/feed/category/security/latest/rss",
+            "category": "Sécurité",
+            "lang": "en",
+            "description": "Security coverage from Wired."
+        },
+        {
+            "title": "Vue.js Blog",
+            "url": "https://blog.vuejs.org/feed.rss",
+            "category": "Développement",
+            "lang": "en",
+            "description": "Official Vue.js blog."
+        },
+        {
+            "title": "The Hill",
+            "url": "https://thehill.com/feed/",
+            "category": "Actualités",
+            "lang": "en",
+            "description": "US politics and policy news."
+        },
+        {
+            "title": "TLDR Newsletter",
+            "url": "https://tldr.tech/api/rss/tech",
+            "category": "Tech",
+            "lang": "en",
+            "description": "Daily tech news roundup."
+        },
+        {
+            "title": "Ars Technica Cars",
+            "url": "https://feeds.arstechnica.com/arstechnica/cars",
+            "category": "Tech",
+            "lang": "en",
+            "description": "Automotive tech coverage."
+        },
+        {
+            "title": "Product Hunt",
+            "url": "https://www.producthunt.com/feed",
+            "category": "Tech",
+            "lang": "en",
+            "description": "Newest tech products."
+        },
+        {
+            "title": "Space News",
+            "url": "https://spacenews.com/feed/",
+            "category": "Sciences",
+            "lang": "en",
+            "description": "Space industry news."
+        },
+        {
+            "title": "Formula 1 Autosport",
+            "url": "https://www.autosport.com/rss/f1/news/",
+            "category": "Sport",
+            "lang": "en",
+            "description": "Formula 1 news from Autosport."
+        },
+        {
+            "title": "Geektime",
+            "url": "https://www.geektime.co.il/feed/",
+            "category": "Tech",
+            "lang": "he",
+            "description": "חדשות טכנולוגיה בעברית."
+        },
+        {
+            "title": "World Health Organization",
+            "url": "https://www.who.int/rss-feeds/news-english.xml",
+            "category": "Sciences",
+            "lang": "en",
+            "description": "Global health news from WHO."
+        },
+        {
+            "title": "ABC News (US)",
+            "url": "https://abcnews.go.com/abcnews/topstories",
+            "category": "Actualités",
+            "lang": "en",
+            "description": "Top stories from ABC News US."
+        },
+        {
+            "title": "The Hollywood Reporter",
+            "url": "https://www.hollywoodreporter.com/feed/",
+            "category": "Culture",
+            "lang": "en",
+            "description": "Entertainment news and reviews."
+        },
+        {
+            "title": "The Record by Recorded Future",
+            "url": "https://therecord.media/feed/",
+            "category": "Sécurité",
+            "lang": "en",
+            "description": "Cybersecurity journalism."
+        },
+        {
+            "title": "Game Rant",
+            "url": "https://gamerant.com/feed/",
+            "category": "Jeux vidéo",
+            "lang": "en",
+            "description": "Video game news and features."
+        },
+        {
+            "title": "Futura Tech",
+            "url": "https://www.futura-sciences.com/rss/high-tech/actualites.xml",
+            "category": "Tech",
+            "lang": "fr",
+            "description": "Actualité high-tech de Futura."
+        },
+        {
+            "title": "Screen Rant",
+            "url": "https://screenrant.com/feed/",
+            "category": "Culture",
+            "lang": "en",
+            "description": "Movies, TV and gaming news."
+        },
+        {
+            "title": "L'Obs",
+            "url": "https://www.nouvelobs.com/rss.xml",
+            "category": "Actualités",
+            "lang": "fr",
+            "description": "Actualité et enquêtes du Nouvel Obs."
+        },
+        {
+            "title": "Codrops",
+            "url": "https://tympanus.net/codrops/feed/",
+            "category": "Développement",
+            "lang": "en",
+            "description": "Web design and dev inspiration."
+        },
+        {
+            "title": "Cnews",
+            "url": "https://www.cnews.fr/rss.xml",
+            "category": "Actualités",
+            "lang": "fr",
+            "description": "Actualité en continu de CNews."
+        },
+        {
+            "title": "Laravel Blog",
+            "url": "https://laravel.com/blog/feed",
+            "category": "Développement",
+            "lang": "en",
+            "description": "Official Laravel framework blog."
+        },
+        {
+            "title": "Phonandroid",
+            "url": "https://www.phonandroid.com/feed",
+            "category": "Tech",
+            "lang": "fr",
+            "description": "Actualité Android en français."
+        },
+        {
+            "title": "Tom's Hardware France",
+            "url": "https://www.tomshardware.fr/feed/",
+            "category": "Tech",
+            "lang": "fr",
+            "description": "Matériel informatique et tests."
+        },
+        {
+            "title": "Collider",
+            "url": "https://collider.com/feed/",
+            "category": "Culture",
+            "lang": "en",
+            "description": "Movie and TV news."
+        },
+        {
+            "title": "Der Tagesspiegel",
+            "url": "https://www.tagesspiegel.de/contentexport/feed/home",
+            "category": "Actualités",
+            "lang": "de",
+            "description": "Berliner Tageszeitung."
+        },
+        {
+            "title": "Berliner Morgenpost",
+            "url": "https://www.morgenpost.de/rss",
+            "category": "Actualités",
+            "lang": "de",
+            "description": "Berliner Tageszeitung."
+        },
+        {
+            "title": "Eurogamer.de",
+            "url": "https://www.eurogamer.de/feed",
+            "category": "Jeux vidéo",
+            "lang": "de",
+            "description": "Deutsche Gaming-News."
+        },
+        {
+            "title": "El Confidencial",
+            "url": "https://rss.elconfidencial.com/espana/",
+            "category": "Actualités",
+            "lang": "es",
+            "description": "Periodismo digital español."
+        },
+        {
+            "title": "Caschys Blog",
+            "url": "https://stadt-bremerhaven.de/feed/",
+            "category": "Tech",
+            "lang": "de",
+            "description": "Deutscher Tech-Blog."
+        },
+        {
+            "title": "Reddit World News",
+            "url": "https://www.reddit.com/r/worldnews/.rss",
+            "category": "Actualités",
+            "lang": "en",
+            "description": "Community-curated world news."
+        },
+        {
+            "title": "Metro Brasil",
+            "url": "https://www.metropoles.com/feed",
+            "category": "Actualités",
+            "lang": "pt",
+            "description": "Notícias do Brasil."
+        },
+        {
+            "title": "Eurogamer Reviews",
+            "url": "https://www.eurogamer.net/feed/reviews",
+            "category": "Jeux vidéo",
+            "lang": "en",
+            "description": "Video game reviews."
+        },
+        {
+            "title": "Il Sole 24 Ore",
+            "url": "https://www.ilsole24ore.com/rss/italia--attualita.xml",
+            "category": "Actualités",
+            "lang": "it",
+            "description": "Quotidiano economico italiano."
+        },
+        {
+            "title": "NOS Sport",
+            "url": "https://feeds.nos.nl/nossportalgemeen",
+            "category": "Sport",
+            "lang": "nl",
+            "description": "Nederlands sportnieuws NOS."
+        },
+        {
+            "title": "BBC Russian",
+            "url": "https://feeds.bbci.co.uk/russian/rss.xml",
+            "category": "Actualités",
+            "lang": "ru",
+            "description": "Новости Би-би-си на русском."
+        },
+        {
+            "title": "BBC Portuguese Brasil",
+            "url": "https://feeds.bbci.co.uk/portuguese/rss.xml",
+            "category": "Actualités",
+            "lang": "pt",
+            "description": "Notícias da BBC em português."
+        },
+        {
+            "title": "BBC Mundo",
+            "url": "https://feeds.bbci.co.uk/mundo/rss.xml",
+            "category": "Actualités",
+            "lang": "es",
+            "description": "Noticias de la BBC en español."
+        },
+        {
+            "title": "CD Projekt Red News",
+            "url": "https://www.cdprojekt.com/en/feed/",
+            "category": "Jeux vidéo",
+            "lang": "en",
+            "description": "Official CD Projekt Red news."
+        },
+        {
+            "title": "NU.nl Tech",
+            "url": "https://www.nu.nl/rss/Tech",
+            "category": "Tech",
+            "lang": "nl",
+            "description": "Nederlands technieuws."
+        },
+        {
+            "title": "BBC Vietnamese",
+            "url": "https://feeds.bbci.co.uk/vietnamese/rss.xml",
+            "category": "Actualités",
+            "lang": "vi",
+            "description": "Tin tức BBC tiếng Việt."
+        },
+        {
+            "title": "Het Laatste Nieuws",
+            "url": "https://www.hln.be/rss.xml",
+            "category": "Actualités",
+            "lang": "nl",
+            "description": "Belgisch nieuws HLN."
+        },
+        {
+            "title": "BBC Indonesia",
+            "url": "https://feeds.bbci.co.uk/indonesia/rss.xml",
+            "category": "Actualités",
+            "lang": "id",
+            "description": "Berita BBC dalam Bahasa Indonesia."
+        },
+        {
+            "title": "BBC Amharic",
+            "url": "https://feeds.bbci.co.uk/amharic/rss.xml",
+            "category": "Actualités",
+            "lang": "am",
+            "description": "የቢቢሲ ዜናዎች አማርኛ."
+        },
+        {
+            "title": "BBC Japanese",
+            "url": "https://feeds.bbci.co.uk/japanese/rss.xml",
+            "category": "Actualités",
+            "lang": "ja",
+            "description": "BBC ニュース日本語。"
+        },
+        {
+            "title": "BBC Pashto",
+            "url": "https://feeds.bbci.co.uk/pashto/rss.xml",
+            "category": "Actualités",
+            "lang": "ps",
+            "description": "بی بی سی پښتو خبرونه."
+        },
+        {
+            "title": "BBC Nepali",
+            "url": "https://feeds.bbci.co.uk/nepali/rss.xml",
+            "category": "Actualités",
+            "lang": "ne",
+            "description": "बिबिसि नेपाली समाचार।"
+        },
+        {
+            "title": "BBC Somali",
+            "url": "https://feeds.bbci.co.uk/somali/rss.xml",
+            "category": "Actualités",
+            "lang": "so",
+            "description": "Wararka BBC Somali."
+        },
+        {
+            "title": "BBC Igbo",
+            "url": "https://feeds.bbci.co.uk/igbo/rss.xml",
+            "category": "Actualités",
+            "lang": "ig",
+            "description": "Akụkọ BBC Igbo."
+        },
+        {
+            "title": "BBC Hausa",
+            "url": "https://feeds.bbci.co.uk/hausa/rss.xml",
+            "category": "Actualités",
+            "lang": "ha",
+            "description": "Labaran BBC Hausa."
+        },
+        {
+            "title": "BBC Yoruba",
+            "url": "https://feeds.bbci.co.uk/yoruba/rss.xml",
+            "category": "Actualités",
+            "lang": "yo",
+            "description": "Iroyin BBC Yoruba."
+        },
+        {
+            "title": "BBC Serbian",
+            "url": "https://feeds.bbci.co.uk/serbian/lat/rss.xml",
+            "category": "Actualités",
+            "lang": "sr",
+            "description": "BBC vesti na srpskom."
+        },
+        {
+            "title": "BBC Azeri",
+            "url": "https://feeds.bbci.co.uk/azeri/rss.xml",
+            "category": "Actualités",
+            "lang": "az",
+            "description": "BBC xəbərləri Azərbaycan dilində."
+        },
+        {
+            "title": "vc.ru",
+            "url": "https://vc.ru/rss/all",
+            "category": "Tech",
+            "lang": "ru",
+            "description": "Технологии и бизнес."
+        },
+        {
+            "title": "BBC Kyrgyz",
+            "url": "https://feeds.bbci.co.uk/kyrgyz/rss.xml",
+            "category": "Actualités",
+            "lang": "ky",
+            "description": "BBC кыргызча жаңылыктар."
+        },
+        {
+            "title": "BBC Marathi",
+            "url": "https://feeds.bbci.co.uk/marathi/rss.xml",
+            "category": "Actualités",
+            "lang": "mr",
+            "description": "बीबीसी मराठी बातम्या."
+        },
+        {
+            "title": "Variety",
+            "url": "https://variety.com/feed/",
+            "category": "Culture",
+            "lang": "en",
+            "description": "Entertainment industry news."
+        },
+        {
+            "title": "BBC Tamil",
+            "url": "https://feeds.bbci.co.uk/tamil/rss.xml",
+            "category": "Actualités",
+            "lang": "ta",
+            "description": "பிபிசி தமிழ் செய்திகள்."
+        },
+        {
+            "title": "BBC Telugu",
+            "url": "https://feeds.bbci.co.uk/telugu/rss.xml",
+            "category": "Actualités",
+            "lang": "te",
+            "description": "బీబీసీ తెలుగు వార్తలు."
+        },
+        {
+            "title": "BBC Punjabi",
+            "url": "https://feeds.bbci.co.uk/punjabi/rss.xml",
+            "category": "Actualités",
+            "lang": "pa",
+            "description": "ਬੀਬੀਸੀ ਪੰਜਾਬੀ ਖ਼ਬਰਾਂ."
+        },
+        {
+            "title": "BBC Gujarati",
+            "url": "https://feeds.bbci.co.uk/gujarati/rss.xml",
+            "category": "Actualités",
+            "lang": "gu",
+            "description": "બીબીસી ગુજરાતી સમાચાર."
+        },
+        {
+            "title": "BBC Sinhala",
+            "url": "https://feeds.bbci.co.uk/sinhala/rss.xml",
+            "category": "Actualités",
+            "lang": "si",
+            "description": "බීබීසී සිංහල පුවත්."
+        },
+        {
+            "title": "BBC Uzbek",
+            "url": "https://feeds.bbci.co.uk/uzbek/rss.xml",
+            "category": "Actualités",
+            "lang": "uz",
+            "description": "BBC Ozbek yangiliklari."
         }
     ]
 }
