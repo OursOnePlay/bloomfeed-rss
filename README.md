@@ -88,6 +88,33 @@ publiques se referment automatiquement après.
 Relancez simplement `bash scriptsite.sh` : il récupère les derniers changements et reconstruit
 la stack sans toucher à vos données.
 
+Avant chaque redéploiement (s'il existe déjà une instance en cours), le script sauvegarde
+automatiquement la base de données dans `backups/bloomfeed-<date>.sql.gz` (les 10 dernières
+sauvegardes sont conservées). Si la sauvegarde échoue, la mise à jour est annulée pour ne
+jamais risquer de perdre des données. Pour restaurer une sauvegarde :
+
+```bash
+gunzip -c backups/bloomfeed-20260706-120000.sql.gz \
+  | sudo docker compose exec -T db sh -c 'exec mariadb -u root -p"$MARIADB_ROOT_PASSWORD"'
+```
+
+### Mise à jour automatique
+
+`auto-update.sh` vérifie périodiquement si le dépôt a de nouveaux commits sur `origin/main` et
+ne redéploie (via `scriptsite.sh`) que si c'est le cas — une instance à jour ne reconstruit jamais
+pour rien. Le mécanisme tourne sur l'hôte via une tâche cron dédiée (`/etc/cron.d/bloomfeed-auto-update`),
+jamais depuis le conteneur applicatif (qui n'a pas accès au démon Docker, par sécurité).
+
+```bash
+bash auto-update.sh --install        # active la vérification toutes les 30 min (défaut)
+bash auto-update.sh --install 60     # ou toutes les 60 min
+bash auto-update.sh --status         # état actuel + derniers logs
+bash auto-update.sh --force          # force un redéploiement immédiat
+bash auto-update.sh --uninstall      # désactive la mise à jour automatique
+```
+
+Les logs sont écrits dans `storage/logs/auto-update.log` à l'intérieur du dépôt.
+
 ### Réinitialisation
 
 Pour repartir d'une instance vierge (efface comptes, flux, articles et notifieurs) sans toucher

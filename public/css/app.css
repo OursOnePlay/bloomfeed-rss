@@ -224,20 +224,85 @@ h1, h2, h3 {
     color: var(--accent-contrast);
 }
 
-@media (max-width: 640px) {
-    .navbar {
-        padding: 12px 16px;
+.navbar-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.navbar-toggle-bar {
+    display: block;
+    width: 18px;
+    height: 2px;
+    border-radius: var(--radius-full);
+    background: var(--text);
+    transition: transform var(--t-fast), opacity var(--t-fast);
+}
+
+.navbar-toggle.is-active .navbar-toggle-bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.navbar-toggle.is-active .navbar-toggle-bar:nth-child(2) {
+    opacity: 0;
+}
+
+.navbar-toggle.is-active .navbar-toggle-bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+@media (max-width: 900px) {
+    .navbar-toggle {
+        display: flex;
     }
 
     .navbar-links {
-        gap: 8px;
-        flex-wrap: wrap;
-        justify-content: flex-end;
-        row-gap: 6px;
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 4px;
+        padding: var(--space-3) 16px calc(var(--space-4) + 4px);
+        background: var(--surface);
+        border-bottom: 1px solid var(--border);
+        box-shadow: var(--shadow-md);
     }
 
-    .nav-self-hosting {
-        display: none;
+    .navbar-links.is-open {
+        display: flex;
+    }
+
+    .navbar-links a,
+    .navbar-links form {
+        width: 100%;
+    }
+
+    .navbar-links a {
+        padding: 10px 4px;
+    }
+
+    .navbar-links a.btn,
+    .navbar-links form button {
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar-links .locale-form,
+    .navbar-links .theme-toggle {
+        align-self: flex-start;
+        margin-top: 4px;
     }
 }
 

@@ -1,4 +1,7 @@
-@extends('layouts.marketing', ['title' => __('app.selfhost_title').' — BloomFeed'])
+@extends('layouts.marketing', [
+    'title' => __('app.seo_selfhost_title'),
+    'description' => __('app.selfhost_intro'),
+])
 
 @section('content')
 <section class="docs-shell">
@@ -45,6 +48,15 @@ cd bloomfeed</pre>
         <h2>{{ __('app.update_title') }}</h2>
         <p>{{ __('app.update_text') }}</p>
         <pre class="code-block">bash scriptsite.sh</pre>
+        <p>{{ __('app.backup_note') }}</p>
+    </div>
+
+    <div class="card mt-2">
+        <h2>{{ __('app.autoupdate_title') }}</h2>
+        <p>{{ __('app.autoupdate_text') }}</p>
+        <pre class="code-block">bash auto-update.sh --install       # {{ __('app.autoupdate_comment_install') }}
+bash auto-update.sh --status        # {{ __('app.autoupdate_comment_status') }}
+bash auto-update.sh --uninstall     # {{ __('app.autoupdate_comment_uninstall') }}</pre>
     </div>
 
     <div class="card mt-2">

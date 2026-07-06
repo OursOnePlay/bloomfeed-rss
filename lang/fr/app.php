@@ -8,6 +8,7 @@ return [
     'settings' => 'Paramètres',
     'logout' => 'Déconnexion',
     'change_theme' => 'Changer de thème',
+    'nav_menu' => 'Menu',
     'language' => 'Langue',
     'self_hosting' => 'Self-hosting',
     'login' => 'Se connecter',
@@ -140,6 +141,7 @@ return [
     'config_catalog' => "Le catalogue de flux intégré se personnalise en éditant resources/data/bloomflux.json puis en redéployant.",
     'update_title' => 'Mettre à jour',
     'update_text' => 'Relancez simplement le script de déploiement : il récupère les derniers changements et reconstruit la stack sans toucher à vos données.',
+    'backup_note' => 'Avant chaque redéploiement, la base de données est automatiquement sauvegardée dans backups/ (les 10 dernières sauvegardes sont conservées). Si la sauvegarde échoue, la mise à jour est annulée pour ne jamais risquer de perdre des données.',
     'uninstall_title' => 'Désinstaller',
     'uninstall_text' => "Le script uninstall.sh arrête et supprime proprement la stack Docker. Il demande une confirmation explicite avant de supprimer vos données et ne supprime jamais le code source sans confirmation séparée.",
     'source_title' => 'Code source',
@@ -191,4 +193,15 @@ return [
 
     'reset_title' => 'Réinitialiser',
     'reset_text' => "Le script reset.sh remet l'instance à zéro (comptes, flux, articles, notifieurs) sans toucher au code, au .env ni aux images Docker — utile pour repartir sur une instance vierge.",
+
+    // Mise à jour automatique
+    'autoupdate_title' => 'Mise à jour automatique',
+    'autoupdate_text' => "Le script auto-update.sh vérifie périodiquement les nouveaux commits sur le dépôt et ne redéploie que si nécessaire, via une tâche planifiée sur le serveur (jamais depuis le conteneur applicatif).",
+    'autoupdate_comment_install' => 'active la vérification toutes les 30 min',
+    'autoupdate_comment_status' => 'affiche l\'état et les derniers logs',
+    'autoupdate_comment_uninstall' => 'désactive la mise à jour automatique',
+
+    // SEO
+    'seo_home_title' => 'BloomFeed — Agrégateur RSS auto-hébergé et open-source',
+    'seo_selfhost_title' => "Auto-héberger BloomFeed — guide d'installation Docker",
 ];

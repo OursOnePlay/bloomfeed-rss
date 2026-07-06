@@ -1,4 +1,7 @@
-@extends('layouts.marketing', ['title' => 'BloomFeed'])
+@extends('layouts.marketing', [
+    'title' => __('app.seo_home_title'),
+    'description' => __('app.meta_description'),
+])
 
 @php
     // Screenshots live under images/screenshots/{locale}/ so each language can show its own
@@ -129,4 +132,30 @@
 </section>
 
 <script src="{{ asset('js/screenshot-gallery.js') }}" defer></script>
+
+@push('structured-data')
+<script type="application/ld+json">
+{
+    "@@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "BloomFeed",
+    "applicationCategory": "CommunicationApplication",
+    "operatingSystem": "Linux (Docker)",
+    "description": {!! json_encode(__('app.meta_description')) !!},
+    "url": {!! json_encode(url('/')) !!},
+    "image": {!! json_encode(asset('images/logo.png')) !!},
+    "license": "https://opensource.org/licenses/MIT",
+    "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+    },
+    "author": {
+        "@type": "Organization",
+        "name": "BloomFeed",
+        "url": {!! json_encode(url('/self-hosting')) !!}
+    }
+}
+</script>
+@endpush
 @endsection

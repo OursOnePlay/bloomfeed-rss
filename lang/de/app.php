@@ -8,6 +8,7 @@ return [
     'settings' => 'Einstellungen',
     'logout' => 'Abmelden',
     'change_theme' => 'Design wechseln',
+    'nav_menu' => 'Menü',
     'language' => 'Sprache',
     'self_hosting' => 'Self-Hosting',
     'login' => 'Anmelden',
@@ -140,6 +141,7 @@ return [
     'config_catalog' => 'Der integrierte Feed-Katalog lässt sich durch Bearbeiten von resources/data/bloomflux.json und erneutes Deployment anpassen.',
     'update_title' => 'Aktualisieren',
     'update_text' => 'Führe einfach das Deployment-Skript erneut aus: Es holt die neuesten Änderungen und baut den Stack neu, ohne deine Daten anzutasten.',
+    'backup_note' => 'Vor jedem Redeploy wird die Datenbank automatisch nach backups/ gesichert (die letzten 10 Sicherungen werden aufbewahrt). Schlägt die Sicherung fehl, wird das Update abgebrochen, damit deine Daten niemals gefährdet werden.',
     'uninstall_title' => 'Deinstallieren',
     'uninstall_text' => 'Das Skript uninstall.sh stoppt und entfernt den Docker-Stack sauber. Es fragt vor dem Löschen deiner Daten explizit nach und entfernt den Quellcode nie ohne separate Bestätigung.',
     'source_title' => 'Quellcode',
@@ -191,4 +193,15 @@ return [
 
     'reset_title' => 'Zurücksetzen',
     'reset_text' => 'Das Skript reset.sh setzt die Instanz auf einen leeren Zustand zurück (Konten, Feeds, Artikel, Benachrichtigungen), ohne Quellcode, .env oder Docker-Images anzutasten — nützlich, um mit einer sauberen Instanz neu zu starten.',
+
+    // Automatische Updates
+    'autoupdate_title' => 'Automatische Updates',
+    'autoupdate_text' => 'Das Skript auto-update.sh prüft regelmäßig auf neue Commits im Repository und stellt nur bei Bedarf neu bereit, über einen geplanten Task auf dem Server (niemals aus dem Anwendungscontainer heraus).',
+    'autoupdate_comment_install' => 'prüft alle 30 Minuten',
+    'autoupdate_comment_status' => 'zeigt Status und letzte Logs',
+    'autoupdate_comment_uninstall' => 'deaktiviert automatische Updates',
+
+    // SEO
+    'seo_home_title' => 'BloomFeed — Selbst gehosteter, quelloffener RSS-Aggregator',
+    'seo_selfhost_title' => 'BloomFeed selbst hosten — Docker-Installationsanleitung',
 ];

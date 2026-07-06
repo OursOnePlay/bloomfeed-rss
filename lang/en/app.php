@@ -8,6 +8,7 @@ return [
     'settings' => 'Settings',
     'logout' => 'Log out',
     'change_theme' => 'Switch theme',
+    'nav_menu' => 'Menu',
     'language' => 'Language',
     'self_hosting' => 'Self-hosting',
     'login' => 'Log in',
@@ -140,6 +141,7 @@ return [
     'config_catalog' => 'The built-in feed catalog can be customized by editing resources/data/bloomflux.json and redeploying.',
     'update_title' => 'Update',
     'update_text' => 'Simply re-run the deployment script: it pulls the latest changes and rebuilds the stack without touching your data.',
+    'backup_note' => 'Before every redeploy, the database is automatically backed up to backups/ (the last 10 backups are kept). If the backup fails, the update is aborted so your data is never put at risk.',
     'uninstall_title' => 'Uninstall',
     'uninstall_text' => 'The uninstall.sh script cleanly stops and removes the Docker stack. It asks for explicit confirmation before deleting your data and never removes the source code without a separate confirmation.',
     'source_title' => 'Source code',
@@ -191,4 +193,15 @@ return [
 
     'reset_title' => 'Reset',
     'reset_text' => 'The reset.sh script wipes the instance back to a blank state (accounts, feeds, articles, notifiers) without touching the source code, .env or Docker images — useful to start over on a clean instance.',
+
+    // Auto-update
+    'autoupdate_title' => 'Automatic updates',
+    'autoupdate_text' => 'The auto-update.sh script periodically checks for new commits on the repository and only redeploys when needed, via a scheduled task on the server (never from the application container).',
+    'autoupdate_comment_install' => 'checks every 30 minutes',
+    'autoupdate_comment_status' => 'shows status and recent logs',
+    'autoupdate_comment_uninstall' => 'disables automatic updates',
+
+    // SEO
+    'seo_home_title' => 'BloomFeed — Self-hosted, open-source RSS aggregator',
+    'seo_selfhost_title' => 'Self-host BloomFeed — Docker installation guide',
 ];

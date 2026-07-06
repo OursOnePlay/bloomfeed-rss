@@ -4,6 +4,7 @@ set -euo pipefail
 REPO_URL="https://git.eldorianet.work/esteban/BloomFeed-RSS"
 APP_DIR="/opt/bloomfeed"
 HOST_PORT="7081"
+BACKUP_RETENTION="10"
 
 echo "==> Killing any process listening on port ${HOST_PORT}"
 PIDS="$(sudo lsof -ti tcp:${HOST_PORT} || true)"
@@ -47,6 +48,27 @@ if grep -q '^DB_ROOT_PASSWORD=$' .env; then
   echo "  - DB_ROOT_PASSWORD generated"
 fi
 chmod 600 .env
+
+echo "==> Backing up the database before redeploying (if a previous instance is running)"
+BACKUP_DIR="${APP_DIR}/backups"
+if [[ -n "$(sudo docker compose ps -q db 2>/dev/null)" ]]; then
+  sudo mkdir -p "${BACKUP_DIR}"
+  BACKUP_FILE="${BACKUP_DIR}/bloomfeed-$(date +%Y%m%d-%H%M%S).sql.gz"
+  # shellcheck disable=SC2016
+  if sudo docker compose exec -T db sh -c 'exec mariadb-dump -u root -p"$MARIADB_ROOT_PASSWORD" --all-databases' | gzip > "${BACKUP_FILE}"; then
+    sudo chmod 600 "${BACKUP_FILE}"
+    echo "==> Backup saved: ${BACKUP_FILE}"
+    echo "==> Pruning old backups (keeping the last ${BACKUP_RETENTION})"
+    (sudo find "${BACKUP_DIR}" -maxdepth 1 -name 'bloomfeed-*.sql.gz' -print | sort | head -n -"${BACKUP_RETENTION}" | xargs -r sudo rm -f) || echo "WARNING: pruning old backups failed (non-fatal, continuing) — check ${BACKUP_DIR} manually." >&2
+  else
+    sudo rm -f "${BACKUP_FILE}"
+    echo "ERROR: database backup failed — aborting the update so no data is put at risk." >&2
+    echo "        Check 'sudo docker compose logs db' and retry manually." >&2
+    exit 1
+  fi
+else
+  echo "==> No running database container found (fresh install) — skipping backup"
+fi
 
 echo "==> Stopping the previous Docker Compose stack if present"
 sudo docker compose down --remove-orphans || true

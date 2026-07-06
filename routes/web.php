@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PageController::class, 'home'])->name('home');
 Route::get('/self-hosting', [PageController::class, 'selfHosting'])->name('self-hosting');
+Route::get('/robots.txt', [PageController::class, 'robots'])->name('robots');
+Route::get('/sitemap.xml', [PageController::class, 'sitemap'])->name('sitemap');
 Route::post('/locale', [SettingsController::class, 'updateLocale'])->name('locale.update');
 
 Route::middleware('guest')->group(function () {
