@@ -13,6 +13,8 @@ RUN apt-get update \
  && a2enmod rewrite \
  && rm -rf /var/lib/apt/lists/*
 
+RUN echo "session.upload_progress.enabled = Off" > /usr/local/etc/php/conf.d/security.ini
+
 COPY . /var/www/html/
 COPY docker/000-default.conf /etc/apache2/sites-available/000-default.conf
 COPY docker/entrypoint.sh /usr/local/bin/entrypoint.sh
