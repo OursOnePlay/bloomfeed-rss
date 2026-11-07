@@ -14,7 +14,7 @@ return [
     'login' => 'Iniciar sesión',
     'create_account' => 'Crear una cuenta',
     'source_code' => 'Código fuente',
-    'footer_tagline' => 'BloomFeed — proyecto open source y autoalojado.',
+    'footer_tagline' => 'BloomFeed - proyecto open source y autoalojado.',
     'meta_description' => 'BloomFeed es un agregador RSS personal y autoalojado, con lector integrado.',
 
     // Inicio
@@ -25,7 +25,7 @@ return [
     'feature_feeds_title' => 'Fuentes personalizadas',
     'feature_feeds_text' => 'Añade cualquier fuente RSS o Atom, organízalas y sigue tus no leídos de un vistazo.',
     'feature_reader_title' => 'Lector integrado',
-    'feature_reader_text' => 'BloomFeed recupera la página original, extrae el contenido principal y lo muestra limpiamente — se acabó abrir diez pestañas.',
+    'feature_reader_text' => 'BloomFeed recupera la página original, extrae el contenido principal y lo muestra limpiamente - se acabó abrir diez pestañas.',
     'feature_home_title' => 'En tu casa, para ti',
     'feature_home_text' => 'Una instancia de BloomFeed = un propietario. Sin registros públicos por defecto, sin rastreo, tu servidor, tus datos.',
     'screenshots_title' => 'En imágenes',
@@ -40,7 +40,7 @@ return [
     'badge_mit_license' => 'Licencia MIT',
     'badge_four_languages' => '4 idiomas',
     'feature_multiuser_title' => 'Pensado para tu hogar',
-    'feature_multiuser_text' => 'Invita a las personas de confianza con una cuenta directa, o abre los registros por un tiempo — cada uno mantiene sus propias fuentes, lecturas y notificadores.',
+    'feature_multiuser_text' => 'Invita a las personas de confianza con una cuenta directa, o abre los registros por un tiempo - cada uno mantiene sus propias fuentes, lecturas y notificadores.',
 
     // Autenticación
     'login_title' => 'Iniciar sesión',
@@ -99,7 +99,7 @@ return [
 
     // Catálogo
     'catalog_title' => 'Catálogo de fuentes',
-    'catalog_lede' => 'Una selección de fuentes RSS incluida con BloomFeed — añádelas a tu colección con un clic.',
+    'catalog_lede' => 'Una selección de fuentes RSS incluida con BloomFeed - añádelas a tu colección con un clic.',
     'search_placeholder' => 'Buscar una fuente… (nombre, descripción, categoría)',
     'all' => 'Todo',
     'added' => 'Añadida',
@@ -132,12 +132,12 @@ return [
     'install_title' => 'Instalación',
     'install_step_clone' => 'Clona el repositorio en tu servidor.',
     'install_step_script' => 'Ejecuta el script de despliegue:',
-    'install_env_note' => 'Crea automáticamente un archivo .env (a partir de .env.example) y genera secretos aleatorios (APP_KEY, contraseñas de base de datos) si faltan — nunca se regeneran en despliegues posteriores.',
+    'install_env_note' => 'Crea automáticamente un archivo .env (a partir de .env.example) y genera secretos aleatorios (APP_KEY, contraseñas de base de datos) si faltan - nunca se regeneran en despliegues posteriores.',
     'install_step_containers' => 'El script construye las imágenes y arranca los contenedores (aplicación, planificador, MariaDB).',
-    'install_step_owner' => 'Abre http://tu-servidor:7081 y crea la cuenta propietaria — los registros se cierran automáticamente después.',
+    'install_step_owner' => 'Abre http://tu-servidor:7081 y crea la cuenta propietaria - los registros se cierran automáticamente después.',
     'config_title' => 'Configuración',
     'config_registrations' => 'Desde el menú Ajustes, la cuenta propietaria puede crear cuentas directamente para personas de confianza, o abrir/cerrar los registros públicos con un clic.',
-    'config_language' => 'La interfaz está disponible en francés, inglés, español y alemán — cada usuario elige su idioma con el selector de la parte superior.',
+    'config_language' => 'La interfaz está disponible en francés, inglés, español y alemán - cada usuario elige su idioma con el selector de la parte superior.',
     'config_catalog' => 'El catálogo de fuentes integrado se personaliza editando resources/data/bloomflux.json y volviendo a desplegar.',
     'update_title' => 'Actualizar',
     'update_text' => 'Simplemente vuelve a ejecutar el script de despliegue: recupera los últimos cambios y reconstruye la pila sin tocar tus datos.',
@@ -189,10 +189,10 @@ return [
     'notifier_updated' => 'Notificador actualizado.',
     'notifier_deleted' => 'Notificador eliminado.',
     'notifier_test_ok' => 'Notificación de prueba enviada con éxito.',
-    'notifier_test_failed' => 'No se pudo enviar la notificación de prueba — comprueba la URL.',
+    'notifier_test_failed' => 'No se pudo enviar la notificación de prueba - comprueba la URL.',
 
     'reset_title' => 'Reiniciar',
-    'reset_text' => 'El script reset.sh restablece la instancia a un estado en blanco (cuentas, fuentes, artículos, notificadores) sin tocar el código fuente, el .env ni las imágenes Docker — útil para empezar de cero.',
+    'reset_text' => 'El script reset.sh restablece la instancia a un estado en blanco (cuentas, fuentes, artículos, notificadores) sin tocar el código fuente, el .env ni las imágenes Docker - útil para empezar de cero.',
 
     // Actualización automática
     'autoupdate_title' => 'Actualizaciones automáticas',
@@ -202,6 +202,6 @@ return [
     'autoupdate_comment_uninstall' => 'desactiva las actualizaciones automáticas',
 
     // SEO
-    'seo_home_title' => 'BloomFeed — Agregador RSS autoalojado y de código abierto',
-    'seo_selfhost_title' => 'Autoalojar BloomFeed — guía de instalación con Docker',
+    'seo_home_title' => 'BloomFeed - Agregador RSS autoalojado y de código abierto',
+    'seo_selfhost_title' => 'Autoalojar BloomFeed - guía de instalación con Docker',
 ];

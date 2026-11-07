@@ -9,12 +9,12 @@
         <span class="navbar-toggle-bar"></span>
     </button>
     <div class="navbar-links" id="navbarLinks">
-        <a href="{{ route('dashboard') }}" class="{{ request()->routeIs('dashboard') ? 'active' : '' }}">{{ __('app.articles') }}</a>
-        <a href="{{ route('catalog') }}" class="{{ request()->routeIs('catalog') ? 'active' : '' }}">{{ __('app.catalog') }}</a>
-        <a href="{{ route('feeds.index') }}" class="{{ request()->routeIs('feeds.*') ? 'active' : '' }}">{{ __('app.my_feeds') }}</a>
-        <a href="{{ route('notifiers') }}" class="{{ request()->routeIs('notifiers') ? 'active' : '' }}">{{ __('app.notifiers') }}</a>
+        <a href="{{ route('dashboard') }}" class="{{ request()->routeIs('dashboard') ? 'active' : '' }}" @if (request()->routeIs('dashboard')) aria-current="page" @endif>{{ __('app.articles') }}</a>
+        <a href="{{ route('catalog') }}" class="{{ request()->routeIs('catalog') ? 'active' : '' }}" @if (request()->routeIs('catalog')) aria-current="page" @endif>{{ __('app.catalog') }}</a>
+        <a href="{{ route('feeds.index') }}" class="{{ request()->routeIs('feeds.*') ? 'active' : '' }}" @if (request()->routeIs('feeds.*')) aria-current="page" @endif>{{ __('app.my_feeds') }}</a>
+        <a href="{{ route('notifiers') }}" class="{{ request()->routeIs('notifiers') ? 'active' : '' }}" @if (request()->routeIs('notifiers')) aria-current="page" @endif>{{ __('app.notifiers') }}</a>
         @if (auth()->user()?->is_owner)
-            <a href="{{ route('settings') }}" class="{{ request()->routeIs('settings') ? 'active' : '' }}">{{ __('app.settings') }}</a>
+            <a href="{{ route('settings') }}" class="{{ request()->routeIs('settings') ? 'active' : '' }}" @if (request()->routeIs('settings')) aria-current="page" @endif>{{ __('app.settings') }}</a>
         @endif
         @include('partials.locale-selector')
         <button type="button" class="theme-toggle" data-theme-toggle title="{{ __('app.change_theme') }}">◐</button>

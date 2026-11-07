@@ -1,9 +1,9 @@
-@extends('layouts.app', ['title' => $article->title.' — BloomFeed'])
+@extends('layouts.app', ['title' => $article->title.' - BloomFeed'])
 
 @section('content')
 <div class="reader-shell">
     @if (session('status'))
-        <div class="form-status">{{ session('status') }}</div>
+        <div class="form-status" role="status">{{ session('status') }}</div>
     @endif
 
     <a href="{{ url()->previous(route('dashboard')) }}" class="back-link">&larr; {{ __('app.back_to_articles') }}</a>

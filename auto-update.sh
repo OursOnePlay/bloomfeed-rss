@@ -55,7 +55,7 @@ case "${1:-}" in
     ;;
   --help|-h)
     echo "Usage: bash auto-update.sh [--install [minutes]|--uninstall|--status|--force]"
-    echo "  (no args)        Check for new commits and redeploy if found — meant to be run by cron."
+    echo "  (no args)        Check for new commits and redeploy if found - meant to be run by cron."
     echo "  --install [N]    Install a cron job checking every N minutes (default: 30)."
     echo "  --uninstall      Remove the cron job."
     echo "  --status         Show whether auto-update is enabled and recent log entries."
@@ -70,7 +70,7 @@ case "${1:-}" in
 esac
 
 if [[ ! -d "${APP_DIR}/.git" ]]; then
-  echo "ERROR: ${APP_DIR} is not a git repository — run scriptsite.sh first." >&2
+  echo "ERROR: ${APP_DIR} is not a git repository - run scriptsite.sh first." >&2
   exit 1
 fi
 
@@ -96,6 +96,6 @@ fi
 if bash "${APP_DIR}/scriptsite.sh"; then
   log "Auto-update finished successfully (now at $(git rev-parse HEAD | cut -c1-7))."
 else
-  log "Auto-update FAILED — the instance may be left in a partially deployed state, check the output above."
+  log "Auto-update FAILED - the instance may be left in a partially deployed state, check the output above."
   exit 1
 fi

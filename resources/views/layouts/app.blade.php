@@ -8,24 +8,27 @@
     <link rel="icon" href="{{ asset('images/icon.png') }}">
     <link rel="apple-touch-icon" href="{{ asset('images/icon.png') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/theme.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <script>
         (function () {
-            var stored = localStorage.getItem('bloomfeed-theme');
+            var stored;
+            try { stored = localStorage.getItem('bloomfeed-theme'); } catch (_) {}
             var theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
             document.documentElement.setAttribute('data-theme', theme);
         })();
     </script>
 </head>
-<body>
+<body class="app-page">
+    <a class="skip-link" href="#main-content">{{ __('design.skip') }}</a>
     @include('partials.navbar')
 
-    <div class="app-shell">
+    <main class="app-shell" id="main-content" tabindex="-1">
         @yield('content')
-    </div>
+    </main>
 
+    <div class="live-message" role="status" aria-live="polite" data-live-message></div>
     <script src="{{ asset('js/theme-toggle.js') }}" defer></script>
     <script src="{{ asset('js/navbar-toggle.js') }}" defer></script>
     <script src="{{ asset('js/app.js') }}" defer></script>

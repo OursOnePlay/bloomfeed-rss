@@ -3,7 +3,7 @@ set -euo pipefail
 
 # Resets a BloomFeed instance to a fresh, empty state: wipes the database and
 # application storage, then restarts the stack so the first user to register
-# becomes the new owner. Source code, .env and Docker images are untouched —
+# becomes the new owner. Source code, .env and Docker images are untouched -
 # use uninstall.sh instead if you want to remove those too.
 
 APP_DIR="/opt/bloomfeed"
@@ -27,7 +27,7 @@ for arg in "$@"; do
 done
 
 if [[ ! -d "${APP_DIR}" ]]; then
-  echo "ERROR: ${APP_DIR} not found — nothing to reset."
+  echo "ERROR: ${APP_DIR} not found - nothing to reset."
   exit 1
 fi
 

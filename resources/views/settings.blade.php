@@ -1,12 +1,12 @@
-@extends('layouts.app', ['title' => __('app.settings').' — BloomFeed'])
+@extends('layouts.app', ['title' => __('app.settings').' - BloomFeed'])
 
 @section('content')
-<div class="main-column" style="width:100%; max-width:720px; margin:0 auto;">
+<div class="main-column form-section">
     @if (session('status'))
-        <div class="form-status">{{ session('status') }}</div>
+        <div class="form-status" role="status">{{ session('status') }}</div>
     @endif
 
-    <h2 style="margin:0;">{{ __('app.settings_title') }}</h2>
+    <h1 style="margin:0;">{{ __('app.settings_title') }}</h1>
 
     <div class="card">
         <h3>{{ __('app.registrations_section') }}</h3>
@@ -29,7 +29,7 @@
         <p class="text-muted text-sm">{{ __('app.create_user_desc') }}</p>
 
         @if ($errors->any())
-            <div class="form-error mt-1">{{ $errors->first() }}</div>
+            <div role="alert" class="form-error mt-1">{{ $errors->first() }}</div>
         @endif
 
         <form method="POST" action="{{ route('settings.createUser') }}" class="mt-2">
@@ -44,7 +44,7 @@
             </div>
             <div class="form-group">
                 <label for="new-password">{{ __('app.password') }}</label>
-                <input type="text" name="password" id="new-password" class="form-input" minlength="8" required autocomplete="off">
+                <div class="password-field"><input type="password" name="password" id="new-password" class="form-input" minlength="8" required autocomplete="new-password"><button type="button" class="btn btn-ghost" data-password-toggle="new-password" aria-pressed="false">{{ __('design.show_password') }}</button></div>
             </div>
             <button type="submit" class="btn btn-primary">{{ __('app.create_account') }}</button>
         </form>
@@ -55,7 +55,7 @@
         <p class="text-muted text-sm">{{ __('app.catalog_sources_desc') }}</p>
 
         @error('source_url')
-            <div class="form-error mt-1">{{ $message }}</div>
+            <div role="alert" class="form-error mt-1">{{ $message }}</div>
         @enderror
 
         @if (empty($catalogSources))

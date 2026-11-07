@@ -28,7 +28,7 @@ for arg in "$@"; do
 done
 
 if [[ ! -d "${APP_DIR}" ]]; then
-  echo "ERROR: ${APP_DIR} not found — nothing to uninstall."
+  echo "ERROR: ${APP_DIR} not found - nothing to uninstall."
   exit 1
 fi
 

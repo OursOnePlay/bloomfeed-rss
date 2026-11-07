@@ -106,11 +106,11 @@ class NotifierDispatchService
 
     private function discordTestPayload(): array
     {
-        return ['content' => '🔔 BloomFeed test notification — your Discord webhook is correctly configured.'];
+        return ['content' => '🔔 BloomFeed test notification - your Discord webhook is correctly configured.'];
     }
 
     private function webhookTestPayload(): array
     {
-        return ['event' => 'test', 'message' => 'BloomFeed test notification — your webhook is correctly configured.'];
+        return ['event' => 'test', 'message' => 'BloomFeed test notification - your webhook is correctly configured.'];
     }
 }

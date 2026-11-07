@@ -15,7 +15,7 @@
             var current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
             var next = current === 'dark' ? 'light' : 'dark';
             applyTheme(next);
-            localStorage.setItem(STORAGE_KEY, next);
+            try { localStorage.setItem(STORAGE_KEY, next); } catch (_) {}
         });
     });
 })();

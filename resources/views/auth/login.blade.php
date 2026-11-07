@@ -1,4 +1,4 @@
-@extends('layouts.guest', ['title' => __('app.login_title').' — BloomFeed'])
+@extends('layouts.guest', ['title' => __('app.login_title').' - BloomFeed'])
 
 @section('content')
 <div class="auth-card">
@@ -10,22 +10,22 @@
     <p class="subtitle">{{ __('app.login_subtitle') }}</p>
 
     @if (session('status'))
-        <div class="form-status">{{ session('status') }}</div>
+        <div class="form-status" role="status">{{ session('status') }}</div>
     @endif
 
     @if ($errors->any())
-        <div class="form-error mt-1">{{ $errors->first() }}</div>
+        <div role="alert" class="form-error mt-1">{{ $errors->first() }}</div>
     @endif
 
     <form method="POST" action="{{ route('login') }}" class="mt-2">
         @csrf
         <div class="form-group">
             <label for="email">{{ __('app.email') }}</label>
-            <input type="email" name="email" id="email" class="form-input" value="{{ old('email') }}" required autofocus>
+            <input type="email" autocomplete="email" name="email" id="email" class="form-input" value="{{ old('email') }}" required autofocus>
         </div>
         <div class="form-group">
             <label for="password">{{ __('app.password') }}</label>
-            <input type="password" name="password" id="password" class="form-input" required>
+            <input type="password" autocomplete="current-password" name="password" id="password" class="form-input" required>
         </div>
         <button type="submit" class="btn btn-primary btn-block">{{ __('app.login') }}</button>
     </form>

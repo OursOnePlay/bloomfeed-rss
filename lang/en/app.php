@@ -14,7 +14,7 @@ return [
     'login' => 'Log in',
     'create_account' => 'Create an account',
     'source_code' => 'Source code',
-    'footer_tagline' => 'BloomFeed — open-source, self-hosted project.',
+    'footer_tagline' => 'BloomFeed - open-source, self-hosted project.',
     'meta_description' => 'BloomFeed is a personal, self-hosted RSS aggregator with a built-in reader.',
 
     // Home
@@ -25,7 +25,7 @@ return [
     'feature_feeds_title' => 'Your feeds, your way',
     'feature_feeds_text' => 'Add any RSS or Atom feed, organize them and keep track of your unread items at a glance.',
     'feature_reader_title' => 'Built-in deep reader',
-    'feature_reader_text' => 'BloomFeed fetches the source page, extracts the main content and displays it cleanly — no more juggling ten tabs.',
+    'feature_reader_text' => 'BloomFeed fetches the source page, extracts the main content and displays it cleanly - no more juggling ten tabs.',
     'feature_home_title' => 'Your home, your rules',
     'feature_home_text' => 'One BloomFeed instance = one owner. No public sign-ups by default, no tracking, your server, your data.',
     'screenshots_title' => 'See it in action',
@@ -40,7 +40,7 @@ return [
     'badge_mit_license' => 'MIT license',
     'badge_four_languages' => '4 languages',
     'feature_multiuser_title' => 'Built for your household',
-    'feature_multiuser_text' => 'Invite the people you trust with a direct account, or open registrations for a while — everyone keeps their own feeds, reads and notifiers.',
+    'feature_multiuser_text' => 'Invite the people you trust with a direct account, or open registrations for a while - everyone keeps their own feeds, reads and notifiers.',
 
     // Authentication
     'login_title' => 'Log in',
@@ -99,7 +99,7 @@ return [
 
     // Catalog
     'catalog_title' => 'Feed catalog',
-    'catalog_lede' => 'A curated selection of RSS feeds shipped with BloomFeed — add them to your collection in one click.',
+    'catalog_lede' => 'A curated selection of RSS feeds shipped with BloomFeed - add them to your collection in one click.',
     'search_placeholder' => 'Search feeds… (name, description, category)',
     'all' => 'All',
     'added' => 'Added',
@@ -132,12 +132,12 @@ return [
     'install_title' => 'Installation',
     'install_step_clone' => 'Clone the repository on your server.',
     'install_step_script' => 'Run the deployment script:',
-    'install_env_note' => 'It automatically creates a .env file (from .env.example) and generates random secrets (APP_KEY, database passwords) when missing — they are never regenerated on subsequent deployments.',
+    'install_env_note' => 'It automatically creates a .env file (from .env.example) and generates random secrets (APP_KEY, database passwords) when missing - they are never regenerated on subsequent deployments.',
     'install_step_containers' => 'The script builds the images and starts the containers (application, scheduler, MariaDB).',
-    'install_step_owner' => 'Open http://your-server:7081 and create the owner account — registrations close automatically afterwards.',
+    'install_step_owner' => 'Open http://your-server:7081 and create the owner account - registrations close automatically afterwards.',
     'config_title' => 'Configuration',
     'config_registrations' => 'From the Settings menu, the owner account can directly create accounts for trusted people, or open/close public registrations with one click.',
-    'config_language' => 'The interface is available in French, English, Spanish and German — each user picks their language from the selector at the top of the page.',
+    'config_language' => 'The interface is available in French, English, Spanish and German - each user picks their language from the selector at the top of the page.',
     'config_catalog' => 'The built-in feed catalog can be customized by editing resources/data/bloomflux.json and redeploying.',
     'update_title' => 'Update',
     'update_text' => 'Simply re-run the deployment script: it pulls the latest changes and rebuilds the stack without touching your data.',
@@ -189,10 +189,10 @@ return [
     'notifier_updated' => 'Notifier updated.',
     'notifier_deleted' => 'Notifier deleted.',
     'notifier_test_ok' => 'Test notification sent successfully.',
-    'notifier_test_failed' => 'Failed to send the test notification — check the URL.',
+    'notifier_test_failed' => 'Failed to send the test notification - check the URL.',
 
     'reset_title' => 'Reset',
-    'reset_text' => 'The reset.sh script wipes the instance back to a blank state (accounts, feeds, articles, notifiers) without touching the source code, .env or Docker images — useful to start over on a clean instance.',
+    'reset_text' => 'The reset.sh script wipes the instance back to a blank state (accounts, feeds, articles, notifiers) without touching the source code, .env or Docker images - useful to start over on a clean instance.',
 
     // Auto-update
     'autoupdate_title' => 'Automatic updates',
@@ -202,6 +202,6 @@ return [
     'autoupdate_comment_uninstall' => 'disables automatic updates',
 
     // SEO
-    'seo_home_title' => 'BloomFeed — Self-hosted, open-source RSS aggregator',
-    'seo_selfhost_title' => 'Self-host BloomFeed — Docker installation guide',
+    'seo_home_title' => 'BloomFeed - Self-hosted, open-source RSS aggregator',
+    'seo_selfhost_title' => 'Self-host BloomFeed - Docker installation guide',
 ];

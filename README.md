@@ -1,69 +1,54 @@
 <p align="center"><img src="public/images/logo.png" width="360" alt="BloomFeed"></p>
 
-<p align="center">
-Un agrégateur RSS personnel et auto-hébergé, avec lecture approfondie intégrée.<br>
-<em>A personal, self-hosted RSS aggregator with a built-in reader.</em>
-</p>
+<p align="center">A personal, self-hosted RSS reader.</p>
 
-<p align="center"><img src="docs/screenshots/home-light.png" width="800" alt="Page d'accueil de BloomFeed"></p>
+<p align="center"><img src="public/images/preview/dashboard-light.png" width="1000" alt="BloomFeed article list"></p>
 
-## Qu'est-ce que BloomFeed ?
+## About
 
-BloomFeed centralise vos flux RSS/Atom préférés dans une interface simple. Quand un article vous
-intéresse, BloomFeed récupère la page source, en extrait le contenu principal et l'affiche
-directement dans l'application — plus besoin d'ouvrir le site d'origine.
+BloomFeed brings your RSS and Atom feeds together in one place. Open an article to fetch its source page and read the full text inside the app. Search by title or source, filter unread articles, and save favorites for later.
 
-BloomFeed est pensé pour être **auto-hébergé par une personne ou un foyer** : le premier compte
-créé devient le compte propriétaire, qui peut ensuite inviter des proches (création directe de
-comptes) ou ouvrir les inscriptions publiques depuis le menu Paramètres.
+The first account becomes the instance owner. The owner can create accounts for other people or open public registration. Each account has its own feeds, reading history, favorites, and notifications.
 
-## Fonctionnalités
+## Features
 
-- Ajout de flux RSS/Atom, suivi des non-lus, favoris.
-- Lecture approfondie intégrée : extraction du contenu principal (via
-  [Readability](https://github.com/fivefilters/readability.php)) converti en Markdown, sans
-  quitter BloomFeed.
-- Catalogue de flux façon "market" : une sélection de flux embarquée avec l'application
-  ([resources/data/bloomflux.json](resources/data/bloomflux.json)), à ajouter en un clic.
-- Multi-comptes : le propriétaire crée des comptes ou ouvre/ferme les inscriptions d'un clic.
-- Notifications personnelles : chaque utilisateur configure ses propres alertes **Discord** ou
-  **webhook générique**, pour tous ses flux ou seulement certains.
-- Interface disponible en **français, anglais, espagnol et allemand** (sélecteur en haut de page,
-  préférence mémorisée par utilisateur).
-- Récupération périodique des flux via une tâche planifiée.
-- Thème clair/sombre.
+- RSS and Atom subscriptions with scheduled refreshes and unread counts.
+- Full-article reading using [Readability](https://github.com/fivefilters/readability.php), with content converted to Markdown.
+- Article search, unread and favorite filters, and a saved compact-view preference.
+- A built-in [feed catalog](resources/data/bloomflux.json), with search, category and language filters.
+- Discord and generic webhook notifications for all feeds or a selected set.
+- Owner controls for accounts, registration, and additional catalog sources.
+- English by default, with French, Spanish, and German available from the language selector.
+- Light and dark themes, keyboard navigation, and collapsible navigation on mobile.
 
-## Aperçu
+## Screenshots
 
-| Tableau de bord | Lecteur intégré |
-|---|---|
-| ![Tableau de bord](docs/screenshots/dashboard-light.png) | ![Lecteur intégré](docs/screenshots/reader-light.png) |
+| Reader | Feed catalog |
+| --- | --- |
+| ![Article reader](public/images/preview/reader-light.png) | ![Feed catalog](public/images/preview/catalog-light.png) |
 
-| Catalogue de flux | Notifieurs |
-|---|---|
-| ![Catalogue de flux](docs/screenshots/catalog-light.png) | ![Notifieurs](docs/screenshots/notifiers-light.png) |
+| Dark theme | Notifications |
+| --- | --- |
+| ![Dark theme](public/images/preview/dashboard-dark.png) | ![Notifications](public/images/preview/notifiers-light.png) |
 
-| Mode sombre |
-|---|
-| ![Mode sombre](docs/screenshots/dashboard-dark.png) |
+Screenshots use a local demo account with sample articles.
 
-## Stack technique
+## Stack
 
-- [Laravel 13](https://laravel.com) (PHP 8.4)
+- Laravel 13, with PHP 8.4 in Docker
 - MariaDB
-- CSS/JS écrits à la main, sans étape de build (pas de Node/Vite/Tailwind)
-- Docker Compose pour le déploiement
+- Handwritten CSS and JavaScript, with no frontend build step
+- Docker Compose
 
-## Installation (auto-hébergement)
+## Self-hosting
 
-### Prérequis
+### Requirements
 
-- Un serveur Linux avec **Docker** et le plugin **Docker Compose**.
-- Le port **7081** libre (modifiable dans `docker-compose.yml`).
-- Optionnel : un nom de domaine + reverse proxy (Nginx, Caddy, Traefik…) pour le HTTPS —
-  l'application détecte automatiquement les en-têtes `X-Forwarded-*`.
+- A Linux server with Docker and the Docker Compose plugin.
+- Port **7081** available. Change the port mapping in `docker-compose.yml` if needed.
+- For HTTPS, a domain name and reverse proxy such as Nginx, Caddy, or Traefik. The app supports `X-Forwarded-*` headers.
 
-### Étapes
+### Install
 
 ```bash
 git clone https://git.eldorianet.work/esteban/BloomFeed-RSS bloomfeed
@@ -71,130 +56,150 @@ cd bloomfeed
 bash scriptsite.sh
 ```
 
-Le script de déploiement :
+The deployment script:
 
-1. libère le port 7081 si nécessaire ;
-2. clone ou met à jour le code dans `/opt/bloomfeed` ;
-3. crée le `.env` depuis `.env.example` s'il n'existe pas, et y génère les secrets manquants
-   (`APP_KEY`, `DB_PASSWORD`, `DB_ROOT_PASSWORD`) — ils ne sont **jamais** régénérés ensuite ;
-4. construit les images et démarre les conteneurs (application, planificateur, MariaDB) ;
-5. attend que les migrations de l'entrypoint soient terminées et vérifie que l'application répond.
+1. Frees port 7081 by stopping any process listening on it.
+2. Clones or updates the repository in `/opt/bloomfeed`.
+3. Creates `.env` from `.env.example` when missing and generates missing secrets: `APP_KEY`, `DB_PASSWORD`, and `DB_ROOT_PASSWORD`. Existing secrets are preserved.
+4. Builds the images and starts the application, scheduler, and MariaDB containers.
+5. Waits for the entrypoint migrations and checks that the application responds.
 
-Ouvrez ensuite `http://votre-serveur:7081` et créez le **compte propriétaire** — les inscriptions
-publiques se referment automatiquement après.
+Open `http://your-server:7081` and create the owner account. Public registration closes automatically after the first account is created.
 
-### Mise à jour
+### Update and backups
 
-Relancez simplement `bash scriptsite.sh` : il récupère les derniers changements et reconstruit
-la stack sans toucher à vos données.
+Run `bash scriptsite.sh` again to fetch the latest changes and rebuild the containers.
 
-Avant chaque redéploiement (s'il existe déjà une instance en cours), le script sauvegarde
-automatiquement la base de données dans `backups/bloomfeed-<date>.sql.gz` (les 10 dernières
-sauvegardes sont conservées). Si la sauvegarde échoue, la mise à jour est annulée pour ne
-jamais risquer de perdre des données. Pour restaurer une sauvegarde :
+Before updating a running instance, the script backs up the database to `backups/bloomfeed-<date>.sql.gz`. It keeps the ten most recent backups. If the backup fails, the update stops.
+
+To restore a backup, run this from `/opt/bloomfeed`:
 
 ```bash
 gunzip -c backups/bloomfeed-20260706-120000.sql.gz \
   | sudo docker compose exec -T db sh -c 'exec mariadb -u root -p"$MARIADB_ROOT_PASSWORD"'
 ```
 
-### Mise à jour automatique
+### Automatic updates
 
-`auto-update.sh` vérifie périodiquement si le dépôt a de nouveaux commits sur `origin/main` et
-ne redéploie (via `scriptsite.sh`) que si c'est le cas — une instance à jour ne reconstruit jamais
-pour rien. Le mécanisme tourne sur l'hôte via une tâche cron dédiée (`/etc/cron.d/bloomfeed-auto-update`),
-jamais depuis le conteneur applicatif (qui n'a pas accès au démon Docker, par sécurité).
+`auto-update.sh` checks `origin/main` and redeploys only when new commits are available. It runs on the host through `/etc/cron.d/bloomfeed-auto-update`; the application container does not need access to Docker.
 
 ```bash
-bash auto-update.sh --install        # active la vérification toutes les 30 min (défaut)
-bash auto-update.sh --install 60     # ou toutes les 60 min
-bash auto-update.sh --status         # état actuel + derniers logs
-bash auto-update.sh --force          # force un redéploiement immédiat
-bash auto-update.sh --uninstall      # désactive la mise à jour automatique
+bash auto-update.sh --install        # Check every 30 minutes
+bash auto-update.sh --install 60     # Check every 60 minutes
+bash auto-update.sh --status         # Show status and recent logs
+bash auto-update.sh --force          # Redeploy immediately
+bash auto-update.sh --uninstall      # Disable automatic updates
 ```
 
-Les logs sont écrits dans `storage/logs/auto-update.log` à l'intérieur du dépôt.
+Logs are written to `storage/logs/auto-update.log` inside the repository.
 
-### Réinitialisation
+### Reset
 
-Pour repartir d'une instance vierge (efface comptes, flux, articles et notifieurs) sans toucher
-au code, au `.env` ni aux images Docker :
+A reset deletes accounts, feeds, articles, and notifications. It leaves the source code, `.env`, and Docker images in place.
 
 ```bash
-bash reset.sh          # confirmation interactive requise
-bash reset.sh --yes    # sans confirmation
+bash reset.sh          # Ask for confirmation
+bash reset.sh --yes    # Reset without prompting
 ```
 
-### Désinstallation
+### Uninstall
 
 ```bash
-bash uninstall.sh              # arrête et supprime les conteneurs (données conservées)
-bash uninstall.sh --purge      # supprime aussi la base de données et le storage (confirmation demandée)
-bash uninstall.sh --purge --purge-source   # supprime aussi /opt/bloomfeed et le .env
+bash uninstall.sh                         # Remove containers, keep data
+bash uninstall.sh --purge                 # Also delete database and storage; asks for confirmation
+bash uninstall.sh --purge --purge-source  # Also delete /opt/bloomfeed and .env
 ```
 
 ## Configuration
 
-### Comptes et inscriptions
+### Accounts
 
-Le compte propriétaire dispose d'un menu **Paramètres** dans la barre de navigation :
+The owner can use **Settings** to create accounts directly or enable public registration. When registration is enabled, the home and login pages offer a **Create account** link.
 
-- **Créer un compte** directement (nom, e-mail, mot de passe) pour un proche, sans rien ouvrir
-  au public ;
-- **Ouvrir / fermer les inscriptions publiques** d'un clic — quand elles sont ouvertes, le bouton
-  "Créer un compte" réapparaît sur la page d'accueil et la page de connexion.
+### Language
 
-### Langue
+English is the default. Visitors can choose another language using the selector at the top of the page. The choice is stored in the session and, for signed-in users, in their profile.
 
-Chaque visiteur ou utilisateur choisit sa langue (FR, EN, ES, DE) via le sélecteur en haut de
-page. Le choix est mémorisé en session pour les visiteurs et enregistré sur le profil pour les
-utilisateurs connectés. La langue par défaut de l'instance se règle avec `APP_LOCALE` dans `.env`.
+Set `APP_LOCALE` in `.env` to change the instance default. Existing language preferences take precedence. If an existing installation uses `APP_LOCALE=fr`, change it to `APP_LOCALE=en` and redeploy to use English for visitors without a saved preference.
 
-### Variables d'environnement principales
+| Variable | Purpose | Default |
+| --- | --- | --- |
+| `APP_URL` | Public instance URL, including the HTTPS scheme when using a reverse proxy | `http://localhost:7081` |
+| `APP_LOCALE` | Default language: `en`, `fr`, `es`, or `de` | `en` |
+| `APP_FALLBACK_LOCALE` | Language used when a translation is missing | `en` |
+| `DB_*` | MariaDB connection settings | See `.env.example`; passwords are generated during deployment |
 
-| Variable | Rôle | Défaut |
-|---|---|---|
-| `APP_URL` | URL publique de l'instance (importante derrière un reverse proxy HTTPS) | `http://localhost:7081` |
-| `APP_LOCALE` | Langue par défaut (`fr`, `en`, `es`, `de`) | `fr` |
-| `DB_*` | Connexion MariaDB (générés par le script) | — |
+### Feed catalog
 
-### Catalogue de flux
-
-L'onglet **Catalogue** propose une sélection de flux pré-faits (actualités, tech, développement,
-IT/sysadmin, sécurité, sciences…) à ajouter en un clic. La liste vit dans
-[resources/data/bloomflux.json](resources/data/bloomflux.json), versionnée avec le code : pour
-l'enrichir, éditez le fichier et redéployez — aucun service externe n'est nécessaire.
+The catalog includes feeds covering news, technology, development, system administration, security, science, and other topics. Edit [resources/data/bloomflux.json](resources/data/bloomflux.json) and redeploy to update the built-in list.
 
 ```json
-{ "title": "Nom du flux", "url": "https://exemple.com/rss.xml", "category": "Tech", "lang": "fr", "description": "Courte description." }
+{
+  "title": "Example feed",
+  "url": "https://example.com/rss.xml",
+  "category": "Tech",
+  "lang": "en",
+  "description": "News and technical articles."
+}
 ```
 
-### Notifications (Discord / webhook)
+The owner can also add external catalog sources in Settings. Each source must provide a JSON file containing a `feeds` array.
 
-Chaque utilisateur configure ses propres notifieurs depuis le menu **Notifieurs** :
+### Notifications
 
-- **Discord** : collez l'URL d'un webhook de salon Discord (Paramètres du salon → Intégrations →
-  Webhooks) ; BloomFeed envoie un embed (titre, lien, extrait) à chaque nouvel article.
-- **Webhook générique** : n'importe quelle URL recevant un `POST` JSON
-  `{ "event": "article.created", "feed": "...", "article": { "title", "url", "excerpt", "published_at" } }`.
+Each account configures its own notifications:
 
-Chaque notifieur a une **portée** : tous les flux de l'utilisateur, ou une sélection précise de
-flux. Un bouton "Tester" envoie une notification factice pour valider l'URL avant de compter dessus.
+- **Discord:** paste a channel webhook URL from Channel Settings, Integrations, Webhooks. BloomFeed sends the article title, link, and excerpt.
+- **Generic webhook:** provide an endpoint that accepts a JSON `POST` with this structure:
 
-## Développement local
+```json
+{
+  "event": "article.created",
+  "feed": "Example feed",
+  "article": {
+    "title": "Article title",
+    "url": "https://example.com/article",
+    "excerpt": "Article excerpt.",
+    "published_at": "2026-10-30T12:00:00+00:00"
+  }
+}
+```
 
-Prérequis : PHP 8.3+ et [Composer](https://getcomposer.org).
+Choose all feeds or select specific subscriptions. Use **Send test** to check the destination.
+
+## Local development
+
+Install PHP and [Composer](https://getcomposer.org). PHP 8.4 or newer is recommended for the locked development dependencies.
 
 ```bash
 composer install
 cp .env.example .env
-# Passer DB_CONNECTION=sqlite dans .env pour un dev local sans MariaDB
+```
+
+For local SQLite development, set these values in `.env`. Remove the `DB_DATABASE` line from `.env` to use Laravel's default SQLite file:
+
+```dotenv
+APP_ENV=local
+APP_DEBUG=true
+APP_URL=http://localhost:8000
+DB_CONNECTION=sqlite
+```
+
+Then run:
+
+```bash
 touch database/database.sqlite
 php artisan key:generate
 php artisan migrate
 php artisan serve
 ```
 
-## Licence
+Run the tests with:
+
+```bash
+php artisan test
+```
+
+## License
 
 [MIT](LICENSE).

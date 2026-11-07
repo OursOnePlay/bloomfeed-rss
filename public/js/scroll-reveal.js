@@ -1,5 +1,6 @@
 (function () {
     document.addEventListener('DOMContentLoaded', function () {
+        document.documentElement.classList.add('motion-ready');
         var targets = document.querySelectorAll('.reveal');
         if (!targets.length) {
             return;

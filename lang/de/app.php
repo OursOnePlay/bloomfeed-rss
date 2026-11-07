@@ -14,7 +14,7 @@ return [
     'login' => 'Anmelden',
     'create_account' => 'Konto erstellen',
     'source_code' => 'Quellcode',
-    'footer_tagline' => 'BloomFeed — Open-Source-Projekt, selbst gehostet.',
+    'footer_tagline' => 'BloomFeed - Open-Source-Projekt, selbst gehostet.',
     'meta_description' => 'BloomFeed ist ein persönlicher, selbst gehosteter RSS-Aggregator mit integriertem Reader.',
 
     // Startseite
@@ -25,7 +25,7 @@ return [
     'feature_feeds_title' => 'Deine Feeds, dein Stil',
     'feature_feeds_text' => 'Füge beliebige RSS- oder Atom-Feeds hinzu, organisiere sie und behalte Ungelesenes im Blick.',
     'feature_reader_title' => 'Integrierter Reader',
-    'feature_reader_text' => 'BloomFeed ruft die Originalseite ab, extrahiert den Hauptinhalt und zeigt ihn sauber an — Schluss mit zehn offenen Tabs.',
+    'feature_reader_text' => 'BloomFeed ruft die Originalseite ab, extrahiert den Hauptinhalt und zeigt ihn sauber an - Schluss mit zehn offenen Tabs.',
     'feature_home_title' => 'Bei dir, für dich',
     'feature_home_text' => 'Eine BloomFeed-Instanz = ein Besitzer. Keine öffentlichen Registrierungen standardmäßig, kein Tracking, dein Server, deine Daten.',
     'screenshots_title' => 'So sieht’s aus',
@@ -40,7 +40,7 @@ return [
     'badge_mit_license' => 'MIT-Lizenz',
     'badge_four_languages' => '4 Sprachen',
     'feature_multiuser_title' => 'Gemacht für dein Zuhause',
-    'feature_multiuser_text' => 'Lade vertraute Personen mit einem direkten Konto ein, oder öffne die Registrierung für eine Weile — jeder behält seine eigenen Feeds, Lektüre und Benachrichtigungen.',
+    'feature_multiuser_text' => 'Lade vertraute Personen mit einem direkten Konto ein, oder öffne die Registrierung für eine Weile - jeder behält seine eigenen Feeds, Lektüre und Benachrichtigungen.',
 
     // Authentifizierung
     'login_title' => 'Anmelden',
@@ -99,7 +99,7 @@ return [
 
     // Katalog
     'catalog_title' => 'Feed-Katalog',
-    'catalog_lede' => 'Eine kuratierte Auswahl an RSS-Feeds, die mit BloomFeed mitgeliefert wird — mit einem Klick zu deiner Sammlung hinzufügen.',
+    'catalog_lede' => 'Eine kuratierte Auswahl an RSS-Feeds, die mit BloomFeed mitgeliefert wird - mit einem Klick zu deiner Sammlung hinzufügen.',
     'search_placeholder' => 'Feed suchen… (Name, Beschreibung, Kategorie)',
     'all' => 'Alle',
     'added' => 'Hinzugefügt',
@@ -124,7 +124,7 @@ return [
 
     // Self-Hosting-Seite
     'selfhost_title' => 'BloomFeed selbst hosten',
-    'selfhost_intro' => 'BloomFeed ist dafür gemacht, auf deinem eigenen Server zu laufen — für dich (oder deinen Haushalt). Alles läuft in Docker: die Anwendung, der Scheduler und die MariaDB-Datenbank.',
+    'selfhost_intro' => 'BloomFeed ist dafür gemacht, auf deinem eigenen Server zu laufen - für dich (oder deinen Haushalt). Alles läuft in Docker: die Anwendung, der Scheduler und die MariaDB-Datenbank.',
     'prereq_title' => 'Voraussetzungen',
     'prereq_docker' => 'Ein Linux-Server mit Docker und dem Docker-Compose-Plugin.',
     'prereq_port' => 'Port 7081 frei (konfigurierbar in docker-compose.yml).',
@@ -132,12 +132,12 @@ return [
     'install_title' => 'Installation',
     'install_step_clone' => 'Klone das Repository auf deinen Server.',
     'install_step_script' => 'Führe das Deployment-Skript aus:',
-    'install_env_note' => 'Es erstellt automatisch eine .env-Datei (aus .env.example) und generiert fehlende Zufallsgeheimnisse (APP_KEY, Datenbank-Passwörter) — sie werden bei späteren Deployments nie neu generiert.',
+    'install_env_note' => 'Es erstellt automatisch eine .env-Datei (aus .env.example) und generiert fehlende Zufallsgeheimnisse (APP_KEY, Datenbank-Passwörter) - sie werden bei späteren Deployments nie neu generiert.',
     'install_step_containers' => 'Das Skript baut die Images und startet die Container (Anwendung, Scheduler, MariaDB).',
-    'install_step_owner' => 'Öffne http://dein-server:7081 und erstelle das Besitzerkonto — Registrierungen schließen sich danach automatisch.',
+    'install_step_owner' => 'Öffne http://dein-server:7081 und erstelle das Besitzerkonto - Registrierungen schließen sich danach automatisch.',
     'config_title' => 'Konfiguration',
     'config_registrations' => 'Über das Einstellungsmenü kann das Besitzerkonto direkt Konten für vertraute Personen erstellen oder öffentliche Registrierungen mit einem Klick öffnen/schließen.',
-    'config_language' => 'Die Oberfläche ist auf Französisch, Englisch, Spanisch und Deutsch verfügbar — jeder Nutzer wählt seine Sprache über den Selektor oben auf der Seite.',
+    'config_language' => 'Die Oberfläche ist auf Französisch, Englisch, Spanisch und Deutsch verfügbar - jeder Nutzer wählt seine Sprache über den Selektor oben auf der Seite.',
     'config_catalog' => 'Der integrierte Feed-Katalog lässt sich durch Bearbeiten von resources/data/bloomflux.json und erneutes Deployment anpassen.',
     'update_title' => 'Aktualisieren',
     'update_text' => 'Führe einfach das Deployment-Skript erneut aus: Es holt die neuesten Änderungen und baut den Stack neu, ohne deine Daten anzutasten.',
@@ -189,10 +189,10 @@ return [
     'notifier_updated' => 'Benachrichtigung aktualisiert.',
     'notifier_deleted' => 'Benachrichtigung gelöscht.',
     'notifier_test_ok' => 'Testbenachrichtigung erfolgreich gesendet.',
-    'notifier_test_failed' => 'Testbenachrichtigung konnte nicht gesendet werden — URL prüfen.',
+    'notifier_test_failed' => 'Testbenachrichtigung konnte nicht gesendet werden - URL prüfen.',
 
     'reset_title' => 'Zurücksetzen',
-    'reset_text' => 'Das Skript reset.sh setzt die Instanz auf einen leeren Zustand zurück (Konten, Feeds, Artikel, Benachrichtigungen), ohne Quellcode, .env oder Docker-Images anzutasten — nützlich, um mit einer sauberen Instanz neu zu starten.',
+    'reset_text' => 'Das Skript reset.sh setzt die Instanz auf einen leeren Zustand zurück (Konten, Feeds, Artikel, Benachrichtigungen), ohne Quellcode, .env oder Docker-Images anzutasten - nützlich, um mit einer sauberen Instanz neu zu starten.',
 
     // Automatische Updates
     'autoupdate_title' => 'Automatische Updates',
@@ -202,6 +202,6 @@ return [
     'autoupdate_comment_uninstall' => 'deaktiviert automatische Updates',
 
     // SEO
-    'seo_home_title' => 'BloomFeed — Selbst gehosteter, quelloffener RSS-Aggregator',
-    'seo_selfhost_title' => 'BloomFeed selbst hosten — Docker-Installationsanleitung',
+    'seo_home_title' => 'BloomFeed - Selbst gehosteter, quelloffener RSS-Aggregator',
+    'seo_selfhost_title' => 'BloomFeed selbst hosten - Docker-Installationsanleitung',
 ];

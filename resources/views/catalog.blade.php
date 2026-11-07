@@ -1,14 +1,14 @@
-@extends('layouts.app', ['title' => __('app.catalog').' — BloomFeed'])
+@extends('layouts.app', ['title' => __('app.catalog').' - BloomFeed'])
 
 @section('content')
 <div class="main-column" style="width:100%;">
     @if (session('status'))
-        <div class="form-status">{{ session('status') }}</div>
+        <div class="form-status" role="status">{{ session('status') }}</div>
     @endif
 
     <div class="market-header">
         <div>
-            <h2 style="margin:0;">{{ __('app.catalog_title') }}</h2>
+            <h1 style="margin:0;">{{ __('app.catalog_title') }}</h1>
             <p class="text-muted text-sm" style="margin:4px 0 0;">
                 {{ __('app.catalog_lede') }}
             </p>
@@ -39,7 +39,9 @@
         @php($languages = $feeds->flatten(1)->pluck('lang')->unique()->sort()->values())
 
         <div class="market-toolbar">
+            <label class="sr-only" for="market-search">{{ __('app.search_placeholder') }}</label>
             <input type="search" id="market-search" class="form-input market-search" placeholder="{{ __('app.search_placeholder') }}">
+            <label class="sr-only" for="market-lang">{{ __('app.language') }}</label>
             <select id="market-lang" class="form-input market-lang-select">
                 <option value="">{{ __('app.all_languages') }}</option>
                 @foreach ($languages as $lang)
@@ -49,9 +51,9 @@
         </div>
 
         <div class="market-chips" id="market-chips">
-            <button type="button" class="chip active" data-category="">{{ __('app.all') }}</button>
+            <button type="button" class="chip active" aria-pressed="true" data-category="">{{ __('app.all') }}</button>
             @foreach ($feeds->keys() as $category)
-                <button type="button" class="chip" data-category="{{ $category }}">{{ $category }}</button>
+                <button type="button" class="chip" aria-pressed="false" data-category="{{ $category }}">{{ $category }}</button>
             @endforeach
         </div>
 

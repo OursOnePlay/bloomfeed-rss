@@ -1,138 +1,34 @@
-@extends('layouts.marketing', [
-    'title' => __('app.seo_home_title'),
-    'description' => __('app.meta_description'),
-])
-
-@php
-    // Screenshots live under images/screenshots/{locale}/ so each language can show its own
-    // captures; falls back to the French set until the other locales are captured too.
-    $screenshotUrl = function (string $file) {
-        $localized = 'images/screenshots/' . app()->getLocale() . '/' . $file;
-        $path = file_exists(public_path($localized)) ? $localized : 'images/screenshots/fr/' . $file;
-        return asset($path);
-    };
-@endphp
-
+@extends('layouts.marketing', ['title' => __('app.seo_home_title'), 'description' => __('app.meta_description')])
 @section('content')
-<section class="hero">
-    <div class="hero-orbs" aria-hidden="true">
-        <span class="orb orb-1"></span>
-        <span class="orb orb-2"></span>
-        <span class="orb orb-3"></span>
-    </div>
-
-    <div class="hero-float-icon hero-float-icon-1" aria-hidden="true"><i class="fa-solid fa-rss"></i></div>
-    <div class="hero-float-icon hero-float-icon-2" aria-hidden="true"><i class="fa-solid fa-bell"></i></div>
-    <div class="hero-float-icon hero-float-icon-3" aria-hidden="true"><i class="fa-solid fa-book-open"></i></div>
-    <div class="hero-float-icon hero-float-icon-4" aria-hidden="true"><i class="fa-solid fa-house-laptop"></i></div>
-
-    <div class="hero-grid">
-        <div class="hero-inner">
-            <span class="eyebrow">{{ __('app.hero_eyebrow') }}</span>
-            <h1>{{ __('app.hero_title') }}</h1>
-            <p class="hero-lede">{{ __('app.hero_lede') }}</p>
-            <div class="hero-cta">
-                @if ($hasOwner && ! \App\Models\Setting::registrationsOpen())
-                    <a href="{{ route('login') }}" class="btn btn-primary btn-lg">{{ __('app.login') }}</a>
-                @else
-                    <a href="{{ route('register') }}" class="btn btn-primary btn-lg">{{ __('app.create_account') }}</a>
-                @endif
-                <a href="{{ route('self-hosting') }}" class="btn btn-ghost btn-lg">{{ __('app.how_to_self_host') }}</a>
-            </div>
-
-            <div class="trust-badges">
-                <span class="trust-badge reveal"><i class="fa-solid fa-server"></i> {{ __('app.badge_self_hosted') }}</span>
-                <span class="trust-badge reveal"><i class="fa-brands fa-git-alt"></i> {{ __('app.badge_open_source') }}</span>
-                <span class="trust-badge reveal"><i class="fa-solid fa-scale-balanced"></i> {{ __('app.badge_mit_license') }}</span>
-                <span class="trust-badge reveal"><i class="fa-solid fa-language"></i> {{ __('app.badge_four_languages') }}</span>
-            </div>
-        </div>
-
-        <div class="hero-visual">
-            <div class="browser-frame">
-                <div class="browser-frame-bar">
-                    <span class="browser-dot browser-dot-red"></span>
-                    <span class="browser-dot browser-dot-yellow"></span>
-                    <span class="browser-dot browser-dot-green"></span>
-                </div>
-                <img src="{{ $screenshotUrl('dashboard-light.png') }}" alt="BloomFeed dashboard" class="browser-frame-img browser-frame-img-light">
-                <img src="{{ $screenshotUrl('dashboard-dark.png') }}" alt="BloomFeed dashboard" class="browser-frame-img browser-frame-img-dark">
-            </div>
-        </div>
+@php
+    $screenshotUrl = fn ($file) => asset('images/preview/'.$file);
+    $entryRoute = $hasOwner && ! \App\Models\Setting::registrationsOpen() ? route('login') : route('register');
+    $entryLabel = $hasOwner && ! \App\Models\Setting::registrationsOpen() ? __('app.login') : __('app.create_account');
+@endphp
+<section class="marketing-hero">
+    <h1>{{ __('design.hero_title') }}</h1>
+    <div class="hero-intro"><p>{{ __('design.hero_lede') }}</p><div class="hero-actions"><a href="{{ $entryRoute }}" class="btn btn-primary btn-lg">{{ $entryLabel }}</a><a href="{{ route('self-hosting') }}">{{ __('app.self_hosting') }}</a></div></div>
+    <div class="product-stage" data-ui><img src="{{ $screenshotUrl('dashboard-light.png') }}" alt="{{ __('app.screenshot_dashboard') }}" width="1440" height="900" class="browser-frame-img-light"><img src="{{ $screenshotUrl('dashboard-dark.png') }}" alt="{{ __('app.screenshot_dark') }}" width="1440" height="900" class="browser-frame-img-dark"></div>
+</section>
+<section class="marketing-showcase">
+    <div class="section-intro"><h2 class="reveal">{{ __('design.showcase_title') }}</h2><p class="reveal">{{ __('design.showcase_lede') }}</p></div>
+    <div class="preview-switch" data-preview-switch aria-label="{{ __('app.change_theme') }}"><button type="button" data-preview="light" aria-pressed="true">{{ __('design.light') }}</button><button type="button" data-preview="dark" aria-pressed="false">{{ __('design.dark') }}</button></div>
+    <div class="showcase-board">
+        @foreach (['reader' => 'screenshot_reader', 'catalog' => 'screenshot_catalog', 'notifiers' => 'screenshot_notifiers'] as $screen => $caption)
+            <figure><img class="reveal" src="{{ $screenshotUrl($screen.'-light.png') }}" data-preview-image="{{ asset('images/preview/'.$screen) }}" alt="{{ __('app.'.$caption) }}" width="1440" height="900" loading="lazy"><figcaption class="reveal">{{ __('app.'.$caption) }}</figcaption></figure>
+        @endforeach
     </div>
 </section>
-
-<section class="feature-grid">
-    <div class="feature-card reveal">
-        <div class="feature-icon feature-icon-1"><i class="fa-solid fa-rss"></i></div>
-        <h3>{{ __('app.feature_feeds_title') }}</h3>
-        <p>{{ __('app.feature_feeds_text') }}</p>
-    </div>
-    <div class="feature-card reveal">
-        <div class="feature-icon feature-icon-2"><i class="fa-solid fa-book-open"></i></div>
-        <h3>{{ __('app.feature_reader_title') }}</h3>
-        <p>{{ __('app.feature_reader_text') }}</p>
-    </div>
-    <div class="feature-card reveal">
-        <div class="feature-icon feature-icon-3"><i class="fa-solid fa-house-lock"></i></div>
-        <h3>{{ __('app.feature_home_title') }}</h3>
-        <p>{{ __('app.feature_home_text') }}</p>
-    </div>
-    <div class="feature-card reveal">
-        <div class="feature-icon feature-icon-4"><i class="fa-solid fa-bell"></i></div>
-        <h3>{{ __('app.notifiers') }}</h3>
-        <p>{{ __('app.notifiers_lede') }}</p>
-    </div>
-    <div class="feature-card reveal">
-        <div class="feature-icon feature-icon-5"><i class="fa-solid fa-compass"></i></div>
-        <h3>{{ __('app.catalog_title') }}</h3>
-        <p>{{ __('app.catalog_lede') }}</p>
-    </div>
-    <div class="feature-card reveal">
-        <div class="feature-icon feature-icon-6"><i class="fa-solid fa-users"></i></div>
-        <h3>{{ __('app.feature_multiuser_title') }}</h3>
-        <p>{{ __('app.feature_multiuser_text') }}</p>
+<section class="marketing-features">
+    <div class="feature-statement"><h2 class="reveal">{{ __('design.home_title') }}</h2><p class="reveal">{{ __('design.home_lede') }}</p></div>
+    <div class="feature-rows">
+        @foreach (['feeds', 'reader', 'multiuser'] as $feature)
+            <div class="feature-row"><h3 class="reveal">{{ __('app.feature_'.$feature.'_title') }}</h3><p class="reveal">{{ __('app.feature_'.$feature.'_text') }}</p></div>
+        @endforeach
     </div>
 </section>
-
-<section class="screenshots-section">
-    <div class="screenshots-header reveal">
-        <h2>{{ __('app.screenshots_title') }}</h2>
-        <p>{{ __('app.screenshots_lede') }}</p>
-    </div>
-
-    @php
-        $screenshots = [
-            ['file' => 'dashboard-light.png', 'caption' => __('app.screenshot_dashboard')],
-            ['file' => 'dashboard-dark.png', 'caption' => __('app.screenshot_dark')],
-            ['file' => 'reader-light.png', 'caption' => __('app.screenshot_reader')],
-            ['file' => 'catalog-light.png', 'caption' => __('app.screenshot_catalog')],
-            ['file' => 'notifiers-light.png', 'caption' => __('app.screenshot_notifiers')],
-        ];
-    @endphp
-
-    <div class="screenshot-gallery reveal">
-        <div class="browser-frame screenshot-main">
-            <div class="browser-frame-bar">
-                <span class="browser-dot browser-dot-red"></span>
-                <span class="browser-dot browser-dot-yellow"></span>
-                <span class="browser-dot browser-dot-green"></span>
-            </div>
-            <img id="screenshotMainImg" class="browser-frame-img" src="{{ $screenshotUrl($screenshots[0]['file']) }}" alt="{{ $screenshots[0]['caption'] }}">
-        </div>
-        <div class="screenshot-thumbs">
-            @foreach ($screenshots as $index => $shot)
-                <button type="button" class="screenshot-thumb {{ $index === 0 ? 'active' : '' }}" data-img="{{ $screenshotUrl($shot['file']) }}" data-caption="{{ $shot['caption'] }}">
-                    <img src="{{ $screenshotUrl($shot['file']) }}" alt="{{ $shot['caption'] }}" loading="lazy">
-                </button>
-            @endforeach
-        </div>
-        <p class="screenshot-caption" id="screenshotCaption">{{ $screenshots[0]['caption'] }}</p>
-    </div>
-</section>
-
-<script src="{{ asset('js/screenshot-gallery.js') }}" defer></script>
-
+<a href="{{ route('self-hosting') }}" class="marketing-cta"><p class="reveal">{{ __('design.install_lede') }}</p><span class="reveal">{{ __('design.install') }}</span></a>
+<script src="{{ asset('js/marketing.js') }}" defer></script>
 @push('structured-data')
 <script type="application/ld+json">
 {

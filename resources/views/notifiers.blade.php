@@ -1,19 +1,19 @@
-@extends('layouts.app', ['title' => __('app.notifiers').' — BloomFeed'])
+@extends('layouts.app', ['title' => __('app.notifiers').' - BloomFeed'])
 
 @section('content')
-<div class="main-column" style="width:100%; max-width:760px; margin:0 auto;">
+<div class="main-column form-section">
     @if (session('status'))
-        <div class="form-status">{{ session('status') }}</div>
+        <div class="form-status" role="status">{{ session('status') }}</div>
     @endif
 
-    <h2 style="margin:0;">{{ __('app.notifiers') }}</h2>
+    <h1 style="margin:0;">{{ __('app.notifiers') }}</h1>
     <p class="text-muted text-sm" style="margin:4px 0 0;">{{ __('app.notifiers_lede') }}</p>
 
-    <div class="card mt-2">
-        <h3>{{ __('app.new_notifier') }}</h3>
+    <details class="card mt-2" @if ($notifiers->isEmpty() || $errors->any()) open @endif>
+        <summary class="section-summary">{{ __('app.new_notifier') }}</summary>
 
         @if ($errors->any())
-            <div class="form-error mt-1">{{ $errors->first() }}</div>
+            <div role="alert" class="form-error mt-1">{{ $errors->first() }}</div>
         @endif
 
         <form method="POST" action="{{ route('notifiers.store') }}" class="notifier-form mt-2">
@@ -53,7 +53,7 @@
             </div>
             <button type="submit" class="btn btn-primary">{{ __('app.add_notifier') }}</button>
         </form>
-    </div>
+    </details>
 
     <h3 class="mt-3">{{ __('app.your_notifiers') }}</h3>
 
@@ -100,23 +100,23 @@
                     @csrf
                     @method('PUT')
                     <div class="form-group">
-                        <label>{{ __('app.notifier_type') }}</label>
-                        <select name="type" class="form-input">
+                        <label for="notifier-{{ $notifier->id }}-type">{{ __('app.notifier_type') }}</label>
+                        <select id="notifier-{{ $notifier->id }}-type" name="type" class="form-input">
                             <option value="discord" @selected($notifier->type === 'discord')>Discord</option>
                             <option value="webhook" @selected($notifier->type === 'webhook')>{{ __('app.generic_webhook') }}</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>{{ __('app.notifier_name') }}</label>
-                        <input type="text" name="name" class="form-input" value="{{ $notifier->name }}" required>
+                        <label for="notifier-{{ $notifier->id }}-name">{{ __('app.notifier_name') }}</label>
+                        <input type="text" id="notifier-{{ $notifier->id }}-name" name="name" class="form-input" value="{{ $notifier->name }}" required>
                     </div>
                     <div class="form-group">
-                        <label>{{ __('app.notifier_url') }}</label>
-                        <input type="url" name="url" class="form-input" value="{{ $notifier->url }}" required>
+                        <label for="notifier-{{ $notifier->id }}-url">{{ __('app.notifier_url') }}</label>
+                        <input type="url" id="notifier-{{ $notifier->id }}-url" name="url" class="form-input" value="{{ $notifier->url }}" required>
                     </div>
                     <div class="form-group">
-                        <label>{{ __('app.notifier_scope') }}</label>
-                        <select name="scope" class="form-input" data-scope-select>
+                        <label for="notifier-{{ $notifier->id }}-scope">{{ __('app.notifier_scope') }}</label>
+                        <select id="notifier-{{ $notifier->id }}-scope" name="scope" class="form-input" data-scope-select>
                             <option value="all" @selected($notifier->scope === 'all')>{{ __('app.scope_all') }}</option>
                             <option value="feeds" @selected($notifier->scope === 'feeds')>{{ __('app.scope_feeds') }}</option>
                         </select>

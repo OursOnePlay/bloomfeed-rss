@@ -1,31 +1,32 @@
-@extends('layouts.app', ['title' => __('app.my_feeds').' — BloomFeed'])
+@extends('layouts.app', ['title' => __('app.my_feeds').' - BloomFeed'])
 
 @section('content')
 <div class="main-column" style="width:100%;">
     @if (session('status'))
-        <div class="form-status">{{ session('status') }}</div>
+        <div class="form-status" role="status">{{ session('status') }}</div>
     @endif
 
+    <h1>{{ __('app.my_feeds') }}</h1>
     <div class="card">
         <h2>{{ __('app.add_feed') }}</h2>
         <form method="POST" action="{{ route('feeds.store') }}" class="inline-form">
             @csrf
-            <input type="url" name="url" class="form-input" placeholder="{{ __('app.feed_url_placeholder') }}" required>
-            <input type="text" name="title" class="form-input" placeholder="{{ __('app.custom_title_optional') }}" style="max-width:220px;">
+            <div class="field"><label for="feed-url">{{ __('design.feed_url') }}</label><input id="feed-url" type="url" name="url" class="form-input" value="{{ old('url') }}" placeholder="{{ __('app.feed_url_placeholder') }}" required></div>
+            <div class="field"><label for="feed-title">{{ __('app.custom_title_optional') }}</label><input id="feed-title" type="text" name="title" class="form-input" value="{{ old('title') }}"></div>
             <button type="submit" class="btn btn-primary">{{ __('app.add') }}</button>
         </form>
         @error('url')
-            <div class="form-error mt-1">{{ $message }}</div>
+            <div role="alert" class="form-error mt-1">{{ $message }}</div>
         @enderror
     </div>
 
-    <h2 class="mt-3">{{ __('app.my_feeds') }}</h2>
+
 
     @forelse ($feeds as $feed)
         <div class="card flex-between">
             <div>
                 <div style="font-weight:600;">{{ $feed->displayTitle() }}</div>
-                <div class="text-sm text-muted">{{ $feed->url }}</div>
+                <div class="text-sm text-muted feed-url">{{ $feed->url }}</div>
                 <div class="text-sm text-muted mt-1">
                     {{ __('app.articles_count', ['count' => $feed->articles_count]) }}
                     @if ($feed->last_fetched_at)

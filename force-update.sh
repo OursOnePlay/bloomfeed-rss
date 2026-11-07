@@ -8,7 +8,7 @@ set -euo pipefail
 APP_DIR="/opt/bloomfeed"
 
 if [[ ! -f "${APP_DIR}/auto-update.sh" ]]; then
-  echo "ERROR: ${APP_DIR}/auto-update.sh not found — run scriptsite.sh first." >&2
+  echo "ERROR: ${APP_DIR}/auto-update.sh not found - run scriptsite.sh first." >&2
   exit 1
 fi
 

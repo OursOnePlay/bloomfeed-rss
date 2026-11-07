@@ -13,7 +13,7 @@ class SetLocale
      *
      * @param  Closure(Request): (Response)  $next
      */
-    public const SUPPORTED = ['fr', 'en', 'es', 'de'];
+    public const SUPPORTED = ['en', 'fr', 'es', 'de'];
 
     public function handle(Request $request, Closure $next): Response
     {

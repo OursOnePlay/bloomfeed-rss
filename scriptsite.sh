@@ -59,15 +59,15 @@ if [[ -n "$(sudo docker compose ps -q db 2>/dev/null)" ]]; then
     sudo chmod 600 "${BACKUP_FILE}"
     echo "==> Backup saved: ${BACKUP_FILE}"
     echo "==> Pruning old backups (keeping the last ${BACKUP_RETENTION})"
-    (sudo find "${BACKUP_DIR}" -maxdepth 1 -name 'bloomfeed-*.sql.gz' -print | sort | head -n -"${BACKUP_RETENTION}" | xargs -r sudo rm -f) || echo "WARNING: pruning old backups failed (non-fatal, continuing) — check ${BACKUP_DIR} manually." >&2
+    (sudo find "${BACKUP_DIR}" -maxdepth 1 -name 'bloomfeed-*.sql.gz' -print | sort | head -n -"${BACKUP_RETENTION}" | xargs -r sudo rm -f) || echo "WARNING: pruning old backups failed (non-fatal, continuing) - check ${BACKUP_DIR} manually." >&2
   else
     sudo rm -f "${BACKUP_FILE}"
-    echo "ERROR: database backup failed — aborting the update so no data is put at risk." >&2
+    echo "ERROR: database backup failed - aborting the update so no data is put at risk." >&2
     echo "        Check 'sudo docker compose logs db' and retry manually." >&2
     exit 1
   fi
 else
-  echo "==> No running database container found (fresh install) — skipping backup"
+  echo "==> No running database container found (fresh install) - skipping backup"
 fi
 
 echo "==> Stopping the previous Docker Compose stack if present"
@@ -89,7 +89,7 @@ for i in $(seq 1 30); do
   sleep 3
 done
 
-# NOTE: do NOT run "artisan migrate" here — the app container entrypoint already
+# NOTE: do NOT run "artisan migrate" here - the app container entrypoint already
 # runs it at startup, and two concurrent migrations corrupt the migrations
 # ledger ("table already exists").
 echo "==> Waiting for the entrypoint migrations to finish"
@@ -114,4 +114,4 @@ curl -sf -o /dev/null -w "HTTP %{http_code}\n" "http://localhost:${HOST_PORT}/lo
 echo "==> Recent logs"
 sudo docker compose logs --tail 50 app || true
 
-echo "==> BloomFeed deployment finished — http://<server-ip>:${HOST_PORT}"
+echo "==> BloomFeed deployment finished - http://<server-ip>:${HOST_PORT}"

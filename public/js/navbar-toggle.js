@@ -21,6 +21,7 @@
                 links.classList.remove('is-open');
                 toggle.setAttribute('aria-expanded', 'false');
                 toggle.classList.remove('is-active');
+                toggle.focus();
             }
         });
     });
