@@ -3,8 +3,8 @@
 @section('content')
 <div class="auth-card">
     <div class="logo-row">
-        <img src="{{ asset('images/logo.png') }}" alt="BloomFeed" class="brand-logo brand-logo-light">
-        <img src="{{ asset('images/logo-dark.png') }}" alt="BloomFeed" class="brand-logo brand-logo-dark">
+        <img src="{{ url()->assetFrom(request()->getBaseUrl(), 'images/logo.png') }}" alt="BloomFeed" class="brand-logo brand-logo-light">
+        <img src="{{ url()->assetFrom(request()->getBaseUrl(), 'images/logo-dark.png') }}" alt="BloomFeed" class="brand-logo brand-logo-dark">
     </div>
     <h1>{{ __('app.login_title') }}</h1>
     <p class="subtitle">{{ __('app.login_subtitle') }}</p>

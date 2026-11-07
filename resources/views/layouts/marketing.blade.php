@@ -8,8 +8,8 @@
     <meta name="description" content="{{ $description ?? __('app.meta_description') }}">
     <meta name="author" content="MOUSSU Esteban, Eldoria Network">
     <link rel="canonical" href="{{ url()->current() }}">
-    <link rel="icon" href="{{ asset('images/icon.png') }}">
-    <link rel="apple-touch-icon" href="{{ asset('images/icon.png') }}">
+    <link rel="icon" href="{{ url()->assetFrom(request()->getBaseUrl(), 'images/icon.png') }}">
+    <link rel="apple-touch-icon" href="{{ url()->assetFrom(request()->getBaseUrl(), 'images/icon.png') }}">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="BloomFeed">
@@ -30,8 +30,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="{{ asset('css/theme.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ url()->assetFrom(request()->getBaseUrl(), 'css/theme.css') }}">
+    <link rel="stylesheet" href="{{ url()->assetFrom(request()->getBaseUrl(), 'css/app.css') }}">
     <script>
         (function () {
             var stored;
@@ -45,8 +45,8 @@
     <a class="skip-link" href="#main-content">{{ __('design.skip') }}</a>
     <nav class="navbar navbar-marketing">
         <a href="{{ route('home') }}" class="navbar-brand">
-            <img src="{{ asset('images/logo.png') }}" alt="BloomFeed" class="brand-logo brand-logo-light">
-            <img src="{{ asset('images/logo-dark.png') }}" alt="BloomFeed" class="brand-logo brand-logo-dark">
+            <img src="{{ url()->assetFrom(request()->getBaseUrl(), 'images/logo.png') }}" alt="BloomFeed" class="brand-logo brand-logo-light">
+            <img src="{{ url()->assetFrom(request()->getBaseUrl(), 'images/logo-dark.png') }}" alt="BloomFeed" class="brand-logo brand-logo-dark">
         </a>
         <button type="button" class="navbar-toggle" data-navbar-toggle aria-expanded="false" aria-controls="navbarLinks" title="{{ __('app.nav_menu') }}">
             <span class="navbar-toggle-bar"></span>
@@ -75,8 +75,8 @@
     </footer>
 
     <div class="live-message" role="status" aria-live="polite" data-live-message></div>
-    <script src="{{ asset('js/theme-toggle.js') }}" defer></script>
-    <script src="{{ asset('js/navbar-toggle.js') }}" defer></script>
-    <script src="{{ asset('js/scroll-reveal.js') }}" defer></script>
+    <script src="{{ url()->assetFrom(request()->getBaseUrl(), 'js/theme-toggle.js') }}" defer></script>
+    <script src="{{ url()->assetFrom(request()->getBaseUrl(), 'js/navbar-toggle.js') }}" defer></script>
+    <script src="{{ url()->assetFrom(request()->getBaseUrl(), 'js/scroll-reveal.js') }}" defer></script>
 </body>
 </html>

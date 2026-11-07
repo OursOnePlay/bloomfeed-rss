@@ -10,6 +10,22 @@ class ReadingExperienceTest extends TestCase
 {
     use RefreshDatabase;
 
+    public function test_assets_stay_on_the_browser_origin_without_trusting_forwarded_headers(): void
+    {
+        config(['app.url' => 'http://localhost', 'security.trusted_proxies' => []]);
+        foreach (['/', '/self-hosting', '/login'] as $path) {
+            $response = $this->withHeaders(['X-Forwarded-Proto' => 'https'])->get($path);
+            $response->assertOk()
+                ->assertSee('href="/css/theme.css"', false)
+                ->assertSee('href="/css/app.css"', false)
+                ->assertSee('src="/js/theme-toggle.js"', false);
+            $this->assertDoesNotMatchRegularExpression('/(?:src|href)="http:\/\/[^" ]+\/(?:css|js|images)\//', $response->getContent());
+        }
+        $this->actingAs(User::factory()->create())->get('/dashboard')
+            ->assertOk()->assertSee('href="/css/app.css"', false)
+            ->assertSee('src="/js/app.js"', false);
+    }
+
     public function test_english_is_the_default_and_saved_language_is_respected(): void
     {
         $this->get('/login')->assertOk()->assertSee('<html lang="en">', false);

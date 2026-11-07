@@ -1,7 +1,7 @@
 <nav class="navbar">
     <a href="{{ route('dashboard') }}" class="navbar-brand">
-        <img src="{{ asset('images/logo.png') }}" alt="BloomFeed" class="brand-logo brand-logo-light">
-        <img src="{{ asset('images/logo-dark.png') }}" alt="BloomFeed" class="brand-logo brand-logo-dark">
+        <img src="{{ url()->assetFrom(request()->getBaseUrl(), 'images/logo.png') }}" alt="BloomFeed" class="brand-logo brand-logo-light">
+        <img src="{{ url()->assetFrom(request()->getBaseUrl(), 'images/logo-dark.png') }}" alt="BloomFeed" class="brand-logo brand-logo-dark">
     </a>
     <button type="button" class="navbar-toggle" data-navbar-toggle aria-expanded="false" aria-controls="navbarLinks" title="{{ __('app.nav_menu') }}">
         <span class="navbar-toggle-bar"></span>

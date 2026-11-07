@@ -5,8 +5,8 @@
 @section('content')
 <div class="auth-card">
     <div class="logo-row">
-        <img src="{{ asset('images/logo.png') }}" alt="BloomFeed" class="brand-logo brand-logo-light">
-        <img src="{{ asset('images/logo-dark.png') }}" alt="BloomFeed" class="brand-logo brand-logo-dark">
+        <img src="{{ url()->assetFrom(request()->getBaseUrl(), 'images/logo.png') }}" alt="BloomFeed" class="brand-logo brand-logo-light">
+        <img src="{{ url()->assetFrom(request()->getBaseUrl(), 'images/logo-dark.png') }}" alt="BloomFeed" class="brand-logo brand-logo-dark">
     </div>
     <h1>{{ $isFirstUser ? __('app.register_owner_title') : __('app.register_title') }}</h1>
     <p class="subtitle">{{ $isFirstUser ? __('app.register_owner_subtitle') : __('app.register_subtitle') }}</p>
