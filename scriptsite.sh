@@ -6,13 +6,15 @@ APP_DIR="/opt/bloomfeed"
 HOST_PORT="7081"
 BACKUP_RETENTION="10"
 
-echo "==> Killing any process listening on port ${HOST_PORT}"
-PIDS="$(sudo lsof -ti tcp:${HOST_PORT} || true)"
-if [[ -n "${PIDS}" ]]; then
-  echo "PIDs found on ${HOST_PORT}: ${PIDS}"
-  sudo kill -9 ${PIDS} || true
-else
-  echo "No active process on ${HOST_PORT}"
+echo "==> Checking Docker and Compose"
+if ! sudo docker compose version >/dev/null 2>&1; then
+  echo "ERROR: Docker Compose plugin is unavailable. Install it before deploying." >&2
+  echo "        See https://docs.docker.com/compose/install/linux/" >&2
+  exit 1
+fi
+if ! sudo docker info >/dev/null 2>&1; then
+  echo "ERROR: Docker daemon is unavailable. Check the Docker service before deploying." >&2
+  exit 1
 fi
 
 if [[ -d "${APP_DIR}/.git" ]]; then
@@ -51,7 +53,11 @@ chmod 600 .env
 
 echo "==> Backing up the database before redeploying (if a previous instance is running)"
 BACKUP_DIR="${APP_DIR}/backups"
-if [[ -n "$(sudo docker compose ps -q db 2>/dev/null)" ]]; then
+if ! DB_CONTAINER="$(sudo docker compose ps -q db)"; then
+  echo "ERROR: cannot inspect the database container. Aborting before deployment." >&2
+  exit 1
+fi
+if [[ -n "${DB_CONTAINER}" ]]; then
   sudo mkdir -p "${BACKUP_DIR}"
   BACKUP_FILE="${BACKUP_DIR}/bloomfeed-$(date +%Y%m%d-%H%M%S).sql.gz"
   # shellcheck disable=SC2016
@@ -70,11 +76,11 @@ else
   echo "==> No running database container found (fresh install) - skipping backup"
 fi
 
-echo "==> Stopping the previous Docker Compose stack if present"
-sudo docker compose down --remove-orphans || true
-
 echo "==> Building the Docker images (app + scheduler)"
 sudo docker compose build --pull
+
+echo "==> Stopping the previous Docker Compose stack if present"
+sudo docker compose down --remove-orphans
 
 echo "==> Starting the stack (app, scheduler, db)"
 sudo docker compose up -d

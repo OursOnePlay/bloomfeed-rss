@@ -58,7 +58,7 @@ bash scriptsite.sh
 
 The deployment script:
 
-1. Frees port 7081 by stopping any process listening on it.
+1. Checks that Docker Compose and the Docker daemon are available.
 2. Clones or updates the repository in `/opt/bloomfeed`.
 3. Creates `.env` from `.env.example` when missing and generates missing secrets: `APP_KEY`, `DB_PASSWORD`, and `DB_ROOT_PASSWORD`. Existing secrets are preserved.
 4. Builds the images and starts the application, scheduler, and MariaDB containers.
