@@ -20,9 +20,9 @@ Route::post('/locale', [SettingsController::class, 'updateLocale'])->name('local
 
 Route::middleware('guest')->group(function () {
     Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
-    Route::post('/register', [AuthController::class, 'register']);
+    Route::post('/register', [AuthController::class, 'register'])->middleware('throttle:registration');
     Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
-    Route::post('/login', [AuthController::class, 'login']);
+    Route::post('/login', [AuthController::class, 'login'])->middleware('throttle:login');
 });
 
 Route::middleware('auth')->group(function () {
@@ -38,24 +38,24 @@ Route::middleware('auth')->group(function () {
     Route::get('/settings', [SettingsController::class, 'index'])->name('settings');
     Route::post('/settings/registrations', [SettingsController::class, 'toggleRegistrations'])->name('settings.toggleRegistrations');
     Route::post('/settings/users', [SettingsController::class, 'createUser'])->name('settings.createUser');
-    Route::post('/settings/sources', [SettingsController::class, 'addCatalogSource'])->name('settings.addSource');
+    Route::post('/settings/sources', [SettingsController::class, 'addCatalogSource'])->middleware('throttle:network')->name('settings.addSource');
     Route::delete('/settings/sources', [SettingsController::class, 'removeCatalogSource'])->name('settings.removeSource');
 
     Route::get('/notifiers', [NotifierController::class, 'index'])->name('notifiers');
     Route::post('/notifiers', [NotifierController::class, 'store'])->name('notifiers.store');
     Route::put('/notifiers/{notifier}', [NotifierController::class, 'update'])->name('notifiers.update');
     Route::post('/notifiers/{notifier}/toggle', [NotifierController::class, 'toggle'])->name('notifiers.toggle');
-    Route::post('/notifiers/{notifier}/test', [NotifierController::class, 'test'])->name('notifiers.test');
+    Route::post('/notifiers/{notifier}/test', [NotifierController::class, 'test'])->middleware('throttle:network')->name('notifiers.test');
     Route::delete('/notifiers/{notifier}', [NotifierController::class, 'destroy'])->name('notifiers.destroy');
 
     Route::get('/feeds', [FeedController::class, 'index'])->name('feeds.index');
-    Route::post('/feeds', [FeedController::class, 'store'])->name('feeds.store');
+    Route::post('/feeds', [FeedController::class, 'store'])->middleware('throttle:network')->name('feeds.store');
     Route::delete('/feeds/{feed}', [FeedController::class, 'destroy'])->name('feeds.destroy');
-    Route::post('/feeds/{feed}/refresh', [FeedController::class, 'refresh'])->name('feeds.refresh');
-    Route::post('/feeds/refresh-all', [FeedController::class, 'refreshAll'])->name('feeds.refreshAll');
+    Route::post('/feeds/{feed}/refresh', [FeedController::class, 'refresh'])->middleware('throttle:network')->name('feeds.refresh');
+    Route::post('/feeds/refresh-all', [FeedController::class, 'refreshAll'])->middleware('throttle:bulk-refresh')->name('feeds.refreshAll');
 
     Route::get('/articles/{article}', [ArticleController::class, 'show'])->name('articles.show');
     Route::post('/articles/{article}/read', [ArticleController::class, 'markRead'])->name('articles.markRead');
     Route::post('/articles/{article}/favorite', [ArticleController::class, 'toggleFavorite'])->name('articles.toggleFavorite');
-    Route::post('/articles/{article}/retry', [ArticleController::class, 'retry'])->name('articles.retry');
+    Route::post('/articles/{article}/retry', [ArticleController::class, 'retry'])->middleware('throttle:network')->name('articles.retry');
 });

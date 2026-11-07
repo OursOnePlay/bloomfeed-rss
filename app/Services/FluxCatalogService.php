@@ -4,7 +4,6 @@ namespace App\Services;
 
 use App\Models\Setting;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use Throwable;
 
@@ -87,9 +86,7 @@ class FluxCatalogService
     private function fetchSource(string $sourceUrl): ?array
     {
         try {
-            $response = Http::timeout(6)
-                ->withHeaders(['User-Agent' => 'BloomFeed/1.0'])
-                ->get($sourceUrl);
+            $response = app(PublicHttpClient::class)->get($sourceUrl);
 
             if ($response->failed()) {
                 return null;

@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'refresh_queued' => 'Actualización de fuentes en cola.',
     // Navegación
     'articles' => 'Artículos',
     'catalog' => 'Catálogo',

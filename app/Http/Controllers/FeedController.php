@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\RefreshFeed;
 use App\Models\Feed;
-use App\Services\FeedFetcherService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
 class FeedController extends Controller
@@ -17,25 +18,26 @@ class FeedController extends Controller
         return view('feeds.index', ['feeds' => $feeds]);
     }
 
-    public function store(Request $request, FeedFetcherService $service): RedirectResponse
+    public function store(Request $request): RedirectResponse
     {
         $validated = $request->validate([
             'url' => ['required', 'url', 'max:2048'],
             'title' => ['nullable', 'string', 'max:255'],
         ]);
 
-        $feed = $request->user()->feeds()->create([
-            'url' => $validated['url'],
-            'title' => $validated['title'] ?? null,
-        ]);
+        $feed = DB::transaction(function () use ($request, $validated) {
+            $request->user()->newQuery()->whereKey($request->user()->id)->lockForUpdate()->firstOrFail();
+            abort_if($request->user()->feeds()->count() >= config('security.max_feeds'), 422, 'Subscription limit reached.');
 
-        $result = $service->fetchFeed($feed);
+            return $request->user()->feeds()->create([
+                'url' => $validated['url'],
+                'title' => $validated['title'] ?? null,
+            ]);
+        });
 
-        if ($result['error'] !== null) {
-            return back()->with('status', __('app.feed_added_error', ['error' => $result['error']]));
-        }
+        RefreshFeed::dispatch($feed->id);
 
-        return back()->with('status', __('app.feed_added', ['count' => $result['new']]));
+        return back()->with('status', __('app.refresh_queued'));
     }
 
     public function destroy(Feed $feed): RedirectResponse
@@ -47,28 +49,22 @@ class FeedController extends Controller
         return back()->with('status', __('app.feed_deleted'));
     }
 
-    public function refresh(Feed $feed, FeedFetcherService $service): RedirectResponse
+    public function refresh(Feed $feed): RedirectResponse
     {
         $this->authorize('update', $feed);
+        RefreshFeed::dispatch($feed->id);
 
-        $result = $service->fetchFeed($feed);
-
-        if ($result['error'] !== null) {
-            return back()->with('status', __('app.refresh_failed', ['error' => $result['error']]));
-        }
-
-        return back()->with('status', __('app.new_articles', ['count' => $result['new']]));
+        return back()->with('status', __('app.refresh_queued'));
     }
 
-    public function refreshAll(Request $request, FeedFetcherService $service): RedirectResponse
+    public function refreshAll(Request $request): RedirectResponse
     {
-        $feeds = $request->user()->feeds;
-        $totalNew = 0;
+        $request->user()->feeds()->select('id')->chunkById(100, function ($feeds) {
+            foreach ($feeds as $feed) {
+                RefreshFeed::dispatch($feed->id);
+            }
+        });
 
-        foreach ($feeds as $feed) {
-            $totalNew += $service->fetchFeed($feed)['new'];
-        }
-
-        return back()->with('status', __('app.new_articles_across', ['count' => $totalNew, 'feeds' => $feeds->count()]));
+        return back()->with('status', __('app.refresh_queued'));
     }
 }

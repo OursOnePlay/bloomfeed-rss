@@ -35,6 +35,27 @@ services:
     networks: [bloomfeed]
     restart: unless-stopped
 
+  worker:
+    build: .
+    container_name: bloomfeed-worker
+    entrypoint: ["php", "artisan", "queue:work"]
+    command: ["--sleep=3", "--tries=1", "--timeout=90", "--max-time=3600"]
+    env_file:
+      - .env
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_QUEUE_RETRY_AFTER: 120
+    volumes:
+      - app_storage:/var/www/html/storage
+    depends_on:
+      app:
+        condition: service_started
+      db:
+        condition: service_healthy
+    networks: [bloomfeed]
+    restart: unless-stopped
+
   db:
     image: mariadb:11
     container_name: bloomfeed-db

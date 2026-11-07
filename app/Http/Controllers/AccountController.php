@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rules\Password;
@@ -26,8 +27,11 @@ class AccountController extends Controller
         $request->user()->forceFill([
             'password' => Hash::make($validated['password']),
             'remember_token' => Str::random(60),
+            'auth_version' => DB::raw('auth_version + 1'),
         ])->save();
+        $request->user()->refresh();
         $request->session()->regenerate();
+        $request->session()->put('auth_version', (int) $request->user()->auth_version);
 
         return to_route('account.edit')->with('status', __('account.updated'));
     }

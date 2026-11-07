@@ -116,6 +116,20 @@ bash uninstall.sh --purge                 # Also delete database and storage; as
 bash uninstall.sh --purge --purge-source  # Also delete /opt/bloomfeed and .env
 ```
 
+## Security and network configuration
+
+Outbound feeds, article pages, catalog sources, and webhooks are restricted to public HTTP/HTTPS destinations on ports 80 and 443. Private, loopback, link-local, reserved addresses, embedded credentials, and webhook redirects are blocked. DNS hostnames use IPv4 and the checked address is pinned for the connection; public IPv6 literals are supported. Responses are limited to 5 MiB and must use identity encoding. Each feed processes at most 100 entries per refresh.
+
+Accounts can subscribe to 100 feeds and create 10 notification destinations. Changes to these limits are maintained in `config/security.php`. Login and expensive actions are rate-limited.
+
+Set `TRUSTED_PROXIES` to the exact IP addresses or CIDRs of your reverse proxies. It is empty by default; arbitrary forwarded IPs are ignored. Never use `*`. Optionally set `TRUSTED_HOSTS` to a comma-separated list of accepted public hostnames. Keep `APP_URL` set to the public HTTPS URL so session cookies use Secure. Restrict direct origin access with your firewall.
+
+Password changes invalidate previous browser sessions and remember-me tokens. Existing sessions from before the update are also rejected after the account password changes.
+
+Feed additions and manual refreshes run through the queue worker included in Docker Compose. Outside Docker, run `php artisan queue:work --tries=1 --timeout=90`; use `QUEUE_CONNECTION=database` and `DB_QUEUE_RETRY_AFTER=120`. Do not use the synchronous queue driver in production. The worker also delivers new-article notifications. After updating, deploy migrations and restart all application and worker containers.
+
+Docker builds reject PHP versions older than 8.4.27 and disable session upload progress. Rebuild with `--pull` to receive current base-image updates. These measures complement dependency audits; the operating system and Docker host still require regular updates.
+
 ## Configuration
 
 ### Accounts

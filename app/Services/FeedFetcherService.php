@@ -5,7 +5,6 @@ namespace App\Services;
 use App\Models\Article;
 use App\Models\Feed;
 use Illuminate\Support\Carbon;
-use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
 use RuntimeException;
 use SimpleXMLElement;
@@ -13,9 +12,7 @@ use Throwable;
 
 class FeedFetcherService
 {
-    public function __construct(private readonly NotifierDispatchService $notifier)
-    {
-    }
+    public function __construct(private readonly NotifierDispatchService $notifier) {}
 
     /**
      * Fetch, parse and store new articles for a single feed.
@@ -25,9 +22,7 @@ class FeedFetcherService
     public function fetchFeed(Feed $feed): array
     {
         try {
-            $response = Http::timeout(15)
-                ->withHeaders(['User-Agent' => 'BloomFeed/1.0 (+https://bloomfeed.local)'])
-                ->get($feed->url);
+            $response = app(PublicHttpClient::class)->get($feed->url);
 
             if ($response->failed()) {
                 throw new RuntimeException("HTTP {$response->status()}");
@@ -91,7 +86,7 @@ class FeedFetcherService
     private function parse(string $xml, Feed $feed): array
     {
         libxml_use_internal_errors(true);
-        $doc = simplexml_load_string($xml);
+        $doc = simplexml_load_string($xml, SimpleXMLElement::class, LIBXML_NONET);
         libxml_clear_errors();
 
         if ($doc === false) {
@@ -109,6 +104,9 @@ class FeedFetcherService
             }
 
             foreach ($channel->item as $item) {
+                if (count($items) >= 100) {
+                    break;
+                }
                 $content = isset($namespaces['content']) ? $item->children($namespaces['content']) : null;
                 $dc = isset($namespaces['dc']) ? $item->children($namespaces['dc']) : null;
                 $description = (string) ($item->description ?? '');
@@ -128,6 +126,9 @@ class FeedFetcherService
             }
 
             foreach ($doc->entry as $entry) {
+                if (count($items) >= 100) {
+                    break;
+                }
                 $link = $this->extractAtomLink($entry);
                 $summary = (string) ($entry->summary ?? '');
                 $content = (string) ($entry->content ?? '');

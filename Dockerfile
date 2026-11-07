@@ -1,5 +1,6 @@
 FROM php:8.4-apache
 WORKDIR /var/www/html
+RUN php -r 'exit(version_compare(PHP_VERSION, "8.4.27", ">=") ? 0 : 1);'
 
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 

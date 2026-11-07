@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'refresh_queued' => 'Feed refresh queued.',
     // Navigation
     'articles' => 'Articles',
     'catalog' => 'Catalog',

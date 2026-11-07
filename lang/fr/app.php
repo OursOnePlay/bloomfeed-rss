@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'refresh_queued' => 'Actualisation des flux en attente de traitement.',
     // Navigation
     'articles' => 'Articles',
     'catalog' => 'Catalogue',
@@ -40,7 +41,7 @@ return [
     'badge_mit_license' => 'Licence usage personnel',
     'badge_four_languages' => '4 langues',
     'feature_multiuser_title' => 'Pensé pour votre foyer',
-    'feature_multiuser_text' => "Invitez les personnes de confiance avec un compte direct, ou ouvrez les inscriptions un moment - chacun garde ses propres flux, lectures et notifieurs.",
+    'feature_multiuser_text' => 'Invitez les personnes de confiance avec un compte direct, ou ouvrez les inscriptions un moment - chacun garde ses propres flux, lectures et notifieurs.',
 
     // Authentification
     'login_title' => 'Connexion',
@@ -138,12 +139,12 @@ return [
     'config_title' => 'Configuration',
     'config_registrations' => "Depuis le menu Paramètres, le compte propriétaire peut créer directement des comptes pour ses proches, ou ouvrir/fermer les inscriptions publiques d'un clic.",
     'config_language' => "L'interface est disponible en français, anglais, espagnol et allemand - chaque utilisateur choisit sa langue via le sélecteur en haut de page.",
-    'config_catalog' => "Le catalogue de flux intégré se personnalise en éditant resources/data/bloomflux.json puis en redéployant.",
+    'config_catalog' => 'Le catalogue de flux intégré se personnalise en éditant resources/data/bloomflux.json puis en redéployant.',
     'update_title' => 'Mettre à jour',
     'update_text' => 'Relancez simplement le script de déploiement : il récupère les derniers changements et reconstruit la stack sans toucher à vos données.',
     'backup_note' => 'Avant chaque redéploiement, la base de données est automatiquement sauvegardée dans backups/ (les 10 dernières sauvegardes sont conservées). Si la sauvegarde échoue, la mise à jour est annulée pour ne jamais risquer de perdre des données.',
     'uninstall_title' => 'Désinstaller',
-    'uninstall_text' => "Le script uninstall.sh arrête et supprime proprement la stack Docker. Il demande une confirmation explicite avant de supprimer vos données et ne supprime jamais le code source sans confirmation séparée.",
+    'uninstall_text' => 'Le script uninstall.sh arrête et supprime proprement la stack Docker. Il demande une confirmation explicite avant de supprimer vos données et ne supprime jamais le code source sans confirmation séparée.',
     'source_title' => 'Code source',
 
     // Sources de catalogue & filtre langue
@@ -167,7 +168,7 @@ return [
     'generic_webhook' => 'Webhook générique',
     'notifier_name' => 'Nom',
     'notifier_name_placeholder' => 'Ex: Discord #actus',
-    'notifier_url' => "URL du webhook",
+    'notifier_url' => 'URL du webhook',
     'notifier_scope' => 'Portée',
     'scope_all' => 'Tous mes flux',
     'scope_feeds' => 'Flux spécifiques',
@@ -196,7 +197,7 @@ return [
 
     // Mise à jour automatique
     'autoupdate_title' => 'Mise à jour automatique',
-    'autoupdate_text' => "Le script auto-update.sh vérifie périodiquement les nouveaux commits sur le dépôt et ne redéploie que si nécessaire, via une tâche planifiée sur le serveur (jamais depuis le conteneur applicatif).",
+    'autoupdate_text' => 'Le script auto-update.sh vérifie périodiquement les nouveaux commits sur le dépôt et ne redéploie que si nécessaire, via une tâche planifiée sur le serveur (jamais depuis le conteneur applicatif).',
     'autoupdate_comment_install' => 'active la vérification toutes les 30 min',
     'autoupdate_comment_status' => 'affiche l\'état et les derniers logs',
     'autoupdate_comment_uninstall' => 'désactive la mise à jour automatique',

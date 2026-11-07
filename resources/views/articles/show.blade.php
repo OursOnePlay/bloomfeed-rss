@@ -15,7 +15,9 @@
             @if ($article->published_at)
                 <span>&middot; {{ $article->published_at->diffForHumans() }}</span>
             @endif
+            @if (in_array(strtolower((string) parse_url($article->link, PHP_URL_SCHEME)), ['http', 'https'], true))
             <a href="{{ $article->link }}" target="_blank" rel="noopener" class="reader-source-link">{{ __('app.view_original') }} &#8599;</a>
+            @endif
         </div>
 
         @if ($article->full_content_error)

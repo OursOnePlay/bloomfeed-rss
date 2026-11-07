@@ -5,7 +5,6 @@ namespace App\Services;
 use App\Models\Article;
 use fivefilters\Readability\Configuration as ReadabilityConfig;
 use fivefilters\Readability\Readability;
-use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
 use League\HTMLToMarkdown\HtmlConverter;
 use RuntimeException;
@@ -16,15 +15,13 @@ class ArticleReaderService
     public function fetchFullContent(Article $article): void
     {
         try {
-            $response = Http::timeout(20)
-                ->withHeaders(['User-Agent' => 'BloomFeed/1.0 (+https://bloomfeed.local)'])
-                ->get($article->link);
+            $response = app(PublicHttpClient::class)->get($article->link);
 
             if ($response->failed()) {
                 throw new RuntimeException("HTTP {$response->status()}");
             }
 
-            $config = new ReadabilityConfig();
+            $config = new ReadabilityConfig;
             $config->setFixRelativeURLs(true);
             $config->setOriginalURL($article->link);
             $config->setSubstituteEntities(true);

@@ -6,6 +6,7 @@ use App\Models\Notifier;
 use App\Services\NotifierDispatchService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
 use Illuminate\View\View;
 
@@ -26,12 +27,17 @@ class NotifierController extends Controller
     {
         $validated = $this->validatePayload($request);
 
-        $notifier = $request->user()->notifiers()->create([
-            'type' => $validated['type'],
-            'name' => $validated['name'],
-            'url' => $validated['url'],
-            'scope' => $validated['scope'],
-        ]);
+        $notifier = DB::transaction(function () use ($request, $validated) {
+            $request->user()->newQuery()->whereKey($request->user()->id)->lockForUpdate()->firstOrFail();
+            abort_if($request->user()->notifiers()->count() >= config('security.max_notifiers'), 422, 'Notification destination limit reached.');
+
+            return $request->user()->notifiers()->create([
+                'type' => $validated['type'],
+                'name' => $validated['name'],
+                'url' => $validated['url'],
+                'scope' => $validated['scope'],
+            ]);
+        });
 
         if ($validated['scope'] === Notifier::SCOPE_FEEDS) {
             $notifier->feeds()->sync($validated['feed_ids'] ?? []);

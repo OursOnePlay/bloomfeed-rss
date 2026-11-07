@@ -2,9 +2,9 @@
 
 namespace App\Services;
 
+use App\Jobs\DeliverArticleNotification;
 use App\Models\Article;
 use App\Models\Notifier;
-use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Throwable;
@@ -26,7 +26,7 @@ class NotifierDispatchService
             ->get();
 
         foreach ($notifiers as $notifier) {
-            $this->send($notifier, $article);
+            DeliverArticleNotification::dispatch($notifier->id, $article->id);
         }
     }
 
@@ -39,7 +39,7 @@ class NotifierDispatchService
         return $this->deliver($notifier, $payload);
     }
 
-    private function send(Notifier $notifier, Article $article): void
+    public function send(Notifier $notifier, Article $article): void
     {
         $payload = $notifier->type === Notifier::TYPE_DISCORD
             ? $this->discordPayload($notifier, $article)
@@ -51,7 +51,7 @@ class NotifierDispatchService
     private function deliver(Notifier $notifier, array $payload): bool
     {
         try {
-            $response = Http::timeout(6)->post($notifier->url, $payload);
+            $response = app(PublicHttpClient::class)->post($notifier->url, $payload);
 
             if ($response->failed()) {
                 $notifier->update([
@@ -67,10 +67,10 @@ class NotifierDispatchService
         } catch (Throwable $e) {
             Log::warning('Notifier delivery failed', [
                 'notifier_id' => $notifier->id,
-                'error' => $e->getMessage(),
+                'error' => $e::class,
             ]);
 
-            $notifier->update(['last_error' => Str::limit($e->getMessage(), 250, '')]);
+            $notifier->update(['last_error' => 'Delivery failed. Verify destination and network access.']);
 
             return false;
         }

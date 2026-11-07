@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'refresh_queued' => 'Feed-Aktualisierung wurde eingereiht.',
     // Navigation
     'articles' => 'Artikel',
     'catalog' => 'Katalog',
