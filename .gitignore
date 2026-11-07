@@ -30,3 +30,12 @@ Homestead.yaml
 Thumbs.db
 
 /.taste-skill/
+
+# Local configuration and database exports
+.env.*
+!.env.example
+/backups/
+*.sql
+*.sql.gz
+/database/*.sqlite
+/database/*.sqlite-*

@@ -29,6 +29,8 @@
     <main class="centered-shell" id="main-content" tabindex="-1">
         @yield('content')
     </main>
+    <footer class="site-footer">@include('partials.credits')</footer>
+
     <div class="live-message" role="status" aria-live="polite" data-live-message></div>
     <script src="{{ asset('js/theme-toggle.js') }}" defer></script>
 <script src="{{ asset('js/app.js') }}" defer></script>

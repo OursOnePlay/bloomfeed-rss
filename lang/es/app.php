@@ -14,7 +14,7 @@ return [
     'login' => 'Iniciar sesión',
     'create_account' => 'Crear una cuenta',
     'source_code' => 'Código fuente',
-    'footer_tagline' => 'BloomFeed - proyecto open source y autoalojado.',
+    'footer_tagline' => 'BloomFeed - lector personal autoalojado.',
     'meta_description' => 'BloomFeed es un agregador RSS personal y autoalojado, con lector integrado.',
 
     // Inicio
@@ -36,8 +36,8 @@ return [
     'screenshot_catalog' => 'Catálogo de fuentes en un clic',
     'screenshot_notifiers' => 'Notificadores de Discord y webhook',
     'badge_self_hosted' => 'Autoalojado',
-    'badge_open_source' => 'Código abierto',
-    'badge_mit_license' => 'Licencia MIT',
+    'badge_open_source' => 'Código consultable',
+    'badge_mit_license' => 'Licencia de uso personal',
     'badge_four_languages' => '4 idiomas',
     'feature_multiuser_title' => 'Pensado para tu hogar',
     'feature_multiuser_text' => 'Invita a las personas de confianza con una cuenta directa, o abre los registros por un tiempo - cada uno mantiene sus propias fuentes, lecturas y notificadores.',
@@ -202,6 +202,6 @@ return [
     'autoupdate_comment_uninstall' => 'desactiva las actualizaciones automáticas',
 
     // SEO
-    'seo_home_title' => 'BloomFeed - Agregador RSS autoalojado y de código abierto',
+    'seo_home_title' => 'BloomFeed - Lector RSS personal autoalojado',
     'seo_selfhost_title' => 'Autoalojar BloomFeed - guía de instalación con Docker',
 ];

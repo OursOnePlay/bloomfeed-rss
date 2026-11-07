@@ -14,7 +14,7 @@ return [
     'login' => 'Anmelden',
     'create_account' => 'Konto erstellen',
     'source_code' => 'Quellcode',
-    'footer_tagline' => 'BloomFeed - Open-Source-Projekt, selbst gehostet.',
+    'footer_tagline' => 'BloomFeed - persönlicher selbst gehosteter Reader.',
     'meta_description' => 'BloomFeed ist ein persönlicher, selbst gehosteter RSS-Aggregator mit integriertem Reader.',
 
     // Startseite
@@ -36,8 +36,8 @@ return [
     'screenshot_catalog' => 'Feed-Katalog mit einem Klick',
     'screenshot_notifiers' => 'Discord- und Webhook-Benachrichtigungen',
     'badge_self_hosted' => 'Selbst gehostet',
-    'badge_open_source' => 'Open Source',
-    'badge_mit_license' => 'MIT-Lizenz',
+    'badge_open_source' => 'Quelltext einsehbar',
+    'badge_mit_license' => 'Lizenz für persönliche Nutzung',
     'badge_four_languages' => '4 Sprachen',
     'feature_multiuser_title' => 'Gemacht für dein Zuhause',
     'feature_multiuser_text' => 'Lade vertraute Personen mit einem direkten Konto ein, oder öffne die Registrierung für eine Weile - jeder behält seine eigenen Feeds, Lektüre und Benachrichtigungen.',
@@ -202,6 +202,6 @@ return [
     'autoupdate_comment_uninstall' => 'deaktiviert automatische Updates',
 
     // SEO
-    'seo_home_title' => 'BloomFeed - Selbst gehosteter, quelloffener RSS-Aggregator',
+    'seo_home_title' => 'BloomFeed - Persönlicher selbst gehosteter RSS-Reader',
     'seo_selfhost_title' => 'BloomFeed selbst hosten - Docker-Installationsanleitung',
 ];

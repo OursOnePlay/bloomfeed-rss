@@ -15,7 +15,7 @@
         </div>
     </div>
 
-    @if ($feeds->isEmpty())
+    @if (!$hasCatalog)
         <div class="card empty-state">
             {{ __('app.catalog_empty') }}
         </div>
@@ -36,55 +36,36 @@
             'uz' => 'Oʻzbek', 'ky' => 'Кыргызча', 'mr' => 'मराठी', 'ta' => 'தமிழ்',
             'te' => 'తెలుగు', 'gu' => 'ગુજરાતી', 'pa' => 'ਪੰਜਾਬੀ', 'si' => 'සිංහල',
         ])
-        @php($languages = $feeds->flatten(1)->pluck('lang')->unique()->sort()->values())
 
-        <div class="market-toolbar">
+
+        <form class="market-toolbar" id="catalog-filters" method="GET" action="{{ route('catalog') }}">
             <label class="sr-only" for="market-search">{{ __('app.search_placeholder') }}</label>
-            <input type="search" id="market-search" class="form-input market-search" placeholder="{{ __('app.search_placeholder') }}">
-            <label class="sr-only" for="market-lang">{{ __('app.language') }}</label>
-            <select id="market-lang" class="form-input market-lang-select">
+            <input type="search" id="market-search" name="q" value="{{ request('q') }}" class="form-input market-search" placeholder="{{ __('app.search_placeholder') }}">
+            <div class="language-filter"><label for="market-lang">{{ __('app.language') }}</label><select id="market-lang" name="lang" class="market-lang-select">
                 <option value="">{{ __('app.all_languages') }}</option>
                 @foreach ($languages as $lang)
-                    <option value="{{ $lang }}">{{ $languageNames[$lang] ?? strtoupper($lang) }}</option>
+                    <option value="{{ $lang }}" @selected(request('lang') === $lang)>{{ $languageNames[$lang] ?? strtoupper($lang) }}</option>
                 @endforeach
-            </select>
-        </div>
+            </select></div>
+            <button class="btn btn-ghost" type="submit">{{ __('design.search') }}</button>
+            <input type="hidden" name="category" value="{{ request('category') }}">
+        </form>
 
         <div class="market-chips" id="market-chips">
-            <button type="button" class="chip active" aria-pressed="true" data-category="">{{ __('app.all') }}</button>
-            @foreach ($feeds->keys() as $category)
-                <button type="button" class="chip" aria-pressed="false" data-category="{{ $category }}">{{ $category }}</button>
+            <button form="catalog-filters" type="submit" name="category" value="" class="chip {{ !request('category') ? 'active' : '' }}" aria-pressed="{{ !request('category') ? 'true' : 'false' }}" data-category="">{{ __('app.all') }}</button>
+            @foreach ($categories as $category)
+                <button form="catalog-filters" type="submit" name="category" value="{{ $category }}" class="chip {{ request('category') === $category ? 'active' : '' }}" aria-pressed="{{ request('category') === $category ? 'true' : 'false' }}" data-category="{{ $category }}">{{ $category }}</button>
             @endforeach
         </div>
 
         <div class="market-grid" id="market-grid">
-            @foreach ($feeds as $category => $items)
-                @foreach ($items as $item)
-                    <div class="market-card" data-category="{{ $category }}" data-lang="{{ $item['lang'] }}" data-search="{{ Str::lower($item['title'].' '.$item['description'].' '.$category) }}">
-                        <div class="market-card-head">
-                            <span class="market-card-title">{{ $item['title'] }}</span>
-                            <span class="chip chip-static">{{ $category }}</span>
-                        </div>
-                        <p class="market-card-desc">{{ $item['description'] ?: $item['url'] }}</p>
-                        <div class="market-card-foot">
-                            <span class="market-lang">{{ strtoupper($item['lang']) }}</span>
-                            @if (in_array($item['url'], $subscribedUrls))
-                                <span class="market-added">✓ {{ __('app.added') }}</span>
-                            @else
-                                <form method="POST" action="{{ route('feeds.store') }}">
-                                    @csrf
-                                    <input type="hidden" name="url" value="{{ $item['url'] }}">
-                                    <input type="hidden" name="title" value="{{ $item['title'] }}">
-                                    <button type="submit" class="btn btn-primary btn-sm">+ {{ __('app.add') }}</button>
-                                </form>
-                            @endif
-                        </div>
-                    </div>
-                @endforeach
-            @endforeach
+            @include('partials.catalog-cards')
         </div>
 
-        <div class="card empty-state" id="market-empty" hidden>{{ __('app.no_match') }}</div>
+        <div class="card empty-state" id="market-empty" @if ($feeds->total() > 0) hidden @endif>{{ __('app.no_match') }}</div>
+        <p class="form-error" role="alert" id="catalog-error" hidden>{{ __('design.action_error') }}</p>
+        <a class="btn btn-ghost" id="catalog-more" href="{{ $feeds->nextPageUrl() ?? '' }}" @if (!$feeds->hasMorePages()) hidden @endif>{{ __('catalog.more') }}</a>
+        <div id="catalog-fallback">{{ $feeds->onEachSide(1)->links('partials.pagination') }}</div>
     @endif
 </div>
 @endsection

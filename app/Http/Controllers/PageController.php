@@ -43,6 +43,7 @@ class PageController extends Controller
             'Disallow: /catalog',
             'Disallow: /notifiers',
             'Disallow: /settings',
+            'Disallow: /account',
             'Disallow: /articles',
             '',
             'Sitemap: '.route('sitemap'),

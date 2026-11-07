@@ -19,6 +19,7 @@ class MarkdownRenderer
         // passed through as-is.
         $converter ??= new CommonMarkConverter([
             'html_input' => 'strip',
+            'allow_unsafe_links' => false,
             'max_nesting_level' => 100,
         ]);
 

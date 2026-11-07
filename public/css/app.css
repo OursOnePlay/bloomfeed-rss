@@ -1479,7 +1479,7 @@ a.pagination-control:hover {
     }
 }
 
-@media(max-width:960px) {
+@media(max-width:1100px) {
     .navbar-toggle {
         display: block;
     }
@@ -1843,3 +1843,18 @@ a.pagination-control:hover {
 @media (max-width: 720px) {
     .sidebar-body { max-height: none; }
 }
+.language-filter { display:flex; align-items:center; gap:12px; padding:0 14px; min-height:44px; background:var(--surface); border:1px solid var(--border); border-radius:6px; }
+.language-filter label { font-size:13px; color:var(--text-muted); }
+.language-filter .market-lang-select { appearance:none; width:auto; min-width:140px; min-height:42px; border:0; padding:8px 26px 8px 0; color:var(--text); background:transparent; cursor:pointer; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='m3 4 3 3 3-3' fill='none' stroke='%23777' stroke-width='1.5'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right center; }
+#catalog-more { align-self:center; }
+#market-grid[aria-busy="true"] { opacity:.7; }
+@supports(content-visibility:auto) { .article-card,.market-card { content-visibility:auto; contain-intrinsic-size:auto 180px; } }
+
+.project-credits { display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 7px; font-size:14px; color:var(--text-muted); }
+.project-credits strong { color:var(--text); font-weight:600; }
+.credits-registration { flex-basis:100%; font-size:12px; }
+
+.brand-attribution { max-width:1288px; margin:auto; padding:14px 24px 0; }
+.brand-attribution .credits-registration { flex-basis:auto; }
+.hero-credits { margin:0 0 28px; }
+@media(max-width:720px) { .brand-attribution { padding:12px 16px 0; } }

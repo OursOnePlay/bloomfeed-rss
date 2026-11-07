@@ -6,6 +6,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ $title ?? 'BloomFeed' }}</title>
     <meta name="description" content="{{ $description ?? __('app.meta_description') }}">
+    <meta name="author" content="MOUSSU Esteban, Eldoria Network">
     <link rel="canonical" href="{{ url()->current() }}">
     <link rel="icon" href="{{ asset('images/icon.png') }}">
     <link rel="apple-touch-icon" href="{{ asset('images/icon.png') }}">
@@ -17,8 +18,8 @@
     <meta property="og:description" content="{{ $description ?? __('app.meta_description') }}">
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:image" content="{{ asset('images/logo.png') }}">
-    <meta property="og:image:width" content="1917">
-    <meta property="og:image:height" content="544">
+    <meta property="og:image:width" content="2000">
+    <meta property="og:image:height" content="480">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{{ $title ?? 'BloomFeed' }}">
@@ -69,7 +70,7 @@
     </main>
 
     <footer class="site-footer">
-        <span>{{ __('app.footer_tagline') }}</span>
+        @include('partials.credits')
         <a href="https://git.eldorianet.work/esteban/BloomFeed-RSS" target="_blank" rel="noopener">{{ __('app.source_code') }}</a>
     </footer>
 

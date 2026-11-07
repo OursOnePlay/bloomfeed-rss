@@ -8,6 +8,7 @@
 <section class="marketing-hero">
     <h1>{{ __('design.hero_title') }}</h1>
     <div class="hero-intro"><p>{{ __('design.hero_lede') }}</p><div class="hero-actions"><a href="{{ $entryRoute }}" class="btn btn-primary btn-lg">{{ $entryLabel }}</a><a href="{{ route('self-hosting') }}">{{ __('app.self_hosting') }}</a></div></div>
+    <div class="hero-credits">@include('partials.credits')</div>
     <div class="product-stage" data-ui><img src="{{ $screenshotUrl('dashboard-light.png') }}" alt="{{ __('app.screenshot_dashboard') }}" width="1440" height="900" class="browser-frame-img-light"><img src="{{ $screenshotUrl('dashboard-dark.png') }}" alt="{{ __('app.screenshot_dark') }}" width="1440" height="900" class="browser-frame-img-dark"></div>
 </section>
 <section class="marketing-showcase">
@@ -33,24 +34,29 @@
 <script type="application/ld+json">
 {
     "@@context": "https://schema.org",
-    "@type": "SoftwareApplication",
+    "@type": ["SoftwareApplication", "SoftwareSourceCode"],
+    "codeRepository": "https://git.eldorianet.work/esteban/BloomFeed-RSS",
+    "programmingLanguage": "PHP",
+    "keywords": "RSS reader, Atom feeds, self-hosted, Laravel, Docker, Eldoria Network",
+    "inLanguage": ["en", "fr", "es", "de"],
     "name": "BloomFeed",
     "applicationCategory": "CommunicationApplication",
     "operatingSystem": "Linux (Docker)",
     "description": {!! json_encode(__('app.meta_description')) !!},
     "url": {!! json_encode(url('/')) !!},
     "image": {!! json_encode(asset('images/logo.png')) !!},
-    "license": "https://opensource.org/licenses/MIT",
+    "license": {!! json_encode(url('/license')) !!},
     "offers": {
         "@type": "Offer",
         "price": "0",
         "priceCurrency": "USD"
     },
-    "author": {
+    "author": [{"@type": "Person", "name": "MOUSSU Esteban"}, {
         "@type": "Organization",
-        "name": "BloomFeed",
+        "name": "Eldoria Network",
+        "identifier": "93378116300011",
         "url": {!! json_encode(url('/self-hosting')) !!}
-    }
+    }]
 }
 </script>
 @endpush

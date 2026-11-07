@@ -23,10 +23,13 @@
 <body class="app-page">
     <a class="skip-link" href="#main-content">{{ __('design.skip') }}</a>
     @include('partials.navbar')
+    <div class="brand-attribution">@include('partials.credits')</div>
 
     <main class="app-shell" id="main-content" tabindex="-1">
         @yield('content')
     </main>
+
+    <footer class="site-footer">@include('partials.credits')</footer>
 
     <div class="live-message" role="status" aria-live="polite" data-live-message></div>
     <script src="{{ asset('js/theme-toggle.js') }}" defer></script>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CatalogController;
@@ -12,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PageController::class, 'home'])->name('home');
 Route::get('/self-hosting', [PageController::class, 'selfHosting'])->name('self-hosting');
+Route::get('/license', fn () => response(file_get_contents(base_path('LICENSE')), 200)->header('Content-Type', 'text/plain; charset=UTF-8'))->name('license');
 Route::get('/robots.txt', [PageController::class, 'robots'])->name('robots');
 Route::get('/sitemap.xml', [PageController::class, 'sitemap'])->name('sitemap');
 Route::post('/locale', [SettingsController::class, 'updateLocale'])->name('locale.update');
@@ -24,6 +26,9 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
+    Route::get('/account', [AccountController::class, 'edit'])->name('account.edit');
+    Route::patch('/account/password', [AccountController::class, 'updatePassword'])->middleware('throttle:6,1')->name('account.password');
+
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');

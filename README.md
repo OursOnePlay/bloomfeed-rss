@@ -1,6 +1,6 @@
 <p align="center"><img src="public/images/logo.png" width="360" alt="BloomFeed"></p>
 
-<p align="center">A personal, self-hosted RSS reader.</p>
+<p align="center">A personal, self-hosted RSS reader.<br>Developed by <strong>MOUSSU Esteban</strong> and the association <strong>Eldoria Network</strong>.<br>SIRET: 93378116300011</p>
 
 <p align="center"><img src="public/images/preview/dashboard-light.png" width="1000" alt="BloomFeed article list"></p>
 
@@ -9,6 +9,12 @@
 BloomFeed brings your RSS and Atom feeds together in one place. Open an article to fetch its source page and read the full text inside the app. Search by title or source, filter unread articles, and save favorites for later.
 
 The first account becomes the instance owner. The owner can create accounts for other people or open public registration. Each account has its own feeds, reading history, favorites, and notifications.
+
+## Project topics
+
+RSS reader, Atom feeds, RSS aggregator, self-hosted feed reader, read-it-later, feed catalog, personal reading, Laravel, PHP, Docker Compose, Discord webhooks, privacy, Eldoria Network.
+
+BloomFeed is developed by MOUSSU Esteban and the association Eldoria Network (SIRET 93378116300011). Personal non-commercial self-hosting is permitted under the project license.
 
 ## Features
 
@@ -116,6 +122,10 @@ bash uninstall.sh --purge --purge-source  # Also delete /opt/bloomfeed and .env
 
 The owner can use **Settings** to create accounts directly or enable public registration. When registration is enabled, the home and login pages offer a **Create account** link.
 
+### Password
+
+Open **Account** in the navigation to change your password. Enter your current password and confirm the new one.
+
 ### Language
 
 English is the default. Visitors can choose another language using the selector at the top of the page. The choice is stored in the session and, for signed-in users, in their profile.
@@ -200,6 +210,14 @@ Run the tests with:
 php artisan test
 ```
 
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for development and pull request guidelines, and [SECURITY.md](SECURITY.md) for vulnerability reports.
+
 ## License
 
-[MIT](LICENSE).
+Copyright (c) 2026 MOUSSU Esteban. New versions use the [BloomFeed Personal Use License](LICENSE).
+
+Personal, non-commercial self-hosting and private modifications are permitted. Redistribution, resale, and hosted services require written permission. This is not an open-source license. Earlier MIT releases retain their original permissions; see [the legacy notice](licenses/MIT-legacy.txt).
+
+Third-party dependencies retain their own licenses, available through `composer licenses` after installation.

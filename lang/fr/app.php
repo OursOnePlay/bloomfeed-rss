@@ -14,7 +14,7 @@ return [
     'login' => 'Se connecter',
     'create_account' => 'Créer un compte',
     'source_code' => 'Code source',
-    'footer_tagline' => 'BloomFeed - projet open-source, auto-hébergé.',
+    'footer_tagline' => 'BloomFeed - lecteur personnel auto-hébergé.',
     'meta_description' => 'BloomFeed est un agrégateur RSS personnel et auto-hébergé, avec lecture approfondie intégrée.',
 
     // Accueil
@@ -36,8 +36,8 @@ return [
     'screenshot_catalog' => 'Catalogue de flux en un clic',
     'screenshot_notifiers' => 'Notifieurs Discord et webhook',
     'badge_self_hosted' => 'Auto-hébergé',
-    'badge_open_source' => 'Open-source',
-    'badge_mit_license' => 'Licence MIT',
+    'badge_open_source' => 'Code consultable',
+    'badge_mit_license' => 'Licence usage personnel',
     'badge_four_languages' => '4 langues',
     'feature_multiuser_title' => 'Pensé pour votre foyer',
     'feature_multiuser_text' => "Invitez les personnes de confiance avec un compte direct, ou ouvrez les inscriptions un moment - chacun garde ses propres flux, lectures et notifieurs.",
@@ -202,6 +202,6 @@ return [
     'autoupdate_comment_uninstall' => 'désactive la mise à jour automatique',
 
     // SEO
-    'seo_home_title' => 'BloomFeed - Agrégateur RSS auto-hébergé et open-source',
+    'seo_home_title' => 'BloomFeed - Lecteur RSS personnel auto-hébergé',
     'seo_selfhost_title' => "Auto-héberger BloomFeed - guide d'installation Docker",
 ];

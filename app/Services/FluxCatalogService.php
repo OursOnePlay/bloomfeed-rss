@@ -22,7 +22,7 @@ class FluxCatalogService
         $feeds = $this->loadEmbedded();
 
         foreach (Setting::catalogSources() as $sourceUrl) {
-            $feeds = array_merge($feeds, $this->loadRemoteSource($sourceUrl));
+            $feeds = array_merge($feeds, Cache::remember('bloomflux.fresh.'.md5($sourceUrl), 300, fn () => $this->loadRemoteSource($sourceUrl)));
         }
 
         $seen = [];

@@ -1,21 +1,26 @@
-MIT License
+BloomFeed Personal Use License
+Copyright (c) 2026 MOUSSU Esteban. All rights reserved.
 
-Copyright (c) 2026 Esteban
+Developed by MOUSSU Esteban and the association Eldoria Network.
+SIRET: 93378116300011.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Permission is granted to download, install, run, and make private modifications
+to this version of BloomFeed solely for personal, non-commercial self-hosting.
+You may make copies reasonably necessary for installation and backup.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+No permission is granted to redistribute, publish, sublicense, sell, or offer
+this version or modified versions to third parties, including as a hosted
+service, without prior written permission from the copyright holder.
+Copyright and license notices must be preserved. Rights and exceptions granted
+by applicable law are not restricted by this notice.
+
+This license applies only to original BloomFeed code for which the copyright
+holder has the necessary rights, in versions first released under this license.
+It does not revoke permissions granted for earlier MIT-licensed releases.
+Third-party code, libraries, fonts, and other materials retain their own licenses.
+See licenses/MIT-legacy.txt for the prior MIT notice.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+IMPLIED, INCLUDING WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+PURPOSE AND NONINFRINGEMENT. TO THE EXTENT PERMITTED BY LAW, THE COPYRIGHT
+HOLDER SHALL NOT BE LIABLE FOR CLAIMS OR DAMAGES ARISING FROM ITS USE.

@@ -16,6 +16,7 @@
         @if (auth()->user()?->is_owner)
             <a href="{{ route('settings') }}" class="{{ request()->routeIs('settings') ? 'active' : '' }}" @if (request()->routeIs('settings')) aria-current="page" @endif>{{ __('app.settings') }}</a>
         @endif
+        <a href="{{ route('account.edit') }}" class="{{ request()->routeIs('account.*') ? 'active' : '' }}" @if (request()->routeIs('account.*')) aria-current="page" @endif>{{ __('account.title') }}</a>
         @include('partials.locale-selector')
         <button type="button" class="theme-toggle" data-theme-toggle title="{{ __('app.change_theme') }}">◐</button>
         <form method="POST" action="{{ route('logout') }}">
